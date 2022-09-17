@@ -22,12 +22,14 @@ public class Console : MonoBehaviour
     public void Separate()
     {
         string legalChars = "1234567890";
+        commandParams = "";
 
         commandsPerLine = inputField.text.Split(char.Parse("\n"));
         runningCommand = commandsPerLine[0].Split(char.Parse("."));
         
         commandClass = runningCommand[0];
-        commandMethod = runningCommand[1];
+        if(runningCommand.Length > 1)
+            commandMethod = runningCommand[1];
 
         foreach (var letter in commandMethod)    // Extract number
         {

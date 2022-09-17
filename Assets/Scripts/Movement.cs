@@ -65,8 +65,8 @@ public class Movement : MonoBehaviour
             return;
         }
 
-        // Test
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        // Uncomment to Test
+        /*if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             MoveForward(1);
         }
@@ -85,12 +85,12 @@ public class Movement : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
-        }
+        }*/
 
         Debug.Log(isMoving);
     }
 
-    void MoveForward(int amount)
+    public void MoveForward(int amount)
     {
         if (Physics.Raycast(transform.position, transform.forward, 1f))
         {
@@ -106,10 +106,11 @@ public class Movement : MonoBehaviour
         movingSpeed = groundedSpeed;
     }
 
-    void MoveBackward(int amount)
+    public void MoveBackward(int amount)
     {
         if (Physics.Raycast(transform.position, -transform.position, 1f))
         {
+            Debug.Log("There's object");
             return;
         }
         else
@@ -123,21 +124,21 @@ public class Movement : MonoBehaviour
         movingSpeed = groundedSpeed;
     }
 
-    void RotateLeft()
+    public void RotateLeft()
     {
         targetRot = transform.rotation * Quaternion.Euler(0, -90, 0);
         startRot = this.transform.rotation;
         isRotating = true;
     }
 
-    void RotateRight()
+    public void RotateRight()
     {
         targetRot = transform.rotation * Quaternion.Euler(0, 90, 0);
         startRot = this.transform.rotation;
         isRotating = true;
     }
 
-    void Jump()
+    public void Jump()
     {
         rb.AddForce(new Vector3(0, 1, 0) * jumpForce);
         targetPos = transform.position + transform.forward;
