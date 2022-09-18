@@ -399,6 +399,7 @@ MonoBehaviour:
   flyingSpeed: 1
   turnSpeed: 0.1
   jumpForce: 350
+  commandManager: {fileID: 1126474101}
 --- !u!54 &134181262
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1239,7 +1240,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1126474101}
         m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
-        m_MethodName: RunCommand
+        m_MethodName: OnPressRunCommand
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1624,6 +1625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 134181261}
   console: {fileID: 38144878}
+  currentCommandIndex: 0
 --- !u!4 &1126474102
 Transform:
   m_ObjectHideFlags: 0

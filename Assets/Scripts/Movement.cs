@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    Vector3 playerPositionOnStart;   // Player position when level start
+    Quaternion playerRotationOnStart;
 
     public Vector3 targetPos;
     public Vector3 startPos;
@@ -24,26 +26,29 @@ public class Movement : MonoBehaviour
     public float jumpForce = 10f;
 
     Rigidbody rb;
+    [SerializeField] CommandManager commandManager;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         this.transform.position = new Vector3(0, 0.5f, 0);
         rb = transform.GetComponent<Rigidbody>();
         startPos = transform.position;
+
+        playerPositionOnStart = transform.position;
+        playerRotationOnStart = transform.rotation;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(isMoving)
         {
-            if (Mathf.Abs(transform.position.x - targetPos.x) < 0.1f && Mathf.Abs(transform.position.z - targetPos.z) < 0.1f) 
+            if (Mathf.Abs(transform.position.x - targetPos.x) < 0.1f && Mathf.Abs(transform.position.z - targetPos.z) < 0.1f)   // if finished moving
             {
-                Debug.Log("Achieved");
+                //Debug.Log("Achieved");
                 transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
                 isMoving = false;
+                commandManager.NextCommand();
                 return;
             }
 
@@ -53,11 +58,12 @@ public class Movement : MonoBehaviour
 
         if (isRotating)
         {
-            if(Quaternion.Angle(transform.rotation, targetRot) < 0.1f)
+            if(Quaternion.Angle(transform.rotation, targetRot) < 0.1f)      // if Finished rotating
             {
                 transform.rotation = targetRot;
                 transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
                 isRotating = false;
+                commandManager.NextCommand();
                 return;
             }
 
@@ -86,8 +92,6 @@ public class Movement : MonoBehaviour
         {
             Jump();
         }*/
-
-        Debug.Log(isMoving);
     }
 
     public void MoveForward(int amount)
@@ -147,5 +151,9 @@ public class Movement : MonoBehaviour
         isMoving = true;
     }
 
-
+    public void ResetPosition()
+    {
+        transform.position = playerPositionOnStart;
+        transform.rotation = playerRotationOnStart;
+    }
 }

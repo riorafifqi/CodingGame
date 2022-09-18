@@ -13,19 +13,17 @@ public class Console : MonoBehaviour
     public string commandMethod;
     public string commandParams;
 
-
-    // Update is called once per frame
-    void Update()
+    public void AssignCommand(int index)
     {
-    }
+        if(index > commandsPerLine.Length)
+        {
+            Debug.Log("Command Stopped");
+            return;
+        }
 
-    public void Separate()
-    {
         string legalChars = "1234567890";
         commandParams = "";
-
-        commandsPerLine = inputField.text.Split(char.Parse("\n"));
-        runningCommand = commandsPerLine[0].Split(char.Parse("."));
+        runningCommand = commandsPerLine[index].Split(char.Parse("."));
         
         commandClass = runningCommand[0];
         if(runningCommand.Length > 1)
@@ -38,5 +36,10 @@ public class Console : MonoBehaviour
                 commandParams += letter;
             }
         }
+    }
+
+    public void SeparateByLine()
+    {
+        commandsPerLine = inputField.text.Split(char.Parse("\n"));
     }
 }

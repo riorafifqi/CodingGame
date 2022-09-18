@@ -6,6 +6,7 @@ public class CommandManager : MonoBehaviour
 {
     public Movement movement;
     public Console console;
+    public int currentCommandIndex;
 
     // Update is called once per frame
     void Update()
@@ -13,9 +14,27 @@ public class CommandManager : MonoBehaviour
         
     }
 
+    public void OnPressRunCommand()     // On first time running command
+    {
+        movement.ResetPosition();
+        currentCommandIndex = 0;
+
+        console.SeparateByLine();
+        console.AssignCommand(currentCommandIndex);
+        RunCommand();
+
+
+        /*do
+        {
+            console.AssignCommand(currentCommandIndex);
+            RunCommand();
+        } while (currentCommandIndex <= console.commandsPerLine.Length);*/
+
+    }
+
     public void RunCommand()
     {
-        console.Separate();
+        //console.Separate();
 
         switch (console.commandClass)
         {
@@ -51,5 +70,12 @@ public class CommandManager : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void NextCommand()
+    {
+        currentCommandIndex++;
+        console.AssignCommand(currentCommandIndex);
+        RunCommand();
     }
 }
