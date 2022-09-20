@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
     public float turnSpeed = 0.01f;
     public float jumpForce = 10f;
 
+    RaycastHit hitInfo;
     Rigidbody rb;
     [SerializeField] CommandManager commandManager;
 
@@ -51,6 +52,8 @@ public class Movement : MonoBehaviour
                 commandManager.NextCommand();
                 return;
             }
+
+
 
             transform.position += (targetPos - startPos) * movingSpeed * Time.deltaTime;
             return;
@@ -96,7 +99,7 @@ public class Movement : MonoBehaviour
 
     public void MoveForward(int amount)
     {
-        if (Physics.Raycast(transform.position, transform.forward, 1f))
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && hitInfo.transform.tag == "Obstacle")
         {
             return;
         }
@@ -112,7 +115,7 @@ public class Movement : MonoBehaviour
 
     public void MoveBackward(int amount)
     {
-        if (Physics.Raycast(transform.position, -transform.position, 1f))
+        if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, 1f) && hitInfo.transform.tag == "Obstacle")
         {
             Debug.Log("There's object");
             return;

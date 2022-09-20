@@ -13,10 +13,13 @@ public class Console : MonoBehaviour
     public string commandMethod;
     public string commandParams;
 
+    public bool isFinish;
+
     public void AssignCommand(int index)
     {
         if(index > commandsPerLine.Length)
         {
+            isFinish = true;
             Debug.Log("Command Stopped");
             return;
         }

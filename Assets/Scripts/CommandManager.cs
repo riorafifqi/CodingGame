@@ -18,10 +18,11 @@ public class CommandManager : MonoBehaviour
     {
         movement.ResetPosition();
         currentCommandIndex = 0;
+        //console.isFinish = false;
 
         console.SeparateByLine();
         console.AssignCommand(currentCommandIndex);
-        RunCommand();
+        StartCoroutine(RunCommand());
 
 
         /*do
@@ -32,9 +33,10 @@ public class CommandManager : MonoBehaviour
 
     }
 
-    public void RunCommand()
+    public IEnumerator RunCommand()
     {
         //console.Separate();
+        yield return new WaitForSeconds(0.5f);
 
         switch (console.commandClass)
         {
@@ -68,14 +70,23 @@ public class CommandManager : MonoBehaviour
             default:
                 Debug.Log("Command Error");
                 break;
-
         }
     }
 
     public void NextCommand()
     {
+        /*if (!console.isFinish)
+        {
+            
+        }*/
         currentCommandIndex++;
         console.AssignCommand(currentCommandIndex);
-        RunCommand();
+        StartCoroutine(RunCommand());
+    }
+
+    IEnumerator Delay(float value)
+    {
+        Debug.Log("Called");
+        yield return new WaitForSeconds(value);
     }
 }
