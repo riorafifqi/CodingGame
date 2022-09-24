@@ -8,10 +8,9 @@ public class CommandManager : MonoBehaviour
     public Console console;
     public int currentCommandIndex;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        movement = GameObject.Find("Player").GetComponent<Movement>();
     }
 
     public void OnPressRunCommand()     // On first time running command
@@ -35,6 +34,7 @@ public class CommandManager : MonoBehaviour
 
     public IEnumerator RunCommand()
     {
+        Debug.Log("Run Command");
         //console.Separate();
         yield return new WaitForSeconds(0.5f);
 
@@ -55,16 +55,16 @@ public class CommandManager : MonoBehaviour
                 }
                 break;
             case "Rotate":
-                if (console.commandMethod.Contains("Right"))
+                if (console.commandMethod.Contains("Right()"))
                 {
                     movement.RotateRight();
                 }
-                else if (console.commandMethod.Contains("Left"))
+                else if (console.commandMethod.Contains("Left()"))
                 {
                     movement.RotateLeft();
                 }
                 break;
-            case "Jump":
+            case "Jump()":
                 movement.Jump();
                 break;
             default:

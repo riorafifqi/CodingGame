@@ -33,6 +33,8 @@ public class Movement : MonoBehaviour
     {
         this.transform.position = new Vector3(0, 0.5f, 0);
         rb = transform.GetComponent<Rigidbody>();
+        commandManager = GameObject.Find("Game Manager").GetComponent<CommandManager>();
+
         startPos = transform.position;
 
         playerPositionOnStart = transform.position;
