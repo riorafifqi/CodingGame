@@ -55,9 +55,8 @@ public class Movement : MonoBehaviour
                 return;
             }
 
-
-
-            transform.position += (targetPos - startPos) * movingSpeed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, movingSpeed * Time.deltaTime);
+            //transform.position += (targetPos - startPos) * movingSpeed * Time.deltaTime;
             return;
         }
 
@@ -101,7 +100,7 @@ public class Movement : MonoBehaviour
 
     public void MoveForward(int amount)
     {
-        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && hitInfo.transform.tag == "Obstacle")
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Interactable"))
         {
             return;
         }
@@ -117,7 +116,7 @@ public class Movement : MonoBehaviour
 
     public void MoveBackward(int amount)
     {
-        if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, 1f) && hitInfo.transform.tag == "Obstacle")
+        if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Interactable"))
         {
             Debug.Log("There's object");
             return;
@@ -154,6 +153,26 @@ public class Movement : MonoBehaviour
         startPos = transform.position;
         movingSpeed = flyingSpeed;   // default jumping z speed
         isMoving = true;
+    }
+
+    public void Push(int amount)
+    {
+        Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f);
+        Push push = hitInfo.transform.GetComponent<Push>();
+        if (push != null)
+        {
+            push.Pushed(amount);
+        }
+    }
+
+    public void Press()
+    {
+        Physics.SphereCast(transform.position, 1f, transform.forward, out hitInfo);
+        Interactable interactable = hitInfo.transform.GetComponent<Interactable>();
+        if(interactable != null)
+        {
+            interactable.Interact();
+        }
     }
 
     public void ResetPosition()

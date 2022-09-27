@@ -67,6 +67,16 @@ public class CommandManager : MonoBehaviour
             case "Jump()":
                 movement.Jump();
                 break;
+            case "Interact":
+                if (console.commandMethod.Contains("Push"))
+                {
+                    movement.Push(int.Parse(console.commandParams));
+                }
+                else if (console.commandMethod.Contains("Press"))
+                {
+                    movement.Press();
+                }
+                break;
             default:
                 Debug.Log("Command Error");
                 break;

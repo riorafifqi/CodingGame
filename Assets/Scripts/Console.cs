@@ -32,11 +32,11 @@ public class Console : MonoBehaviour
         if(runningCommand.Length > 1)
             commandMethod = runningCommand[1];
 
-        foreach (var letter in commandMethod)    // Extract number
+        foreach (var number in commandsPerLine[index])    // Extract number
         {
-            if(legalChars.Contains(letter))
+            if(legalChars.Contains(number))
             {
-                commandParams += letter;
+                commandParams += number;
             }
         }
     }
