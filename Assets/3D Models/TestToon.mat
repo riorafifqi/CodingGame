@@ -96,8 +96,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
+    - _Ambient: 0
     - _Blend: 0
-    - _Brightness_Outline: 2
+    - _Brightness_Outline: 29.85
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -116,14 +117,15 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Rim_Power: 5
+    - _Rim_Power: 0.86
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Toon_Ramp_Offset: 0
-    - _Toon_Ramp_Smoothness: 0
+    - _Toon_Ramp_Offset: 0.85
+    - _Toon_Ramp_Offset_Point: 0
+    - _Toon_Ramp_Smoothness: 0.85
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:

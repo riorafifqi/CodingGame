@@ -3,37 +3,7 @@ guid: ff721864e69ac9a48b2798a9ba84f800
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Antenna
-    second: {fileID: 2100000, guid: f5f7d2bc90c83074caa96074c1eafed7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Bag
-    second: {fileID: 2100000, guid: 3893f87d0995a594696b7702c7d41dc8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: BigEars
-    second: {fileID: 2100000, guid: 4df060d07bcc76b4d807ac209b370c73, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Chassis
-    second: {fileID: 2100000, guid: 9add7880469e142489da521607b23124, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ears
-    second: {fileID: 2100000, guid: a4af07ace0f60a742af39e655c7eabbc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Face
-    second: {fileID: 2100000, guid: 45705aa21a3635e459af36b158138efa, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
