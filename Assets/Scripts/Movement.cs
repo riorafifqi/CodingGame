@@ -55,8 +55,23 @@ public class Movement : MonoBehaviour
                 return;
             }
 
+            // Update startPos everytime player move 1 tile
+            /*if ((int)Mathf.Abs(transform.position.x - startPos.x) >= 1f || (int)Mathf.Abs(transform.position.z - targetPos.z) >= 1f)
+            {
+                startPos.x = (int)transform.position.x;
+                startPos.z = (int)transform.position.z;
+            }*/
+
+
+            /*if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Interactable"))
+            {
+                transform
+                return;
+            }*/
+
+            if (transform)
             transform.position = Vector3.MoveTowards(transform.position, targetPos, movingSpeed * Time.deltaTime);
-            //transform.position += (targetPos - startPos) * movingSpeed * Time.deltaTime;
+
             return;
         }
 
@@ -100,7 +115,7 @@ public class Movement : MonoBehaviour
 
     public void MoveForward(int amount)
     {
-        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Interactable"))
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle"))
         {
             return;
         }
@@ -162,12 +177,13 @@ public class Movement : MonoBehaviour
         if (push != null)
         {
             push.Pushed(amount);
+            MoveForward(amount);
         }
     }
 
     public void Press()
     {
-        Physics.SphereCast(transform.position, 1f, transform.forward, out hitInfo);
+        Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f);
         Interactable interactable = hitInfo.transform.GetComponent<Interactable>();
         if(interactable != null)
         {
@@ -179,5 +195,11 @@ public class Movement : MonoBehaviour
     {
         transform.position = playerPositionOnStart;
         transform.rotation = playerRotationOnStart;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward);
     }
 }
