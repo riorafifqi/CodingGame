@@ -4,11 +4,16 @@ public class PlayerAnimManager : MonoBehaviour
 {
     [SerializeField] Animator animator;
 
-    public static PlayerAnimManager instance;
-
     public enum animType
     {
         Idle, Walk, TurnLeft, TurnRight, Jump, Push
+    }
+    public animType animationType;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+            PlayAnim(animationType);
     }
 
     public void PlayAnim(animType type)
@@ -49,7 +54,7 @@ public class PlayerAnimManager : MonoBehaviour
 
     void Turn(bool isLeft)
     {
-        animator.SetBool("isTurnLeft", isLeft);
+        animator.SetBool("IsTurnLeft", isLeft);
         animator.SetTrigger("Turn");
     }
 
@@ -65,7 +70,7 @@ public class PlayerAnimManager : MonoBehaviour
 
     void ClearTrigger()
     {
-        for (int i = 0; i < 3; i++)
-            animator.ResetTrigger(i);
+        for (int i = 0; i < 3; i++) { }
+        //animator.ResetTrigger(i);
     }
 }
