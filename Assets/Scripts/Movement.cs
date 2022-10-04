@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -44,7 +42,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(isMoving)
+        if (isMoving)
         {
             if (Mathf.Abs(transform.position.x - targetPos.x) < 0.1f && Mathf.Abs(transform.position.z - targetPos.z) < 0.1f)   // if finished moving
             {
@@ -70,14 +68,14 @@ public class Movement : MonoBehaviour
             }*/
 
             if (transform)
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, movingSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, targetPos, movingSpeed * Time.deltaTime);
 
             return;
         }
 
         if (isRotating)
         {
-            if(Quaternion.Angle(transform.rotation, targetRot) < 0.1f)      // if Finished rotating
+            if (Quaternion.Angle(transform.rotation, targetRot) < 0.1f)      // if Finished rotating
             {
                 transform.rotation = targetRot;
                 transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
@@ -185,7 +183,7 @@ public class Movement : MonoBehaviour
     {
         Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f);
         Interactable interactable = hitInfo.transform.GetComponent<Interactable>();
-        if(interactable != null)
+        if (interactable != null)
         {
             interactable.Interact();
         }
