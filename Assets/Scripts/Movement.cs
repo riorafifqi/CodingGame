@@ -12,11 +12,12 @@ public class Movement : MonoBehaviour
     Quaternion startRot;
 
     int amount;
+    float distToGround;
 
     bool isMoving;
     bool isRotating;
     bool isPushing;
-    bool isJumping;
+    public bool isJumping;
 
     float movingSpeed;
     public float groundedSpeed = 3f;
@@ -43,6 +44,7 @@ public class Movement : MonoBehaviour
 
         playerPositionOnStart = transform.position;
         playerRotationOnStart = transform.rotation;
+        distToGround = collider.bounds.extents.y;
     }
 
     // Update is called once per frame
@@ -61,7 +63,16 @@ public class Movement : MonoBehaviour
                 animator.SetBool("Push", false);
                 animator.SetBool("Walk", false);
 
-                if(!isJumping)
+                if (isJumping)
+                {
+                    if (Physics.Raycast(transform.position, -Vector3.up, distToGround + 1f))
+                    {
+                        isJumping = false;
+                        animator.SetBool("Jump", false);
+                    }
+                }
+
+                if (!isJumping)
                     commandManager.NextCommand();
 
                 return;
@@ -100,16 +111,6 @@ public class Movement : MonoBehaviour
 
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, turnSpeed);
             return;
-        }
-
-        if (isJumping)
-        {
-            float distToGround = collider.bounds.extents.y;
-            if (Physics.Raycast(transform.position, -Vector3.up, distToGround))
-            {
-                isJumping = false;
-                animator.SetBool("Jump", false);
-            }
         }
     }
 
@@ -210,6 +211,6 @@ public class Movement : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward);
-        Gizmos.DrawLine(transform.position, transform.position + -transform.up * (collider.bounds.extents.y));
+        Gizmos.DrawLine(transform.position, transform.position + -transform.up * (collider.bounds.extents.y + 0.1f));
     }
 }
