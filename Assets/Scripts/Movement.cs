@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     bool isMoving;
     bool isRotating;
     bool isPushing;
+    bool isJumping;
 
     float movingSpeed;
     public float groundedSpeed = 3f;
@@ -24,6 +25,7 @@ public class Movement : MonoBehaviour
     public float turnSpeed = 0.01f;
     public float jumpForce = 10f;
 
+    [SerializeField] BoxCollider collider;
     RaycastHit hitInfo;
     Rigidbody rb;
     Animator animator;
@@ -35,6 +37,7 @@ public class Movement : MonoBehaviour
         rb = transform.GetComponent<Rigidbody>();
         commandManager = GameObject.Find("Game Manager").GetComponent<CommandManager>();
         animator = FindObjectOfType<Animator>();
+        collider = GetComponent<BoxCollider>();
 
         startPos = transform.position;
 
@@ -58,7 +61,8 @@ public class Movement : MonoBehaviour
                 animator.SetBool("Push", false);
                 animator.SetBool("Walk", false);
 
-                commandManager.NextCommand();
+                if(!isJumping)
+                    commandManager.NextCommand();
 
                 return;
             }
@@ -96,6 +100,16 @@ public class Movement : MonoBehaviour
 
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, turnSpeed);
             return;
+        }
+
+        if (isJumping)
+        {
+            float distToGround = collider.bounds.extents.y;
+            if (Physics.Raycast(transform.position, -Vector3.up, distToGround))
+            {
+                isJumping = false;
+                animator.SetBool("Jump", false);
+            }
         }
     }
 
@@ -156,9 +170,10 @@ public class Movement : MonoBehaviour
         targetPos = transform.position + transform.forward;
         startPos = transform.position;
         movingSpeed = flyingSpeed;   // default jumping z speed
+        
         isMoving = true;
-
-        animator.SetTrigger("Jump");
+        isJumping = true;
+        animator.SetBool("Jump", true);
     }
 
     public void Push(int amount)
@@ -195,5 +210,6 @@ public class Movement : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward);
+        Gizmos.DrawLine(transform.position, transform.position + -transform.up * (collider.bounds.extents.y));
     }
 }
