@@ -72,7 +72,7 @@ public class CommandManager : MonoBehaviour
                 {
                     movement.Push(int.Parse(console.commandParams));
                 }
-                else if (console.commandMethod.Contains("Press"))
+                else if (console.commandMethod.Contains("Press()"))
                 {
                     movement.Press();
                 }

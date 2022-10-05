@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
 
     bool isMoving;
     bool isRotating;
+    bool isPushing;
 
     float movingSpeed;
     public float groundedSpeed = 3f;
@@ -25,6 +26,7 @@ public class Movement : MonoBehaviour
 
     RaycastHit hitInfo;
     Rigidbody rb;
+    Animator animator;
     [SerializeField] CommandManager commandManager;
 
     void Start()
@@ -32,6 +34,7 @@ public class Movement : MonoBehaviour
         this.transform.position = new Vector3(0, 0.5f, 0);
         rb = transform.GetComponent<Rigidbody>();
         commandManager = GameObject.Find("Game Manager").GetComponent<CommandManager>();
+        animator = FindObjectOfType<Animator>();
 
         startPos = transform.position;
 
@@ -48,8 +51,15 @@ public class Movement : MonoBehaviour
             {
                 //Debug.Log("Achieved");
                 transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
+                
                 isMoving = false;
+                isPushing = false;
+
+                animator.SetBool("Push", false);
+                animator.SetBool("Walk", false);
+
                 commandManager.NextCommand();
+
                 return;
             }
 
@@ -87,28 +97,6 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, turnSpeed);
             return;
         }
-
-        // Uncomment to Test
-        /*if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            MoveForward(1);
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            MoveBackward(1);
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            RotateLeft();
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            RotateRight();
-        }
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }*/
     }
 
     public void MoveForward(int amount)
@@ -125,6 +113,9 @@ public class Movement : MonoBehaviour
         startPos = transform.position;
         isMoving = true;
         movingSpeed = groundedSpeed;
+
+        if (!isPushing)
+            animator.SetBool("Walk", true);
     }
 
     public void MoveBackward(int amount)
@@ -166,6 +157,8 @@ public class Movement : MonoBehaviour
         startPos = transform.position;
         movingSpeed = flyingSpeed;   // default jumping z speed
         isMoving = true;
+
+        animator.SetTrigger("Jump");
     }
 
     public void Push(int amount)
@@ -174,8 +167,11 @@ public class Movement : MonoBehaviour
         Push push = hitInfo.transform.GetComponent<Push>();
         if (push != null)
         {
+            isPushing = true;
+
             push.Pushed(amount);
             MoveForward(amount);
+            animator.SetBool("Push", true);
         }
     }
 
