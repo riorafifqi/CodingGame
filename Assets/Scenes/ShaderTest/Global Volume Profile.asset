@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8845938946078029764
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb60a22f311433c4c962b888d1393f88, type: 3}
+  m_Name: PaniniProjection
+  m_EditorClassIdentifier: 
+  active: 1
+  distance:
+    m_OverrideState: 1
+    m_Value: 1
+  cropToFit:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-8303608236018522190
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -12,16 +31,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
   m_Name: ShadowsMidtonesHighlights
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.21182702}
+    m_Value: {x: 1, y: 0.15876885, z: 0.0779466, w: -0.21182702}
   midtones:
     m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0.8966297, y: 0.9276628, z: 1, w: -0.035304505}
   highlights:
     m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0.81797385, y: 1, z: 0.8608865, w: 0.10591351}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
@@ -68,10 +87,38 @@ MonoBehaviour:
     m_Value: {x: 0.9364332, y: 0.9472781, z: 1, w: -0.03421722}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.91831565, z: 0.8967571, w: 0.034217276}
+    m_Value: {x: 0.965291, y: 0.9597972, z: 1, w: 0.034217276}
   gain:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0.017108636}
+--- !u!114 &-3330312248879909419
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
+  m_Name: ColorAdjustments
+  m_EditorClassIdentifier: 
+  active: 1
+  postExposure:
+    m_OverrideState: 1
+    m_Value: 0.13
+  contrast:
+    m_OverrideState: 0
+    m_Value: 0
+  colorFilter:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  hueShift:
+    m_OverrideState: 0
+    m_Value: 4
+  saturation:
+    m_OverrideState: 1
+    m_Value: 100
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +136,9 @@ MonoBehaviour:
   - {fileID: -6730355902005610744}
   - {fileID: -8303608236018522190}
   - {fileID: -7943373325301154964}
+  - {fileID: -3330312248879909419}
+  - {fileID: -8845938946078029764}
+  - {fileID: 4240058149499120432}
 --- !u!114 &2756213507382944259
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -113,7 +163,7 @@ MonoBehaviour:
     m_Value: 0.581
   clamp:
     m_OverrideState: 1
-    m_Value: 5.44
+    m_Value: 5.24
   tint:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -121,7 +171,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   skipIterations:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 5
   dirtTexture:
     m_OverrideState: 0
@@ -130,3 +180,31 @@ MonoBehaviour:
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0.03
+--- !u!114 &4240058149499120432
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e1dc532bcb41949b58bc4f2abfbb7e, type: 3}
+  m_Name: LensDistortion
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.18
+  xMultiplier:
+    m_OverrideState: 0
+    m_Value: 1
+  yMultiplier:
+    m_OverrideState: 0
+    m_Value: 1
+  center:
+    m_OverrideState: 0
+    m_Value: {x: 0.5, y: 0.5}
+  scale:
+    m_OverrideState: 0
+    m_Value: 1

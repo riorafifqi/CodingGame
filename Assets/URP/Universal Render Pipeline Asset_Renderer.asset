@@ -25,7 +25,7 @@ MonoBehaviour:
     outlineScale: 0.3
     depthThreshold: 1.5
     robertsCrossMultiplier: 100
-    normalThreshold: 0.4
+    normalThreshold: 0.3
     steepAngleThreshold: 0.2
     steepAngleMultiplier: 25
   viewSpaceNormalsTextureSettings:
@@ -34,8 +34,8 @@ MonoBehaviour:
     filterMode: 1
     backgroundColor: {r: 0, g: 0, b: 0, a: 1}
     perObjectData: 0
-    enableDynamicBatching: 0
-    enableInstancing: 0
+    enableDynamicBatching: 1
+    enableInstancing: 1
 --- !u!114 &-4101134365980110697
 MonoBehaviour:
   m_ObjectHideFlags: 0
