@@ -17,7 +17,8 @@ public class Movement : MonoBehaviour
     bool isMoving;
     bool isRotating;
     bool isPushing;
-    public bool isJumping = false;
+    public bool isJumping;
+    public bool isGrounded;
 
     float movingSpeed;
     public float groundedSpeed = 3f;
@@ -50,8 +51,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float xVelocity = 5f, yVelocity = 5f;
-        Debug.Log(transform.forward * xVelocity + transform.up * yVelocity);
+        CheckGround();
 
         if (isMoving)
         {
@@ -65,6 +65,8 @@ public class Movement : MonoBehaviour
 
                 animator.SetBool("Push", false);
                 animator.SetBool("Walk", false);
+                
+                commandManager.NextCommand();
 
                 return;
             }
@@ -104,12 +106,17 @@ public class Movement : MonoBehaviour
             return;
         }
 
-        if (IsGrounded() && isJumping)
+        if (isGrounded)
         {
-            Debug.Log("Character grounded");
-            isJumping = false;
-            animator.SetBool("Jump", false);
-            //commandManager.NextCommand();
+            if (isJumping)
+            {
+                Debug.Log("Character grounded");
+                isJumping = false;
+                animator.SetBool("Jump", isJumping);
+                commandManager.NextCommand();
+            }
+
+            return;
         }
     }
 
@@ -166,15 +173,6 @@ public class Movement : MonoBehaviour
 
     public void Jump(float distance = 1f)
     {
-        /*rb.AddForce(new Vector3(0, 1, 0) * jumpForce);
-        targetPos = transform.position + transform.forward;
-        startPos = transform.position;
-        movingSpeed = flyingSpeed;   // default jumping z speed
-        
-        isMoving = true;
-        isJumping = true;
-        animator.SetBool("Jump", true);*/
-
         float maxHeight = 2f;
         float maxDistance = distance;
 
@@ -185,7 +183,6 @@ public class Movement : MonoBehaviour
 
         rb.velocity = transform.forward * hSpeed + transform.up * vSpeed;
 
-        isJumping = true;
         animator.SetBool("Jump", true);
     }
 
@@ -203,9 +200,17 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public bool IsGrounded()
+    public void CheckGround()
     {
-        return Physics.Raycast(transform.position, Vector3.down, distToGround);
+        if (Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isJumping = true;
+            isGrounded = false;
+        }
     }
 
     public void Press()
