@@ -110,7 +110,7 @@ public class Movement : MonoBehaviour
         {
             if (isJumping)
             {
-                Debug.Log("Character grounded");
+                transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
                 isJumping = false;
                 animator.SetBool("Jump", isJumping);
                 commandManager.NextCommand();
@@ -173,6 +173,9 @@ public class Movement : MonoBehaviour
 
     public void Jump(float distance = 1f)
     {
+        startPos = transform.position;
+        targetPos = transform.position + transform.forward * distance;
+
         float maxHeight = 2f;
         float maxDistance = distance;
 
