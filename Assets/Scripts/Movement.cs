@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     bool isMoving;
     bool isRotating;
     bool isPushing;
-    public bool isJumping;
+    public bool isJumping = false;
 
     float movingSpeed;
     public float groundedSpeed = 3f;
@@ -50,6 +50,9 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        float xVelocity = 5f, yVelocity = 5f;
+        Debug.Log(transform.forward * xVelocity + transform.up * yVelocity);
+
         if (isMoving)
         {
             if (Mathf.Abs(transform.position.x - targetPos.x) < 0.1f && Mathf.Abs(transform.position.z - targetPos.z) < 0.1f)   // if finished moving
@@ -62,18 +65,6 @@ public class Movement : MonoBehaviour
 
                 animator.SetBool("Push", false);
                 animator.SetBool("Walk", false);
-
-                if (isJumping)
-                {
-                    if (Physics.Raycast(transform.position, -Vector3.up, distToGround + 1f))
-                    {
-                        isJumping = false;
-                        animator.SetBool("Jump", false);
-                    }
-                }
-
-                if (!isJumping)
-                    commandManager.NextCommand();
 
                 return;
             }
@@ -111,6 +102,14 @@ public class Movement : MonoBehaviour
 
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, turnSpeed);
             return;
+        }
+
+        if (IsGrounded() && isJumping)
+        {
+            Debug.Log("Character grounded");
+            isJumping = false;
+            animator.SetBool("Jump", false);
+            //commandManager.NextCommand();
         }
     }
 
@@ -165,14 +164,27 @@ public class Movement : MonoBehaviour
         isRotating = true;
     }
 
-    public void Jump()
+    public void Jump(float distance = 1f)
     {
-        rb.AddForce(new Vector3(0, 1, 0) * jumpForce);
+        /*rb.AddForce(new Vector3(0, 1, 0) * jumpForce);
         targetPos = transform.position + transform.forward;
         startPos = transform.position;
         movingSpeed = flyingSpeed;   // default jumping z speed
         
         isMoving = true;
+        isJumping = true;
+        animator.SetBool("Jump", true);*/
+
+        float maxHeight = 2f;
+        float maxDistance = distance;
+
+        var g = Physics.gravity.magnitude;
+        var vSpeed = Mathf.Sqrt(2 * g * maxHeight);
+        var totalTime = 2 * vSpeed / g;
+        var hSpeed = maxDistance / totalTime;
+
+        rb.velocity = transform.forward * hSpeed + transform.up * vSpeed;
+
         isJumping = true;
         animator.SetBool("Jump", true);
     }
@@ -189,6 +201,11 @@ public class Movement : MonoBehaviour
             MoveForward(amount);
             animator.SetBool("Push", true);
         }
+    }
+
+    public bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, distToGround);
     }
 
     public void Press()

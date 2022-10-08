@@ -38,7 +38,30 @@ public class DialogueManager : MonoBehaviour
         }
 
         string tempSentence = sentences.Dequeue();
-        dialogueText.text = tempSentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(tempSentence));
+    }
+
+    IEnumerator TypeSentence(string sentence)
+    {
+        dialogueText.text = "";
+        bool isTags = false;
+
+        foreach (char letter in sentence.ToCharArray())
+        {
+            if (letter == '<' || isTags)
+            {
+                isTags = true;
+                dialogueText.text += letter;
+                if (letter == '>')
+                    isTags = false;
+            }
+            else
+            {
+                dialogueText.text += letter;
+                yield return null;
+            }
+        }
     }
 
     public void EndDialogue()
