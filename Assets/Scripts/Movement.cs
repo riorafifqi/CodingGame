@@ -71,20 +71,6 @@ public class Movement : MonoBehaviour
                 return;
             }
 
-            // Update startPos everytime player move 1 tile
-            /*if ((int)Mathf.Abs(transform.position.x - startPos.x) >= 1f || (int)Mathf.Abs(transform.position.z - targetPos.z) >= 1f)
-            {
-                startPos.x = (int)transform.position.x;
-                startPos.z = (int)transform.position.z;
-            }*/
-
-
-            /*if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Interactable"))
-            {
-                transform
-                return;
-            }*/
-
             if (transform)
                 transform.position = Vector3.MoveTowards(transform.position, targetPos, movingSpeed * Time.deltaTime);
 
@@ -113,7 +99,11 @@ public class Movement : MonoBehaviour
                 transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
                 isJumping = false;
                 animator.SetBool("Jump", isJumping);
-                commandManager.NextCommand();
+
+                if(!JumpPlatform.isJumpingPlatform)
+                    commandManager.NextCommand();
+
+                JumpPlatform.isJumpingPlatform = false;
             }
 
             return;
