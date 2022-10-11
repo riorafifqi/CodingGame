@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using TMPro;
 
-public class Console : MonoBehaviour
+public class Console : MonoBehaviour, IDropHandler
 {
     [SerializeField] TMP_InputField inputField;
     public int lineCount;
@@ -118,5 +119,15 @@ public class Console : MonoBehaviour
         string test = "test";
 
         AddNewCommand(test);
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("OnDrop");
+        if (eventData.pointerDrag != null)
+        {
+            TMP_Text draggedText = eventData.pointerDrag.GetComponentInChildren<TMP_Text>();
+            AddNewCommand(draggedText.text);
+        }
     }
 }

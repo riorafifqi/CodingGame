@@ -43,11 +43,17 @@ public class CommandManager : MonoBehaviour
             case "Move":
                 if (console.commandMethod.Contains("Forward"))
                 {
-                    movement.MoveForward(int.Parse(console.commandParams));
+                    if(console.commandParams != "")
+                        movement.MoveForward(int.Parse(console.commandParams));
+                    else
+                        movement.MoveForward(1);
                 }
                 else if (console.commandMethod.Contains("Backward"))
                 {
-                    movement.MoveBackward(int.Parse(console.commandParams));
+                    if (console.commandParams != "")
+                        movement.MoveBackward(int.Parse(console.commandParams));
+                    else
+                        movement.MoveBackward(1);
                 }
                 else
                 {
