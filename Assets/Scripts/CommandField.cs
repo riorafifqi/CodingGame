@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class CommandField : MonoBehaviour
+public class CommandField : MonoBehaviour, IDropHandler
 {
     TMP_InputField inputField;
     public TMP_Text lineNumber;
@@ -86,6 +86,39 @@ public class CommandField : MonoBehaviour
 
             newCommandInput.Select();
             newCommandInput.caretPosition = newCommandInput.text.Length;
+        }
+    }
+
+    public void AddNewCommand(string command)
+    {
+        if (inputField.text == "")  // if no text in that line
+        {
+            inputField.text = command;
+        }
+        else
+        {
+            // Instantiate new commandField object
+            GameObject newCommand = Instantiate(console.commandFieldPrefab, console.commandsFieldParent.transform);
+            TMP_InputField newCommandInput = newCommand.GetComponentInChildren<TMP_InputField>();
+
+            // Set sibling as its next
+            newCommand.transform.SetSiblingIndex(indexInList + 1);
+
+            // set newly instantiate object text as command parameter
+            newCommandInput.text = command;
+
+            // Select and put caret at the end of line
+            newCommandInput.Select();
+            newCommandInput.caretPosition = newCommandInput.text.Length;
+        }
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (eventData.pointerDrag != null)
+        {
+            TMP_Text draggedText = eventData.pointerDrag.GetComponentInChildren<TMP_Text>();
+            AddNewCommand(draggedText.text);
         }
     }
 }
