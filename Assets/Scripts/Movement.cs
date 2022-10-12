@@ -110,7 +110,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void MoveForward(int amount)
+    public void MoveForward(int amount = 1)
     {
         if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle"))
         {
@@ -129,7 +129,7 @@ public class Movement : MonoBehaviour
             animator.SetBool("Walk", true);
     }
 
-    public void MoveBackward(int amount)
+    public void MoveBackward(int amount = 1)
     {
         if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Interactable"))
         {

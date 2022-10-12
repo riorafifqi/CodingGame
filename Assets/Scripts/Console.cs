@@ -7,9 +7,12 @@ using TMPro;
 
 public class Console : MonoBehaviour, IDropHandler
 {
+    public GameObject commandsFieldParent;
+    public GameObject commandFieldPrefab;
+
     [SerializeField] TMP_InputField inputField;
     public int lineCount;
-    public string[] commandsPerLine;
+    public List<TMP_InputField> commandsPerLine;
     public string[] runningCommand;
     TextGenerator text;
 
@@ -23,12 +26,11 @@ public class Console : MonoBehaviour, IDropHandler
     {
         LineCount();
         SeparateByLine();
-        Debug.Log(CheckEmptyLine());
     }
 
     public void AssignCommand(int index)
     {
-        if(index > commandsPerLine.Length)
+        if(index > commandsPerLine.Count)
         {
             isFinish = true;
             Debug.Log("Command Stopped");
@@ -37,13 +39,13 @@ public class Console : MonoBehaviour, IDropHandler
 
         string legalChars = "1234567890";
         commandParams = "";
-        runningCommand = commandsPerLine[index].Split(char.Parse("."));
+        runningCommand = commandsPerLine[index].text.Split(char.Parse("."));
         
         commandClass = runningCommand[0];
         if(runningCommand.Length > 1)
             commandMethod = runningCommand[1];
 
-        foreach (var number in commandsPerLine[index])    // Extract number
+        foreach (var number in commandsPerLine[index].text)    // Extract number
         {
             if(legalChars.Contains(number))
             {
@@ -54,7 +56,12 @@ public class Console : MonoBehaviour, IDropHandler
 
     public void SeparateByLine()
     {
-        commandsPerLine = inputField.text.Split(char.Parse("\n"));
+        commandsPerLine.Clear();
+        // commandsPerLine = inputField.text.Split(char.Parse("\n"));
+        foreach (Transform child in commandsFieldParent.transform)
+        {
+            commandsPerLine.Add(child.GetComponentInChildren<TMP_InputField>());
+        }
     }
 
     void LineCount()
@@ -69,7 +76,7 @@ public class Console : MonoBehaviour, IDropHandler
         }
     }
 
-    bool CheckEmptyLine()
+    /*bool CheckEmptyLine()
     {
         foreach (string line in commandsPerLine)
         {
@@ -80,9 +87,9 @@ public class Console : MonoBehaviour, IDropHandler
         }
 
         return false;
-    }
+    }*/
 
-    public void AddNewCommand(string command)
+    /*public void AddNewCommand(string command)
     {
         string[] tempString = commandsPerLine;
 
@@ -112,22 +119,15 @@ public class Console : MonoBehaviour, IDropHandler
             inputField.text += "\n" + command;
             return;
         }
-    }
-
-    public void Test()
-    {
-        string test = "test";
-
-        AddNewCommand(test);
-    }
+    }*/
 
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("OnDrop");
-        if (eventData.pointerDrag != null)
+        /*if (eventData.pointerDrag != null)
         {
             TMP_Text draggedText = eventData.pointerDrag.GetComponentInChildren<TMP_Text>();
             AddNewCommand(draggedText.text);
-        }
+        }*/
     }
 }
