@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class Console : MonoBehaviour, IDropHandler
+public class Console : MonoBehaviour
 {
     public GameObject commandsFieldParent;
     public GameObject commandFieldPrefab;
@@ -52,6 +52,8 @@ public class Console : MonoBehaviour, IDropHandler
                 commandParams += number;
             }
         }
+
+        HighlightCommand(index);
     }
 
     public void SeparateByLine()
@@ -76,58 +78,15 @@ public class Console : MonoBehaviour, IDropHandler
         }
     }
 
-    /*bool CheckEmptyLine()
+    void HighlightCommand(int index)
     {
-        foreach (string line in commandsPerLine)
+        foreach (var command in commandsPerLine)
         {
-            if (line == "")
-            {
-                return true;
-            }
+            CommandField comField = command.GetComponentInParent<CommandField>();
+            comField.highlight.SetActive(false);
         }
+        commandsPerLine[index].GetComponentInParent<CommandField>().highlight.SetActive(true);
 
-        return false;
-    }*/
-
-    /*public void AddNewCommand(string command)
-    {
-        string[] tempString = commandsPerLine;
-
-        if (CheckEmptyLine())
-        {
-            for (int i = 0; i < lineCount; i++)
-            {
-                if (tempString[i] == "")
-                {
-                    tempString[i] = command;
-                    inputField.text = "";
-                    for (int j = 0; j < tempString.Length; j++)
-                    {
-                        if (j == tempString.Length - 1)
-                        {
-                            inputField.text += tempString[j];
-                        } else
-                            inputField.text += tempString[j] + "\n";
-
-                    }
-                    return;
-                }
-            }
-        }
-        else
-        {
-            inputField.text += "\n" + command;
-            return;
-        }
-    }*/
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        Debug.Log("OnDrop");
-        /*if (eventData.pointerDrag != null)
-        {
-            TMP_Text draggedText = eventData.pointerDrag.GetComponentInChildren<TMP_Text>();
-            AddNewCommand(draggedText.text);
-        }*/
     }
+
 }

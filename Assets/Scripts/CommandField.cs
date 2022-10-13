@@ -8,6 +8,7 @@ public class CommandField : MonoBehaviour, IDropHandler
 {
     TMP_InputField inputField;
     public TMP_Text lineNumber;
+    public GameObject highlight;
 
     public Console console;
     public int indexInList;
