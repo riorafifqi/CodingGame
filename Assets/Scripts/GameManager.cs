@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public bool isVirusGone;
     public List<GameObject> Viruses;
+    public List<string> legalCommands;
+
     // Start is called before the first frame update
     void Start()
     {

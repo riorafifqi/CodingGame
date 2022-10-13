@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class CommandField : MonoBehaviour, IDropHandler
+public class CommandField : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    TMP_InputField inputField;
+    [HideInInspector] public TMP_InputField inputField;
     public TMP_Text lineNumber;
     public GameObject highlight;
+    public GameObject inserterLine;
 
     public Console console;
     public int indexInList;
@@ -95,6 +96,8 @@ public class CommandField : MonoBehaviour, IDropHandler
         if (inputField.text == "")  // if no text in that line
         {
             inputField.text = command;
+            inputField.Select();
+            inputField.caretPosition = inputField.text.Length;
         }
         else
         {
@@ -120,6 +123,29 @@ public class CommandField : MonoBehaviour, IDropHandler
         {
             TMP_Text draggedText = eventData.pointerDrag.GetComponentInChildren<TMP_Text>();
             AddNewCommand(draggedText.text);
+            
+            highlight.SetActive(false);
+            inserterLine.SetActive(false);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (eventData.pointerDrag != null)      // if user currently dragging something
+        {
+            highlight.SetActive(false);
+            inserterLine.SetActive(false);
+        }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (eventData.pointerDrag != null)      // if user currently dragging something
+        {
+            if (inputField.text == "")
+                highlight.SetActive(true);
+            else
+                inserterLine.SetActive(true);
         }
     }
 }
