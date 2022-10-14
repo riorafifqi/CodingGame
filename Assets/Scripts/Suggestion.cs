@@ -12,7 +12,7 @@ public class Suggestion : MonoBehaviour
     public GameObject suggestField;
     public List<string> suggestions;
 
-    public GameObject suggestionButtonPrefab;
+    public List<GameObject> suggestionButtons;
     public GameObject suggestionButtonParent;
 
 
@@ -25,34 +25,26 @@ public class Suggestion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        suggestField.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         suggestions.Clear();
-        if (commandField.inputField.isFocused && commandField.inputField.text != "")
+        if (commandField.inputField.isFocused)
         {
-            Check(commandField.inputField.text);
+            if (commandField.inputField.text != "")
+                Check(commandField.inputField.text);
 
-            if (suggestions.Count != 0)
-            {
-                suggestField.SetActive(true);
-            }
-            else if (suggestions.Count == 0)
-            {
-                suggestField.SetActive(false);
-            }
+            ShowSuggestion();
         }
-        ShowSuggestion();
     }
 
     public void Check(string input)
     {
         foreach (string command in gameManager.legalCommands)
         {
-            if (command.Contains(input))
+            if (command.StartsWith(input))
             {
                 // Add that command to this suggestion field
                 suggestions.Add(command);
@@ -62,12 +54,19 @@ public class Suggestion : MonoBehaviour
 
     public void ShowSuggestion()
     {
-        foreach (string suggestion in suggestions)
+        // Deactivate all button
+        foreach (GameObject button in suggestionButtons)
         {
-            GameObject suggestionGo = Instantiate(suggestionButtonPrefab, suggestionButtonParent.transform);
-            TMP_Text suggestionText = suggestionGo.GetComponentInChildren<TMP_Text>();
+            button.SetActive(false);
+        }
 
-            suggestionText.text = suggestion;
+        // Get 1 button and turn that button text to suggestion one
+        for (int i = 0; i < suggestions.Count; i++)
+        {
+            // get button text
+            suggestionButtons[i].SetActive(true);
+            TMP_Text buttonText = suggestionButtons[i].GetComponentInChildren<TMP_Text>();
+            buttonText.text = suggestions[i];
         }
     }
 }

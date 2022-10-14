@@ -69,12 +69,9 @@ public class Console : MonoBehaviour
     void LineCount()
     {
         lineCount = 1;
-        foreach (var letter in inputField.text)
+        foreach (Transform child in commandsFieldParent.transform)
         {
-            if (letter == '\n')
-            {
-                lineCount++;
-            }
+            lineCount++;
         }
     }
 
