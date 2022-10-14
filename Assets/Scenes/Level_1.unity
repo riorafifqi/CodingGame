@@ -1109,6 +1109,14 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 450
       objectReference: {fileID: 0}
+    - target: {fileID: 3107201205007551496, guid: 748eb049994008c428809fa6cdd189b7, type: 3}
+      propertyPath: turnSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107201205007551496, guid: 748eb049994008c428809fa6cdd189b7, type: 3}
+      propertyPath: turnDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3107201205007551497, guid: 748eb049994008c428809fa6cdd189b7, type: 3}
       propertyPath: m_RootOrder
       value: 2

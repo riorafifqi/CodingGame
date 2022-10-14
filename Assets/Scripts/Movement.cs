@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -24,7 +25,7 @@ public class Movement : MonoBehaviour
     public float groundedSpeed = 3f;
     public float flyingSpeed = 1f;
 
-    public float turnSpeed = 0.01f;
+    public float turnDuration = 0.01f;
     public float jumpForce = 10f;
 
     [SerializeField] BoxCollider collider;
@@ -88,7 +89,7 @@ public class Movement : MonoBehaviour
                 return;
             }
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, turnSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, turnDuration);
             return;
         }
 
@@ -147,18 +148,42 @@ public class Movement : MonoBehaviour
         movingSpeed = groundedSpeed;
     }
 
-    public void RotateLeft()
+    public IEnumerator RotateLeft(int index = 1)
     {
-        targetRot = transform.rotation * Quaternion.Euler(0, -90, 0);
-        startRot = this.transform.rotation;
-        isRotating = true;
+        for (int i = 0; i < index; i++)
+        {
+            float startRotation = transform.eulerAngles.y;
+            float endRotation = startRotation - 90.0f;
+            float t = 0.0f;
+            while (t < turnDuration)
+            {
+                t += Time.deltaTime;
+                float yRotation = Mathf.Lerp(startRotation, endRotation, t / turnDuration);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
+                yield return null;
+            }
+            transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
+        }
+        commandManager.NextCommand();
     }
 
-    public void RotateRight()
+    public IEnumerator RotateRight(int index = 1)
     {
-        targetRot = transform.rotation * Quaternion.Euler(0, 90, 0);
-        startRot = this.transform.rotation;
-        isRotating = true;
+        for (int i = 0; i < index; i++)
+        {
+            float startRotation = transform.eulerAngles.y;
+            float endRotation = startRotation + 90.0f;
+            float t = 0.0f;
+            while (t < turnDuration)
+            {
+                t += Time.deltaTime;
+                float yRotation = Mathf.Lerp(startRotation, endRotation, t / turnDuration);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
+                yield return null;
+            }
+            transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
+        }
+        commandManager.NextCommand();
     }
 
     public void Jump(float distance = 1f)

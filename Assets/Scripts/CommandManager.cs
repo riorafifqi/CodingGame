@@ -61,13 +61,21 @@ public class CommandManager : MonoBehaviour
                 }
                 break;
             case "Rotate":
-                if (console.commandMethod.Contains("Right()"))
+                if (console.commandMethod.Contains("Right"))
                 {
-                    movement.RotateRight();
+                    StopAllCoroutines();
+                    if (console.commandParams != "")
+                        StartCoroutine(movement.RotateRight(int.Parse(console.commandParams)));
+                    else
+                        StartCoroutine(movement.RotateRight(1));
                 }
-                else if (console.commandMethod.Contains("Left()"))
+                else if (console.commandMethod.Contains("Left"))
                 {
-                    movement.RotateLeft();
+                    StopAllCoroutines();
+                    if (console.commandParams != "")
+                        StartCoroutine(movement.RotateLeft(int.Parse(console.commandParams)));
+                    else
+                        StartCoroutine(movement.RotateLeft(1));
                 }
                 break;
             case "Jump()":
