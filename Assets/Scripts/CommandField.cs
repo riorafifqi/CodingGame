@@ -11,11 +11,13 @@ public class CommandField : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
     public GameObject highlight;
     public GameObject inserterLine;
 
-    public Console console;
+    Suggestion suggestion;
+    Console console;
     public int indexInList;
 
     private void Awake()
     {
+        suggestion = GetComponent<Suggestion>();
         inputField = GetComponentInChildren<TMP_InputField>();
         console = FindObjectOfType<Console>();
     }
@@ -50,45 +52,61 @@ public class CommandField : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
 
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                if (indexInList != console.commandsPerLine.Count - 1)    // if not the last index
+                if (!suggestion.IsSuggestionActive())   // if intelisense isn't active
                 {
-                    console.commandsPerLine[indexInList + 1].Select();  // select below line
-                    console.commandsPerLine[indexInList + 1].caretPosition = console.commandsPerLine[indexInList + 1].text.Length;  // set caret to the end of code
+                    if (indexInList != console.commandsPerLine.Count - 1)    // if not the last index
+                    {
+                        console.commandsPerLine[indexInList + 1].Select();  // select below line
+                        console.commandsPerLine[indexInList + 1].caretPosition = console.commandsPerLine[indexInList + 1].text.Length;  // set caret to the end of code
+                    }
                 }
+                else   // if active
+                    suggestion.SelectDown();
             }
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                if (indexInList != 0)    // if not the first index
+                if (!suggestion.IsSuggestionActive())   // if intelisense isn't active
                 {
-                    console.commandsPerLine[indexInList - 1].Select();  // select upper line
-                    console.commandsPerLine[indexInList - 1].caretPosition = console.commandsPerLine[indexInList - 1].text.Length;  // set caret to the end of code
+                    if (indexInList != 0)    // if not the first index
+                    {
+                        console.commandsPerLine[indexInList - 1].Select();  // select upper line
+                        console.commandsPerLine[indexInList - 1].caretPosition = console.commandsPerLine[indexInList - 1].text.Length;  // set caret to the end of code
+                    }
                 }
+                else   // if active
+                    suggestion.SelectUp();
             }
         }   // end of if else
     }   // end of update
 
-    void OnSubmitCallback()
+    void OnSubmitCallback() // When enter pressed
     {
-        // if no more element below, create new
-        if (indexInList == console.commandsPerLine.Count - 1)
+        if (!suggestion.IsSuggestionActive())   // if intelisense isn't active
         {
-            GameObject newCommand = Instantiate(console.commandFieldPrefab, console.commandsFieldParent.transform);
-            TMP_InputField newCommandInput = newCommand.GetComponentInChildren<TMP_InputField>();
+            // if no more element below, create new
+            if (indexInList == console.commandsPerLine.Count - 1)
+            {
+                GameObject newCommand = Instantiate(console.commandFieldPrefab, console.commandsFieldParent.transform);
+                TMP_InputField newCommandInput = newCommand.GetComponentInChildren<TMP_InputField>();
 
-            newCommandInput.Select();
-            newCommandInput.caretPosition = newCommandInput.text.Length;
+                newCommandInput.Select();
+                newCommandInput.caretPosition = newCommandInput.text.Length;
+            }
+            else
+            {
+                GameObject newCommand = Instantiate(console.commandFieldPrefab, console.commandsFieldParent.transform);
+                TMP_InputField newCommandInput = newCommand.GetComponentInChildren<TMP_InputField>();
+
+                newCommand.transform.SetSiblingIndex(indexInList + 1);
+
+                newCommandInput.Select();
+                newCommandInput.caretPosition = newCommandInput.text.Length;
+            }
         }
         else
-        {
-            GameObject newCommand = Instantiate(console.commandFieldPrefab, console.commandsFieldParent.transform);
-            TMP_InputField newCommandInput = newCommand.GetComponentInChildren<TMP_InputField>();
-
-            newCommand.transform.SetSiblingIndex(indexInList + 1);
-
-            newCommandInput.Select();
-            newCommandInput.caretPosition = newCommandInput.text.Length;
-        }
+            suggestion.ApplySuggestion();
+        
     }
 
     public void AddNewCommand(string command)
