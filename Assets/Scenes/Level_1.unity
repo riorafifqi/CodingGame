@@ -3164,7 +3164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e8a3147b290274aa94734081f22dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 2
+  distance: 1
 --- !u!65 &1656901586
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -22,17 +22,30 @@ public class Console : MonoBehaviour
 
     public bool isFinish;
 
+    private void Start()
+    {
+        isFinish = false;
+    }
+
     private void Update()
     {
         LineCount();
         SeparateByLine();
+        if (isFinish == true)
+        {
+            // turn off all highlight
+            foreach (var command in commandsPerLine)
+            {
+                CommandField comField = command.GetComponentInParent<CommandField>();
+                comField.highlight.SetActive(false);
+            }
+        }
     }
 
     public void AssignCommand(int index)
     {
-        if(index > commandsPerLine.Count)
+        if(isFinish)
         {
-            isFinish = true;
             Debug.Log("Command Stopped");
             return;
         }
@@ -68,7 +81,7 @@ public class Console : MonoBehaviour
 
     void LineCount()
     {
-        lineCount = 1;
+        lineCount = 0;
         foreach (Transform child in commandsFieldParent.transform)
         {
             lineCount++;
@@ -83,7 +96,6 @@ public class Console : MonoBehaviour
             comField.highlight.SetActive(false);
         }
         commandsPerLine[index].GetComponentInParent<CommandField>().highlight.SetActive(true);
-
     }
 
 }

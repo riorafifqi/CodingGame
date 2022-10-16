@@ -17,7 +17,7 @@ public class CommandManager : MonoBehaviour
     {
         movement.ResetPosition();
         currentCommandIndex = 0;
-        //console.isFinish = false;
+        console.isFinish = false;
 
         console.SeparateByLine();
         console.AssignCommand(currentCommandIndex);
@@ -99,10 +99,12 @@ public class CommandManager : MonoBehaviour
 
     public void NextCommand()
     {
-        /*if (!console.isFinish)
+        if (currentCommandIndex == console.lineCount - 1)
         {
-            
-        }*/
+            console.isFinish = true;
+            return;
+        }
+
         currentCommandIndex++;
         console.AssignCommand(currentCommandIndex);
         StartCoroutine(RunCommand());
