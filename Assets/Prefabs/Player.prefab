@@ -46,8 +46,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.7219764, y: 1.2815365, z: 1}
+  m_Center: {x: -0.0069472194, y: 0.65348417, z: 0}
 --- !u!114 &3107201205007551496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,10 +62,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPos: {x: 0, y: 0, z: 0}
   startPos: {x: 0, y: 0, z: 0}
+  isJumping: 0
+  isGrounded: 0
   groundedSpeed: 3
   flyingSpeed: 1
   turnSpeed: 0.1
   jumpForce: 350
+  collider: {fileID: 0}
   commandManager: {fileID: 0}
 --- !u!54 &3107201205007551499
 Rigidbody:
@@ -112,11 +115,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2657e8ec6c8bc0a419dcecec347080c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2657e8ec6c8bc0a419dcecec347080c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.035
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2657e8ec6c8bc0a419dcecec347080c8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -283,3 +286,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7192644803765267596}
+  animationType: 0
