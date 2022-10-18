@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 0.392}
+  m_Color: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -581,6 +581,7 @@ GameObject:
   - component: {fileID: 1701224222462356059}
   - component: {fileID: 5054792137682268651}
   - component: {fileID: 1180932634}
+  - component: {fileID: 1773450297472560624}
   m_Layer: 5
   m_Name: CommandField
   m_TagString: Untagged
@@ -629,8 +630,6 @@ MonoBehaviour:
   lineNumber: {fileID: 43843324}
   highlight: {fileID: 675924385}
   inserterLine: {fileID: 166114952}
-  suggestion: {fileID: 1180932634}
-  console: {fileID: 0}
   indexInList: 0
 --- !u!114 &1180932634
 MonoBehaviour:
@@ -657,6 +656,28 @@ MonoBehaviour:
   - {fileID: 4324868947972565865}
   - {fileID: 9028526297782788173}
   suggestionButtonParent: {fileID: 5859773254105127645, guid: cc5d4d1f99cfea744966992fb080b372, type: 3}
+  activeSuggestion: 0
+  selectedButton: 0
+--- !u!114 &1773450297472560624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701224222462356056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08c7ba04b1844d40aab889c4211ef90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validCommand:
+  - Move.Forward
+  - Move.Backward
+  - Rotate.Left
+  - Rotate.Right
+  - Jump
+  - Jump
+  errorText: 
 --- !u!1 &1701224222635659709
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,8 +982,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293519849
-  m_fontColor: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+    rgba: 4294835709
+  m_fontColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
