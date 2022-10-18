@@ -38,6 +38,13 @@ public class CommandManager : MonoBehaviour
         //console.Separate();
         yield return new WaitForSeconds(0.5f);
 
+        if (console.commandClass.Contains('('))
+        {
+            int index = console.commandClass.IndexOf('(');
+            console.commandClass = console.commandClass.Remove(index);
+            Debug.Log(console.commandClass);
+        }
+
         switch (console.commandClass)
         {
             case "Move":
@@ -90,6 +97,15 @@ public class CommandManager : MonoBehaviour
                 {
                     movement.Press();
                 }
+                break;
+            case "":
+                movement.Empty();
+                break;
+            case "Wait":
+                if (console.commandParams != "")
+                    StartCoroutine(movement.Wait(int.Parse(console.commandParams)));
+                else
+                    StartCoroutine(movement.Wait(0));
                 break;
             default:
                 Debug.Log("Command Error");

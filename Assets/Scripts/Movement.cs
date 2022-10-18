@@ -218,9 +218,20 @@ public class Movement : MonoBehaviour
         }
     }
 
+    public void Empty()
+    {
+        commandManager.NextCommand();
+    }
+
+    public IEnumerator Wait(int duration)
+    {
+        yield return new WaitForSeconds(duration);
+        commandManager.NextCommand();
+    }
+
     public void CheckGround()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f))
+        if (Physics.Raycast(transform.position, Vector3.down, distToGround))
         {
             isGrounded = true;
         }
@@ -251,6 +262,6 @@ public class Movement : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward);
-        Gizmos.DrawLine(transform.position, transform.position + -transform.up * (collider.bounds.extents.y + 0.1f));
+        Gizmos.DrawLine(transform.position, transform.position + -transform.up * (collider.bounds.extents.y + 0.01f));
     }
 }

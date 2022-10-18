@@ -8,7 +8,7 @@ public class ErrorHandler : MonoBehaviour
     CommandField commandField;
     public string errorText;
 
-    public static bool isError;
+    public bool isError;
 
     private void Start()
     {
@@ -43,9 +43,10 @@ public class ErrorHandler : MonoBehaviour
 
     public bool CommandError(string input)
     {
+        Debug.Log("Command Error");
         foreach (string valid in validCommand)
         {
-            if (!input.Contains(valid))
+            if (input.Contains(valid) == false)
             {
                 return true;
             }
@@ -56,7 +57,8 @@ public class ErrorHandler : MonoBehaviour
 
     public bool ParenthesesError(string input)
     {
-        if (!input.Contains('(') && !input.Contains(')'))
+        Debug.Log("Parentheses Error");
+        if (input.Contains('(') == false && input.Contains(')') == false)
         {
             return true;
         }
