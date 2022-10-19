@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using TMPro;
 
 public class CommandField : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -106,7 +104,7 @@ public class CommandField : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
         }
         else
             suggestion.ApplySuggestion();
-        
+
     }
 
     public void AddNewCommand(string command)
@@ -141,7 +139,7 @@ public class CommandField : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
         {
             TMP_Text draggedText = eventData.pointerDrag.GetComponentInChildren<TMP_Text>();
             AddNewCommand(draggedText.text);
-            
+
             highlight.SetActive(false);
             inserterLine.SetActive(false);
         }

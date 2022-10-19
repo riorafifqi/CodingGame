@@ -1,9 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using System;
-using UnityEngine;
-using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine;
 
 public class Console : MonoBehaviour
 {
@@ -21,6 +18,9 @@ public class Console : MonoBehaviour
     public string commandParams;
 
     public bool isFinish;
+
+    [SerializeField] Color first;
+    [SerializeField] Color number;
 
     private void Start()
     {
@@ -44,7 +44,7 @@ public class Console : MonoBehaviour
 
     public void AssignCommand(int index)
     {
-        if(isFinish)
+        if (isFinish)
         {
             Debug.Log("Command Stopped");
             return;
@@ -53,14 +53,14 @@ public class Console : MonoBehaviour
         string legalChars = "1234567890";
         commandParams = "";
         runningCommand = commandsPerLine[index].text.Split(char.Parse("."));
-        
+
         commandClass = runningCommand[0];
-        if(runningCommand.Length > 1)
+        if (runningCommand.Length > 1)
             commandMethod = runningCommand[1];
 
         foreach (var number in commandsPerLine[index].text)    // Extract number
         {
-            if(legalChars.Contains(number))
+            if (legalChars.Contains(number))
             {
                 commandParams += number;
             }
@@ -98,4 +98,18 @@ public class Console : MonoBehaviour
         commandsPerLine[index].GetComponentInParent<CommandField>().highlight.SetActive(true);
     }
 
+    string ReplaceStringColor(string source, string find, Color color)
+    {
+        string hexColor = ColorUtility.ToHtmlStringRGB(color);
+
+        //int wordIndex = source.IndexOf(find);
+
+        return hexColor;
+    }
+
+    string ReplaceStringColor(string source, Color color)
+    {
+        string hexColor = ColorUtility.ToHtmlStringRGB(color);
+        return "<color =\"" + hexColor + "\">" + hexColor + "</color>";
+    }
 }

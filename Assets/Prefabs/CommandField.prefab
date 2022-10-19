@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 5054792137682268651}
   - component: {fileID: 1180932634}
   - component: {fileID: 1773450297472560624}
+  - component: {fileID: 7259825352831507070}
   m_Layer: 5
   m_Name: CommandField
   m_TagString: Untagged
@@ -679,6 +680,21 @@ MonoBehaviour:
   - 
   errorText: 
   isError: 0
+--- !u!114 &7259825352831507070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701224222462356056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0910f9e5235c02349a2766885f0bb40f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  first: {r: 0.7686275, g: 0.93725497, b: 0.2784314, a: 0}
+  second: {r: 0, g: 0, b: 0, a: 0}
+  number: {r: 0, g: 0.8705883, b: 0.83921576, a: 0}
 --- !u!1 &1701224222635659709
 GameObject:
   m_ObjectHideFlags: 0
