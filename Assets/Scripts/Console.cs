@@ -7,7 +7,6 @@ public class Console : MonoBehaviour
     public GameObject commandsFieldParent;
     public GameObject commandFieldPrefab;
 
-    [SerializeField] TMP_InputField inputField;
     public int lineCount;
     public List<TMP_InputField> commandsPerLine;
     public string[] runningCommand;
@@ -72,7 +71,7 @@ public class Console : MonoBehaviour
     public void SeparateByLine()
     {
         commandsPerLine.Clear();
-        // commandsPerLine = inputField.text.Split(char.Parse("\n"));
+        //commandsPerLine = inputField.text.Split(char.Parse("\n"));
         foreach (Transform child in commandsFieldParent.transform)
         {
             commandsPerLine.Add(child.GetComponentInChildren<TMP_InputField>());
@@ -93,6 +92,7 @@ public class Console : MonoBehaviour
         foreach (var command in commandsPerLine)
         {
             CommandField comField = command.GetComponentInParent<CommandField>();
+            Debug.Log(comField.highlight);
             comField.highlight.SetActive(false);
         }
         commandsPerLine[index].GetComponentInParent<CommandField>().highlight.SetActive(true);

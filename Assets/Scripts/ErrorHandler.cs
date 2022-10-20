@@ -43,7 +43,7 @@ public class ErrorHandler : MonoBehaviour
 
     public bool CommandError(string input)
     {
-        Debug.Log("Command Error");
+        //Debug.Log("Command Error");
         foreach (string valid in validCommand)
         {
             if (input.Contains(valid) == false)

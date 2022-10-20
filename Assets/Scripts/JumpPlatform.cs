@@ -35,7 +35,7 @@ public class JumpPlatform : MonoBehaviour
         player.startPos = transform.position;
         player.targetPos = transform.position + transform.forward * distance;
 
-        float maxHeight = 3f;
+        float maxHeight = 2f;
         float maxDistance = distance;
 
         var g = Physics.gravity.magnitude;

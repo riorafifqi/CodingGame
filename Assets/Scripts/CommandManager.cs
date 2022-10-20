@@ -85,7 +85,7 @@ public class CommandManager : MonoBehaviour
                         StartCoroutine(movement.RotateLeft(1));
                 }
                 break;
-            case "Jump()":
+            case "Jump":
                 movement.Jump();
                 break;
             case "Interact":

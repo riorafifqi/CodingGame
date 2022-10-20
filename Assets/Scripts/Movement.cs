@@ -97,6 +97,7 @@ public class Movement : MonoBehaviour
         {
             if (isJumping)
             {
+                Debug.Log("Is Jumping called");
                 transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
                 isJumping = false;
                 animator.SetBool("Jump", isJumping);
