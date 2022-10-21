@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
     [SerializeField] BoxCollider collider;
     RaycastHit hitInfo;
     Rigidbody rb;
-    Animator animator;
+    public Animator animator;
     [SerializeField] CommandManager commandManager;
 
     void Start()
@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
         this.transform.position = new Vector3(0, 0.5f, 0);
         rb = transform.GetComponent<Rigidbody>();
         commandManager = GameObject.Find("Game Manager").GetComponent<CommandManager>();
-        animator = FindObjectOfType<Animator>();
+        animator = GetComponentInChildren<Animator>();
         collider = GetComponent<BoxCollider>();
 
         startPos = transform.position;
@@ -56,11 +56,11 @@ public class Movement : MonoBehaviour
 
         if (isMoving)
         {
-            if (Mathf.Abs(transform.position.x - targetPos.x) < 0.1f && Mathf.Abs(transform.position.z - targetPos.z) < 0.1f)   // if finished moving
+            if (Mathf.Abs(transform.position.x - targetPos.x) < 0.1f && Mathf.Abs(transform.position.z - targetPos.z) < 0.1f)   // if arrived
             {
                 //Debug.Log("Achieved");
                 transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
-                
+
                 isMoving = false;
                 isPushing = false;
 

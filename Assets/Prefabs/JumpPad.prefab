@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3797586503165101763}
   - component: {fileID: -6575288085719995008}
+  - component: {fileID: 885297330}
   m_Layer: 0
   m_Name: JumpPad
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3797586503165101762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9, y: 1.9, z: 1.9}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3690987626402494617}
@@ -48,6 +49,19 @@ MonoBehaviour:
   distance: 2
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
+--- !u!65 &885297330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3797586503165101762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.5, z: 0.1}
+  m_Center: {x: 0, y: 0.19, z: 0}
 --- !u!1001 &3797586502555819890
 PrefabInstance:
   m_ObjectHideFlags: 0

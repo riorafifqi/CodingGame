@@ -29,6 +29,8 @@ public class JumpPlatform : MonoBehaviour
     {
         Debug.Log("Throw called");
 
+        player.transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
+
         Rigidbody rb = target.GetComponent<Rigidbody>();
         Animator animator = target.GetComponentInChildren<Animator>();
 
@@ -45,6 +47,12 @@ public class JumpPlatform : MonoBehaviour
 
         rb.velocity = transform.forward * hSpeed + transform.up * vSpeed;
 
+        foreach (AnimatorControllerParameter controller in animator.parameters)
+        {
+            animator.SetBool(controller.name, false);
+        }
+
+        GetComponentInChildren<Animator>().SetTrigger("Activate");
         animator.SetBool("Jump", true);
     }
 }
