@@ -1,13 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
-
-public enum MenuType
-{
-    MainMenu,
-    PauseMenu
-}
 
 [System.Serializable]
 public struct Gamescore
@@ -15,6 +10,7 @@ public struct Gamescore
     public string name;
     public int totalLine;
     public string time;
+    public DateTime date;
 }
 
 public class GameScene : ScriptableObject
@@ -39,18 +35,11 @@ public class Level : GameScene
     public Gamescore[] scores;
 }
 
-[CreateAssetMenu(fileName = "NewMenu", menuName = "Scene Data/Menu")]
-public class Menu : GameScene
-{
-    [Header("Menu Specific")]
-    public MenuType type;
-}
-
 [CreateAssetMenu(fileName = "sceneDB", menuName = "Scene Data/Database")]
 public class ScenesData : ScriptableObject
 {
     public List<Level> levels = new List<Level>();
-    public List<Menu> menus = new List<Menu>();
+    public List<MainMenuSO> menus = new List<MainMenuSO>();
     public int CurrentLevelIndex = 1;
 
     public void LoadLevelWithIndex(int index)
