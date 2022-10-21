@@ -4404,26 +4404,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2231355647078952433, guid: 7c8a6c1df6a87164888a508f2413324f, type: 3}
   m_PrefabInstance: {fileID: 203696002}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &206413143 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4194318032478871059, guid: 0b1bb17e7050d6e438150ae33899251b, type: 3}
-  m_PrefabInstance: {fileID: 889800336}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &206413145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206413143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0bdff7ed1e5df4fbe6af4605b94ac7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragSpeed: 2
-  target: {fileID: 0}
-  smoothing: 5
 --- !u!1001 &209675120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33122,7 +33102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10.4514
+      value: -10.4513855
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460387259514, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMax.y
