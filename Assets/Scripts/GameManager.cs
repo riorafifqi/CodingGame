@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +21,7 @@ public class GameManager : MonoBehaviour
         if (Viruses.Count == 0)
         {
             isVirusGone = true;
+
         }
     }
 }
