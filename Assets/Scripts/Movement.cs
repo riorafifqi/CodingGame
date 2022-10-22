@@ -271,6 +271,9 @@ public class Movement : MonoBehaviour
     {
         Instantiate(explosion, transform.position, new Quaternion(0, 0, 0, 0));
         this.gameObject.SetActive(false);
+        commandManager.console.isFinish = true;
+        commandManager.NextCommand();
+        return;
 
     }
 
