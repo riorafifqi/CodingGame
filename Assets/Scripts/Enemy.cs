@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
         if (other.transform.tag == "Player")
         {
             gameManager.Viruses.Remove(this.gameObject);
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
             Debug.Log("Destroy enemy");
         }
     }

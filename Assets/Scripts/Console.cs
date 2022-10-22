@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Console : MonoBehaviour
 {
     public GameObject commandsFieldParent;
     public GameObject commandFieldPrefab;
+    public GameObject helpPanel;
 
     public int lineCount;
     public TMP_Text lineText;
@@ -98,6 +100,19 @@ public class Console : MonoBehaviour
             comField.highlight.SetActive(false);
         }
         commandsPerLine[index].GetComponentInParent<CommandField>().highlight.SetActive(true);
+    }
+
+    public void HelpPanelToggle()
+    {
+        //helpPanel.transform.position = new Vector3(0, 0, 0);
+        if (helpPanel.activeSelf)
+        {
+            helpPanel.SetActive(false);
+        }
+        else if (!helpPanel.activeSelf)
+        {
+            helpPanel.SetActive(true);
+        }
     }
 
     string ReplaceStringColor(string source, string find, Color color)

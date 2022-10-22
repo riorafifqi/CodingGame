@@ -34,12 +34,12 @@ public class GameManager : MonoBehaviour
 
     public void SetHighscore()
     {
-        if (commandManager.stopwatch.GetTime() <= levelData.scores[0].time)
+        if (commandManager.stopwatch.GetTime() <= levelData.scores[0].time || levelData.scores[0].time == 0)
         {
             levelData.scores[0].time = commandManager.stopwatch.GetTime();
         }
 
-        if (commandManager.console.lineCount <= levelData.scores[0].totalLine)
+        if (commandManager.console.lineCount <= levelData.scores[0].totalLine || levelData.scores[0].totalLine == 0)
         {
             levelData.scores[0].totalLine = commandManager.console.lineCount;
         }

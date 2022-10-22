@@ -19,5 +19,5 @@ MonoBehaviour:
   levelThumbnail: {fileID: 0}
   scores:
   - name: 
-    totalLine: 8
-    time: 11.382
+    totalLine: 7
+    time: 7.197

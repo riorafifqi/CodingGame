@@ -103,7 +103,10 @@ public class CommandManager : MonoBehaviour
             case "Interact":
                 if (console.commandMethod.Contains("Push"))
                 {
-                    movement.Push(int.Parse(console.commandParams));
+                    if (console.commandParams != "")
+                        movement.Push(int.Parse(console.commandParams));
+                    else
+                        movement.Push(1);
                 }
                 else if (console.commandMethod.Contains("Press()"))
                 {
