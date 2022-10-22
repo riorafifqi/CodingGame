@@ -9,7 +9,7 @@ public class Laser : MonoBehaviour
 
     private void Start()
     {
-        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer = GetComponentInChildren<LineRenderer>();
     }
 
     // Update is called once per frame
