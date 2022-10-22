@@ -44,6 +44,7 @@ public class Movement : MonoBehaviour
         collider = GetComponent<BoxCollider>();
 
         startPos = transform.position;
+        targetPos = startPos;
 
         playerPositionOnStart = transform.position;
         playerRotationOnStart = transform.rotation;
@@ -210,11 +211,17 @@ public class Movement : MonoBehaviour
     {
         Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f);
         Push push = hitInfo.transform.GetComponent<Push>();
+
+/*        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 2f) && hitInfo.transform.tag == "Obstacle")
+        {
+            return;
+        }*/
+
         if (push != null)
         {
             isPushing = true;
 
-            push.Pushed(amount);
+            push.Pushed(push.transform.position + transform.forward * amount);
             MoveForward(amount);
             animator.SetBool("Push", true);
         }
@@ -261,10 +268,15 @@ public class Movement : MonoBehaviour
 
     public void ResetPosition()
     {
+        isMoving = false;
+        isRotating = false;
+
         this.gameObject.SetActive(true);
         transform.position = playerPositionOnStart;
         transform.rotation = playerRotationOnStart;
-        targetPos = new Vector3(0f, 0f, 0f);
+
+        startPos = playerPositionOnStart;
+        targetPos = playerPositionOnStart;
     }
 
     public void Death()

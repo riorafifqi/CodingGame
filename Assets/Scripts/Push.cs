@@ -36,7 +36,6 @@ public class Push : MonoBehaviour
                 //Debug.Log("Achieved");
                 transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
                 isMoving = false;
-                commandManager.NextCommand();
                 return;
             }
 
@@ -46,17 +45,9 @@ public class Push : MonoBehaviour
         }
     }
 
-    public void Pushed(int amount)
+    public void Pushed(Vector3 target)
     {
-        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && hitInfo.transform.tag == "Obstacle")
-        {
-            return;
-        }
-        else
-        {
-            targetPos = transform.position + transform.forward * amount;
-        }
-
+        targetPos = target;
         startPos = transform.position;
         isMoving = true;
     }

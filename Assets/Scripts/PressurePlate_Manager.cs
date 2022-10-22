@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PressurePlate_Manager : MonoBehaviour
 {
@@ -6,8 +7,16 @@ public class PressurePlate_Manager : MonoBehaviour
     [SerializeField] Material materialOff;
 
     public bool isActive = false;
-    public Animator affectedBlock;
-    
+    public GameObject affectedBlock;
+
+    Vector3 startingPos;
+    Vector3 finalPos;
+
+    private void Start()
+    {
+        affectedBlock.transform.position = new Vector3(affectedBlock.transform.position.x, -10f, affectedBlock.transform.position.z);
+    }
+
     private void Update()
     {
         if (isActive)
@@ -26,12 +35,35 @@ public class PressurePlate_Manager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Player")
-        {
-            isActive = true;
-            // Aniamtion block up go go
-            affectedBlock.SetBool("", true);
-        }
+        Debug.Log(other.transform.name);
+
+        isActive = true;
+
+        // block go up
+        startingPos = new Vector3(affectedBlock.transform.position.x, -10f, affectedBlock.transform.position.z);
+        finalPos = new Vector3(affectedBlock.transform.position.x, -0.43f, affectedBlock.transform.position.z);
+        StartCoroutine(SmoothLerp(1));
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        isActive = false;
+
+        // block go down
+        startingPos = new Vector3(affectedBlock.transform.position.x, -0.43f, affectedBlock.transform.position.z);
+        finalPos = new Vector3(affectedBlock.transform.position.x, -10f, affectedBlock.transform.position.z);
+        StartCoroutine(SmoothLerp(1));
+    }
+
+    private IEnumerator SmoothLerp(float time)
+    {
+        float elapsedTime = 0;
+
+        while (elapsedTime < time)
+        {
+            affectedBlock.transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / time));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
 }
