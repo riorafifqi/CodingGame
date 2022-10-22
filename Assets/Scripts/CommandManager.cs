@@ -6,7 +6,10 @@ public class CommandManager : MonoBehaviour
 {
     public Movement movement;
     public Console console;
-    Stopwatch stopwatch;
+    
+    public Stopwatch stopwatch;
+
+
     public int currentCommandIndex;
 
     private void Awake()

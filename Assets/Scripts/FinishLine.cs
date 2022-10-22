@@ -8,7 +8,7 @@ public class FinishLine : MonoBehaviour
 
     private void Awake()
     {
-        //gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         lampMat = GameObject.Find("BezierCurve.007").GetComponent<Renderer>().materials;
         ChangeMat(lampMat[4], Color.red);
         ChangeMat(lampMat[1], Color.red * 10);
@@ -26,7 +26,10 @@ public class FinishLine : MonoBehaviour
             if (gameManager.isVirusGone)
             {
                 Debug.Log("You Win!");
-                winPanel.SetActive(true);
+                //winPanel.SetActive(true);
+                gameManager.commandManager.stopwatch.StopStopwatch();
+
+                gameManager.SetHighscore();
             }
             else
             {

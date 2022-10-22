@@ -9,10 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b13d484864c837448fac51960149e97, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bb0b11786e8d4540b69db5067339196, type: 3}
   m_Name: Level 1
-  m_EditorClassIdentifier: Assembly-CSharp::Level
+  m_EditorClassIdentifier: 
   sceneName: 
   shortDesc: 
   music: {fileID: 0}
   volumeProfile: {fileID: 0}
+  levelThumbnail: {fileID: 0}
+  scores:
+  - name: 
+    totalLine: 8
+    time: 11.382

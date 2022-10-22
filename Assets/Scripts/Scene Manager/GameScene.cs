@@ -4,15 +4,6 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-[System.Serializable]
-public struct Gamescore
-{
-    public string name;
-    public int totalLine;
-    public string time;
-    public DateTime date;
-}
-
 public class GameScene : ScriptableObject
 {
     [Header("Information")]
@@ -24,15 +15,6 @@ public class GameScene : ScriptableObject
 
     [Header("Visual")]
     public VolumeProfile volumeProfile;
-}
-
-[CreateAssetMenu(fileName = "NewLevel", menuName = "Scene Data/Level")]
-public class Level : GameScene
-{
-    [Header("Thumbnail")]
-    public Sprite levelThumbnail;
-    [Header("PlayerScore")]
-    public Gamescore[] scores;
 }
 
 [CreateAssetMenu(fileName = "sceneDB", menuName = "Scene Data/Database")]
