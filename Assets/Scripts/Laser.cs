@@ -26,7 +26,7 @@ public class Laser : MonoBehaviour
 
             if (hit.transform.tag == "Player")
             {
-                Debug.Log("Laser hit player!");
+                hit.transform.GetComponent<Movement>().Death();
             }
         }
         else

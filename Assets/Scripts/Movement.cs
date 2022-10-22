@@ -271,12 +271,13 @@ public class Movement : MonoBehaviour
         isMoving = false;
         isRotating = false;
 
-        this.gameObject.SetActive(true);
         transform.position = playerPositionOnStart;
         transform.rotation = playerRotationOnStart;
 
         startPos = playerPositionOnStart;
         targetPos = playerPositionOnStart;
+
+        this.gameObject.SetActive(true);
     }
 
     public void Death()

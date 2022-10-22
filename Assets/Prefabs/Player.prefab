@@ -674,7 +674,9 @@ MonoBehaviour:
   turnDuration: 0.5
   jumpForce: 450
   collider: {fileID: 3107201205007551500}
+  animator: {fileID: 0}
   commandManager: {fileID: 0}
+  explosion: {fileID: 1000012903210382, guid: 77ddfc8ca3fb23e4c8d33539623cc265, type: 3}
 --- !u!54 &3107201205007551499
 Rigidbody:
   m_ObjectHideFlags: 0
