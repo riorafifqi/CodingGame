@@ -15,5 +15,5 @@ MonoBehaviour:
   sceneName: MainMenu
   shortDesc: 
   music: {fileID: 0}
-  volumeProfile: {fileID: 0}
+  volumeProfile: {fileID: 11400000, guid: 3b8d235266a130f4bbaf527049661f37, type: 2}
   type: 0
