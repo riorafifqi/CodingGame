@@ -33,10 +33,11 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
     public Animator animator;
     [SerializeField] CommandManager commandManager;
+    public GameObject explosion;
 
     void Start()
     {
-        this.transform.position = new Vector3(0, 0.5f, 0);
+        //this.transform.position = new Vector3(0, 0.5f, 0);
         rb = transform.GetComponent<Rigidbody>();
         commandManager = GameObject.Find("Game Manager").GetComponent<CommandManager>();
         animator = GetComponentInChildren<Animator>();
@@ -217,6 +218,11 @@ public class Movement : MonoBehaviour
             MoveForward(amount);
             animator.SetBool("Push", true);
         }
+        else
+        {
+            commandManager.NextCommand();
+            return;
+        }
     }
 
     public void Empty()
@@ -255,8 +261,17 @@ public class Movement : MonoBehaviour
 
     public void ResetPosition()
     {
+        this.gameObject.SetActive(true);
         transform.position = playerPositionOnStart;
         transform.rotation = playerRotationOnStart;
+        targetPos = new Vector3(0f, 0f, 0f);
+    }
+
+    public void Death()
+    {
+        Instantiate(explosion, transform.position, new Quaternion(0, 0, 0, 0));
+        this.gameObject.SetActive(false);
+
     }
 
     private void OnDrawGizmos()
