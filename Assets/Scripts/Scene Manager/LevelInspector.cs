@@ -19,7 +19,7 @@ public class LevelInspector : MonoBehaviour
     Level level;
     LevelSelectManager lsm;
 
-    private void Awake()
+    private void Start()
     {
         lsm = FindObjectOfType<LevelSelectManager>();
         level = lsm.selectedLevel;
@@ -28,11 +28,12 @@ public class LevelInspector : MonoBehaviour
 
     public void UpdateUI()
     {
+        level = lsm.selectedLevel;
         thumbnail.sprite = level.levelThumbnail;
         title.text = level.sceneName;
 
 
-
+        lsm.UpdateList();
         LockLevel();
         UpdateScore();
     }

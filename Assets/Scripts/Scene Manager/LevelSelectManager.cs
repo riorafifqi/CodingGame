@@ -11,6 +11,7 @@ public class LevelSelectManager : MonoBehaviour
     {
         selectedLevel = levelDatabase.levels[0];
         UpdateList();
+        UpdateSelected();
     }
 
     public void UpdateList()
@@ -24,6 +25,17 @@ public class LevelSelectManager : MonoBehaviour
         {
             LevelItem temp = Instantiate(levelItemPrefab, transform).GetComponent<LevelItem>();
             temp.level = level;
+        }
+    }
+
+    public void UpdateSelected()
+    {
+        foreach (var temp in GetComponentsInChildren<LevelItem>())
+        {
+            if (temp.level != selectedLevel)
+                temp.selected.SetActive(false);
+            else
+                temp.selected.SetActive(true);
         }
     }
 }

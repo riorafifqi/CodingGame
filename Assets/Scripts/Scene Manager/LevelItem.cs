@@ -10,8 +10,10 @@ public class LevelItem : MonoBehaviour
     public Sprite[] iconSprite;
     public GameObject selected;
 
+    public LevelInspector inspector;
+
     Color dark;
-    private void Awake()
+    private void Start()
     {
         ColorUtility.TryParseHtmlString("00002E", out dark);
         UpdateUI();
@@ -26,7 +28,6 @@ public class LevelItem : MonoBehaviour
 
     void IfSelected()
     {
-        if (GetComponentInParent<LevelSelectManager>().selectedLevel == null) { }
         if (level == GetComponentInParent<LevelSelectManager>().selectedLevel)
         {
             selected.SetActive(true);
@@ -50,5 +51,6 @@ public class LevelItem : MonoBehaviour
     public void SelectLevel()
     {
         GetComponentInParent<LevelSelectManager>().selectedLevel = level;
+        FindObjectOfType<LevelInspector>().UpdateUI();
     }
 }
