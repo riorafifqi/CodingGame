@@ -12,10 +12,8 @@ public class LevelItem : MonoBehaviour
 
     public LevelInspector inspector;
 
-    Color dark;
     private void Start()
     {
-        ColorUtility.TryParseHtmlString("00002E", out dark);
         UpdateUI();
     }
 
@@ -31,12 +29,10 @@ public class LevelItem : MonoBehaviour
         if (level == GetComponentInParent<LevelSelectManager>().selectedLevel)
         {
             selected.SetActive(true);
-            text.color = dark;
         }
         else
         {
             selected.SetActive(false);
-            text.color = Color.white;
         }
     }
 

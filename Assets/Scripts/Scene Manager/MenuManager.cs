@@ -3,7 +3,7 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour
 {
     public GameObject levelSelectPanel;
-    //public GameObject settingsPanel;
+    public GameObject settingsPanel;
 
     public void PlayButton()
     {
@@ -13,7 +13,8 @@ public class MenuManager : MonoBehaviour
 
     public void SettingButton()
     {
-        //settingsPanel.SetActive(!settingsPanel.activeSelf);
+        settingsPanel.SetActive(!settingsPanel.activeSelf);
+        settingsPanel.GetComponent<RectTransform>().localPosition = Vector3.zero;
     }
 
     public void ExitGame()

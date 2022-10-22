@@ -7,8 +7,11 @@ public class LevelSelectManager : MonoBehaviour
     public ScenesData levelDatabase;
     public GameObject levelItemPrefab;
 
+
+    Color dark;
     private void Awake()
     {
+        ColorUtility.TryParseHtmlString("00002E", out dark);
         selectedLevel = levelDatabase.levels[0];
         UpdateList();
         UpdateSelected();
@@ -33,9 +36,15 @@ public class LevelSelectManager : MonoBehaviour
         foreach (var temp in GetComponentsInChildren<LevelItem>())
         {
             if (temp.level != selectedLevel)
+            {
                 temp.selected.SetActive(false);
+                temp.text.color = Color.white;
+            }
             else
+            {
                 temp.selected.SetActive(true);
+                temp.text.color = Color.black;
+            }
         }
     }
 }
