@@ -8,6 +8,8 @@ public class Console : MonoBehaviour
     public GameObject commandFieldPrefab;
 
     public int lineCount;
+    public TMP_Text lineText;
+
     public List<TMP_InputField> commandsPerLine;
     public string[] runningCommand;
     TextGenerator text;
@@ -85,6 +87,7 @@ public class Console : MonoBehaviour
         {
             lineCount++;
         }
+        lineText.text = "Line : " + lineCount;
     }
 
     void HighlightCommand(int index)
@@ -92,7 +95,6 @@ public class Console : MonoBehaviour
         foreach (var command in commandsPerLine)
         {
             CommandField comField = command.GetComponentInParent<CommandField>();
-            Debug.Log(comField.highlight);
             comField.highlight.SetActive(false);
         }
         commandsPerLine[index].GetComponentInParent<CommandField>().highlight.SetActive(true);

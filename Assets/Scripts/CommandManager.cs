@@ -6,15 +6,30 @@ public class CommandManager : MonoBehaviour
 {
     public Movement movement;
     public Console console;
+    Stopwatch stopwatch;
     public int currentCommandIndex;
 
     private void Awake()
     {
+        stopwatch = GetComponent<Stopwatch>();
         movement = GameObject.Find("Player").GetComponent<Movement>();
+    }
+
+    private void Update()
+    {
+        if (console.isFinish)
+        {
+            stopwatch.StopStopwatch();
+        }
     }
 
     public void OnPressRunCommand()     // On first time running command
     {
+        StopAllCoroutines();
+
+        stopwatch.ResetStopwatch();
+        stopwatch.StartStopwatch();
+
         movement.ResetPosition();
         currentCommandIndex = 0;
         console.isFinish = false;
@@ -23,13 +38,7 @@ public class CommandManager : MonoBehaviour
         console.AssignCommand(currentCommandIndex);
         StartCoroutine(RunCommand());
 
-
-        /*do
-        {
-            console.AssignCommand(currentCommandIndex);
-            RunCommand();
-        } while (currentCommandIndex <= console.commandsPerLine.Length);*/
-
+        
     }
 
     public IEnumerator RunCommand()
@@ -124,11 +133,5 @@ public class CommandManager : MonoBehaviour
         currentCommandIndex++;
         console.AssignCommand(currentCommandIndex);
         StartCoroutine(RunCommand());
-    }
-
-    IEnumerator Delay(float value)
-    {
-        Debug.Log("Called");
-        yield return new WaitForSeconds(value);
     }
 }
