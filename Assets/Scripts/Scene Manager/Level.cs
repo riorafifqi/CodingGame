@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
+using UnityEngine;
 
 [System.Serializable]
 public struct Gamescore
@@ -12,6 +10,12 @@ public struct Gamescore
     public DateTime date;
 }
 
+public enum Status
+{
+    locked,
+    unlocked
+}
+
 [CreateAssetMenu(fileName = "NewLevel", menuName = "Scene Data/Level")]
 public class Level : GameScene
 {
@@ -19,4 +23,6 @@ public class Level : GameScene
     public Sprite levelThumbnail;
     [Header("PlayerScore")]
     public Gamescore[] scores;
+    [Header("Status")]
+    public Status status;
 }
