@@ -16,7 +16,7 @@ MonoBehaviour:
   shortDesc: 
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
-  levelThumbnail: {fileID: 0}
+  levelThumbnail: {fileID: 21300000, guid: c42d89adf7ee8714691e06c7bb2762bd, type: 3}
   scores:
   - name: 
     totalLine: 0
