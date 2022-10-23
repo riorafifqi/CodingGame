@@ -3,20 +3,17 @@ using UnityEngine;
 public class FinishLine : MonoBehaviour
 {
     GameManager gameManager;
-    public GameObject winPanel;
+    WinPanelManager winPanel;
+
     Material[] lampMat;
 
     private void Awake()
     {
+        winPanel = GameObject.FindObjectOfType<WinPanelManager>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         lampMat = GameObject.Find("BezierCurve.007").GetComponent<Renderer>().materials;
         ChangeMat(lampMat[4], Color.red);
         ChangeMat(lampMat[1], Color.red * 10);
-    }
-
-    private void Start()
-    {
-        winPanel.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,9 +23,12 @@ public class FinishLine : MonoBehaviour
             if (gameManager.isVirusGone)
             {
                 Debug.Log("You Win!");
-                //winPanel.SetActive(true);
-                gameManager.commandManager.stopwatch.StopStopwatch();
 
+                winPanel.SetLineCount(gameManager.commandManager.console.lineCount);
+                winPanel.SetTime(gameManager.commandManager.stopwatch.GetTime());
+                winPanel.OpenWinPanel();
+
+                gameManager.commandManager.stopwatch.StopStopwatch();
                 gameManager.SetHighscore();
             }
             else
