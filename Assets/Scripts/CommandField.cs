@@ -164,4 +164,9 @@ public class CommandField : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
                 inserterLine.SetActive(true);
         }
     }
+
+    public void OnTyping()
+    {
+        Debug.Log("Currentyly Typing");
+    }
 }
