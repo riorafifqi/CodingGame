@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   sceneName: Level_1
-  shortDesc: 
+  shortDesc: Tutorial Movement
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
   levelThumbnail: {fileID: 21300000, guid: cec9b446244b6074dbed7150ee6d2a92, type: 3}
   scores:
   - name: 
-    totalLine: 0
-    time: 0
+    totalLine: 2
+    time: 1.492
   status: 1

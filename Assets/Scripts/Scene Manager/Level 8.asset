@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level 8
   m_EditorClassIdentifier: 
   sceneName: Level_8
-  shortDesc: 
+  shortDesc: 3 Virus - 3 Jump - 1 Moveable Footing
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
   levelThumbnail: {fileID: 21300000, guid: d50ec6cc0e6e9f24f93684a73b5ff788, type: 3}

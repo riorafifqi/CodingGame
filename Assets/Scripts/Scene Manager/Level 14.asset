@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level 14
   m_EditorClassIdentifier: 
   sceneName: Level_14
-  shortDesc: 
+  shortDesc: 3 Virus - 2 Moveable Footing - 1 Laser
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
   levelThumbnail: {fileID: 21300000, guid: 42f6acfd007d6b3478cd29bad9e07f94, type: 3}
