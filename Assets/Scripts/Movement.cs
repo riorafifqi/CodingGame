@@ -69,7 +69,8 @@ public class Movement : MonoBehaviour
                 animator.SetBool("Push", false);
                 animator.SetBool("Walk", false);
                 
-                commandManager.NextCommand();
+                if(isGrounded)    // not falling
+                    commandManager.NextCommand();
 
                 return;
             }
@@ -77,21 +78,6 @@ public class Movement : MonoBehaviour
             if (transform)
                 transform.position = Vector3.MoveTowards(transform.position, targetPos, movingSpeed * Time.deltaTime);
 
-            return;
-        }
-
-        if (isRotating)
-        {
-            if (Quaternion.Angle(transform.rotation, targetRot) < 0.1f)      // if Finished rotating
-            {
-                transform.rotation = targetRot;
-                transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
-                isRotating = false;
-                commandManager.NextCommand();
-                return;
-            }
-
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, turnDuration);
             return;
         }
 
@@ -209,8 +195,9 @@ public class Movement : MonoBehaviour
 
     public void Push(int amount)
     {
-        Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f);
-        Push push = hitInfo.transform.GetComponent<Push>();
+        Push push = null;
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f)) 
+            push = hitInfo.transform.GetComponent<Push>();
 
 /*        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 2f) && hitInfo.transform.tag == "Obstacle")
         {
