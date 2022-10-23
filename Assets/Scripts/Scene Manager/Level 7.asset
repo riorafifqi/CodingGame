@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level 7
   m_EditorClassIdentifier: 
   sceneName: Level_7
-  shortDesc: 3 Virus - 2 Jump
+  shortDesc: Virus 3X|Jump 2X
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
   levelThumbnail: {fileID: 21300000, guid: 7106f3077f07c7a458159704153d305a, type: 3}
