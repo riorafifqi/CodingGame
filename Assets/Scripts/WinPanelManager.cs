@@ -9,6 +9,8 @@ public class WinPanelManager : MonoBehaviour
     public TMP_Text lineCount;
     public TMP_Text time;
 
+    public ScenesData scenesData;
+
     GameManager gameManager;
 
     void Start()
@@ -20,6 +22,7 @@ public class WinPanelManager : MonoBehaviour
     public void OpenWinPanel()
     {
         gameObject.SetActive(true);
+        scenesData.UnlockNextLevel();
     }
 
     public void ContinueButton()

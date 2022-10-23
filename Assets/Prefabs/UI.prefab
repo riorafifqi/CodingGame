@@ -1336,6 +1336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineCount: {fileID: 1290448131471505359}
   time: {fileID: 4543925098439695650}
+  scenesData: {fileID: 11400000, guid: d6c60570e6b13bf44a8ac93fdf21ee95, type: 2}
 --- !u!1 &1306604038
 GameObject:
   m_ObjectHideFlags: 0
