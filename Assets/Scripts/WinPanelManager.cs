@@ -22,16 +22,11 @@ public class WinPanelManager : MonoBehaviour
     public void OpenWinPanel()
     {
         gameObject.SetActive(true);
-        scenesData.UnlockNextLevel();
     }
 
     public void ContinueButton()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        if (SceneManager.sceneCount > nextSceneIndex)
-        {
-            SceneManager.LoadScene(nextSceneIndex);
-        }
+        scenesData.LoadNextLevel();
 
     }
 
