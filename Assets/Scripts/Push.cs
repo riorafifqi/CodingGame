@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Push : MonoBehaviour
 {
+    Vector3 earlyPos;
+
     Vector3 startPos;
     Vector3 targetPos;
     
@@ -16,6 +18,7 @@ public class Push : MonoBehaviour
 
     private void Awake()
     {
+        earlyPos = transform.position;
         commandManager = GameObject.Find("Game Manager").GetComponent<CommandManager>();
     }
 
@@ -50,5 +53,10 @@ public class Push : MonoBehaviour
         targetPos = target;
         startPos = transform.position;
         isMoving = true;
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = earlyPos;
     }
 }

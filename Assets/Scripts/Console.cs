@@ -130,4 +130,14 @@ public class Console : MonoBehaviour
         string hexColor = ColorUtility.ToHtmlStringRGB(color);
         return "<color =\"" + hexColor + "\">" + hexColor + "</color>";
     }
+
+    public void ResetCommand()
+    {
+        isFinish = true;
+        
+        commandMethod = "";
+        commandClass = "";
+        commandParams = "";
+    }
+
 }

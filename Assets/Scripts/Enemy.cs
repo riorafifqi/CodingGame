@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     GameManager gameManager;
     public GameObject explosion;
+
+    public bool isDead = false;
     private void Awake()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
@@ -15,7 +17,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-            gameManager.Viruses.Remove(this.gameObject);
+            isDead = true;
             gameObject.SetActive(false);
             Instantiate(explosion, transform.position, new Quaternion(0, 0, 0, 0));
             Debug.Log("Destroy enemy");
