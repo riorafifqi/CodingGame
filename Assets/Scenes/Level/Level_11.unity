@@ -562,7 +562,7 @@ MeshCollider:
   m_GameObject: {fileID: 129065775}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -4025,6 +4025,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1472710490}
     m_Modifications:
+    - target: {fileID: 4948517969373071264, guid: 71fe0ff855f6b4c479aab5101b1abf41, type: 3}
+      propertyPath: affectedBlock
+      value: 
+      objectReference: {fileID: 1838750645}
     - target: {fileID: 6110829154524564908, guid: 71fe0ff855f6b4c479aab5101b1abf41, type: 3}
       propertyPath: m_RootOrder
       value: 54
@@ -6533,19 +6537,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 117.935
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10.4514
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460767321750, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6891,6 +6895,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2231355647078952433, guid: 7c8a6c1df6a87164888a508f2413324f, type: 3}
   m_PrefabInstance: {fileID: 1836257176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1838750645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 381430321389938250, guid: fad7aef12b3b029409f21ab771a7d91b, type: 3}
+  m_PrefabInstance: {fileID: 567555970}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1844379855 stripped
 MonoBehaviour:

@@ -4075,7 +4075,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1472710490}
-  m_RootOrder: 32
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1128972073
 BoxCollider:
@@ -5112,6 +5112,7 @@ Transform:
   - {fileID: 269737056}
   - {fileID: 192535275}
   - {fileID: 1283864181}
+  - {fileID: 1128972072}
   - {fileID: 123397395}
   - {fileID: 1753344676}
   - {fileID: 1142539879}
@@ -5120,7 +5121,6 @@ Transform:
   - {fileID: 990792673}
   - {fileID: 328777476}
   - {fileID: 2119989843}
-  - {fileID: 1128972072}
   - {fileID: 154325404}
   - {fileID: 900728429}
   - {fileID: 537528114}
@@ -5941,7 +5941,7 @@ MeshCollider:
   m_GameObject: {fileID: 1741390004}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -6228,19 +6228,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 117.935
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10.4514
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460767321750, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMax.y
