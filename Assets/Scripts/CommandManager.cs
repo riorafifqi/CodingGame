@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CommandManager : MonoBehaviour
 {
     public Movement movement;
     public Console console;
-    
+
     public Stopwatch stopwatch;
 
 
@@ -16,6 +15,11 @@ public class CommandManager : MonoBehaviour
     {
         stopwatch = GetComponent<Stopwatch>();
         movement = GameObject.Find("Player").GetComponent<Movement>();
+    }
+
+    private void Start()
+    {
+        SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.level));
     }
 
     private void Update()
@@ -28,6 +32,8 @@ public class CommandManager : MonoBehaviour
 
     public void OnPressRunCommand()     // On first time running command
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.confirm));
+
         StopAllCoroutines();
 
         stopwatch.ResetStopwatch();
@@ -41,7 +47,7 @@ public class CommandManager : MonoBehaviour
         console.AssignCommand(currentCommandIndex);
         StartCoroutine(RunCommand());
 
-        
+
     }
 
     public IEnumerator RunCommand()
@@ -62,7 +68,7 @@ public class CommandManager : MonoBehaviour
             case "Move":
                 if (console.commandMethod.Contains("Forward"))
                 {
-                    if(console.commandParams != "")
+                    if (console.commandParams != "")
                         movement.MoveForward(int.Parse(console.commandParams));
                     else
                         movement.MoveForward(1);

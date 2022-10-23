@@ -80,6 +80,7 @@ public class CommandField : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
 
     void OnSubmitCallback() // When enter pressed
     {
+        SoundManager.Instance.PlaySoundRandomPitch(SoundManager.Instance._Database.GetClip(SFX.hard_click));
         if (!suggestion.IsSuggestionActive())   // if intelisense isn't active
         {
             // if no more element below, create new
@@ -168,5 +169,13 @@ public class CommandField : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
     public void OnTyping()
     {
         Debug.Log("Currentyly Typing");
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            SoundManager.Instance.PlaySoundRandomPitch(SoundManager.Instance._Database.GetClip(SFX.hard_click));
+        }
+        else
+        {
+            SoundManager.Instance.PlaySoundRandomPitch(SoundManager.Instance._Database.GetClip(SFX.soft_click));
+        }
     }
 }

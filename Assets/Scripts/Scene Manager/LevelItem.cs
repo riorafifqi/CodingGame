@@ -38,10 +38,18 @@ public class LevelItem : MonoBehaviour
 
     void SetIcon()
     {
-        if (level.scores.Length > 0)
-            icon.sprite = iconSprite[1];
+        if (level.status == Status.locked)
+            icon.sprite = iconSprite[2];
         else
+        if (level.scores[0].totalLine < 1)
             icon.sprite = iconSprite[0];
+        else
+            icon.sprite = iconSprite[1];
+
+        //if (level.scores.Length > 0)
+        //    icon.sprite = iconSprite[1];
+        //else
+        //    icon.sprite = iconSprite[0];
     }
 
     public void SelectLevel()

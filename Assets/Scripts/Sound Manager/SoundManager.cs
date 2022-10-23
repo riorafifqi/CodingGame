@@ -42,4 +42,14 @@ public class SoundManager : MonoBehaviour
     {
         _BGMSource.Stop();
     }
+
+    public void PauseMusic()
+    {
+        _BGMSource.Pause();
+    }
+
+    public void ResumeMusic()
+    {
+        _BGMSource.UnPause();
+    }
 }

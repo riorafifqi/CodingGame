@@ -276,6 +276,7 @@ MonoBehaviour:
   iconSprite:
   - {fileID: 3286163911610860551, guid: dd10269dbb4df3c428d319be75afee92, type: 3}
   - {fileID: 3286163911610860551, guid: 127df0a608ee61f41b054ed72741e279, type: 3}
+  - {fileID: 3286163911610860551, guid: a45aae05029c5574783c98abe2ab2886, type: 3}
   selected: {fileID: 6482391749808022640}
   inspector: {fileID: 0}
 --- !u!114 &1076395419346611202

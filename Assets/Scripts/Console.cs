@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Console : MonoBehaviour
 {
@@ -107,10 +106,12 @@ public class Console : MonoBehaviour
         //helpPanel.transform.position = new Vector3(0, 0, 0);
         if (helpPanel.activeSelf)
         {
+            SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.open_menu));
             helpPanel.SetActive(false);
         }
         else if (!helpPanel.activeSelf)
         {
+            SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.close));
             helpPanel.SetActive(true);
         }
     }
