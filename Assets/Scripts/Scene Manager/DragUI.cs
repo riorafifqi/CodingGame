@@ -13,6 +13,7 @@ public class DragUI : MonoBehaviour, IDragHandler
 
     public void DisablePanel()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.close));
         dragRectTransform.gameObject.SetActive(false);
     }
 }

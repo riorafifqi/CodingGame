@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -12,5 +10,10 @@ public class MainMenuManager : MonoBehaviour
     {
         playerUsername = nameInputField.text;
         nameInputField.text = "";
+    }
+
+    private void Start()
+    {
+        SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.menu));
     }
 }
