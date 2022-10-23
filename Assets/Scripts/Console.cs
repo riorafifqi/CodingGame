@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Console : MonoBehaviour
 {
@@ -19,10 +20,17 @@ public class Console : MonoBehaviour
     public string commandMethod;
     public string commandParams;
 
+    public Button resetButton;
+
     public bool isFinish;
 
     [SerializeField] Color first;
     [SerializeField] Color number;
+
+    private void Awake()
+    {
+        resetButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<GameManager>().ResetLevel(); });
+    }
 
     private void Start()
     {
