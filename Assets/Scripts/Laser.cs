@@ -6,6 +6,7 @@ public class Laser : MonoBehaviour
 {
     LineRenderer lineRenderer;
     [SerializeField] Transform startPoint;
+    public float length = 5000f;
 
     private void Start()
     {
@@ -31,7 +32,7 @@ public class Laser : MonoBehaviour
         }
         else
         {
-            lineRenderer.SetPosition(1, transform.forward * 5000);
+            lineRenderer.SetPosition(1, transform.forward * length);
         }
     }
 }

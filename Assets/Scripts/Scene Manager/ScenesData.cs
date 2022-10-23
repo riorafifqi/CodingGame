@@ -7,7 +7,7 @@ public class ScenesData : ScriptableObject
 {
     public List<Level> levels = new List<Level>();
     public List<MainMenuSO> menus = new List<MainMenuSO>();
-    public int CurrentLevelIndex = 1;
+    public int CurrentLevelIndex = 0;
 
     public void LoadLevelWithIndex(int index)
     {
@@ -15,12 +15,18 @@ public class ScenesData : ScriptableObject
         {
             SceneManager.LoadSceneAsync("Level_" + index.ToString());
         }
-        else CurrentLevelIndex = 1;
+        else CurrentLevelIndex = 0;
+    }
+
+    public void LoadLevelWithLevel(Level lvl)
+    {
+        Debug.Log(lvl.sceneName);
+        SceneManager.LoadSceneAsync(lvl.sceneName);
     }
 
     public void LoadNextLevel()
     {
-        CurrentLevelIndex++;
+        UnlockNextLevel();
         LoadLevelWithIndex(CurrentLevelIndex);
     }
 
@@ -37,5 +43,11 @@ public class ScenesData : ScriptableObject
     public void LoadPauseMenu()
     {
         SceneManager.LoadSceneAsync(menus[(int)MenuType.PauseMenu].sceneName);
+    }
+
+    public void UnlockNextLevel()
+    {
+        CurrentLevelIndex++;
+        levels[CurrentLevelIndex].status = Status.unlocked;
     }
 }

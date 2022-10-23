@@ -46,6 +46,7 @@ public class LevelItem : MonoBehaviour
 
     public void SelectLevel()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.menu_selection));
         GetComponentInParent<LevelSelectManager>().selectedLevel = level;
         FindObjectOfType<LevelInspector>().UpdateUI();
     }

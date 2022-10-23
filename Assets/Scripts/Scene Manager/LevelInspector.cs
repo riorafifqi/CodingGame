@@ -58,4 +58,11 @@ public class LevelInspector : MonoBehaviour
             locked.SetActive(false);
         }
     }
+
+    public void PlayLevel()
+    {
+        SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.confirm));
+        SoundManager.Instance.StopMusic();
+        lsm.levelDatabase.LoadLevelWithLevel(level);
+    }
 }
