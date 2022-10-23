@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level 16
   m_EditorClassIdentifier: 
   sceneName: Level_16
-  shortDesc: 
+  shortDesc: 3 Virus - 2 Moveable Footing - 2 Corrupt tiless - 1 Laser - 1 Switch
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
   levelThumbnail: {fileID: 21300000, guid: dfadec29fe708e346aa1e783850d6740, type: 3}
