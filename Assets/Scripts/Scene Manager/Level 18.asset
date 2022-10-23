@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Level 18
   m_EditorClassIdentifier: 
   sceneName: Level_18
-  shortDesc: 
+  shortDesc: Virus 3X | Switch 2X | Moveable Tiles |Corrupt 2X|
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
-  levelThumbnail: {fileID: 21300000, guid: 76eb1eff93976874d953c5a0f94fa561, type: 3}
+  levelThumbnail: {fileID: 21300000, guid: 5c073f69655cefd4e9e3eb3d671dd443, type: 3}
   scores:
   - name: 
     totalLine: 0
