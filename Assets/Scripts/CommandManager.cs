@@ -7,7 +7,7 @@ public class CommandManager : MonoBehaviour
     public Console console;
 
     public Stopwatch stopwatch;
-
+    GameManager gameManager;
 
     public int currentCommandIndex;
 
@@ -15,6 +15,7 @@ public class CommandManager : MonoBehaviour
     {
         stopwatch = GetComponent<Stopwatch>();
         movement = GameObject.Find("Player").GetComponent<Movement>();
+        gameManager = GetComponent<GameManager>();
     }
 
     private void Start()
@@ -39,7 +40,8 @@ public class CommandManager : MonoBehaviour
         stopwatch.ResetStopwatch();
         stopwatch.StartStopwatch();
 
-        movement.ResetPosition();
+        gameManager.ResetLevel();
+
         currentCommandIndex = 0;
         console.isFinish = false;
 
