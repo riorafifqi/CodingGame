@@ -232,9 +232,12 @@ public class Movement : MonoBehaviour
 
     public void CheckGround()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, distToGround))
+        
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround))
         {
-            isGrounded = true;
+            if(hit.collider.tag != "Enemy")
+                isGrounded = true;
         }
         else
         {
