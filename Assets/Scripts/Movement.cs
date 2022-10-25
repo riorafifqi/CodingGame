@@ -75,8 +75,9 @@ public class Movement : MonoBehaviour
                 return;
             }
 
-            if (transform)
+            if (isGrounded)
                 transform.position = Vector3.MoveTowards(transform.position, targetPos, movingSpeed * Time.deltaTime);
+            isJumping = false;
 
             return;
         }
