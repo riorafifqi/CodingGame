@@ -350,6 +350,7 @@ MonoBehaviour:
   commandClass: 
   commandMethod: 
   commandParams: 
+  resetButton: {fileID: 0}
   isFinish: 0
   first: {r: 0, g: 0, b: 0, a: 0}
   number: {r: 0, g: 0, b: 0, a: 0}
@@ -2127,6 +2128,26 @@ PrefabInstance:
     - target: {fileID: 3107201205007551497, guid: 748eb049994008c428809fa6cdd189b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107201205007551500, guid: 748eb049994008c428809fa6cdd189b7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107201205007551500, guid: 748eb049994008c428809fa6cdd189b7, type: 3}
+      propertyPath: m_Size.z
+      value: 0.37322605
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107201205007551500, guid: 748eb049994008c428809fa6cdd189b7, type: 3}
+      propertyPath: m_Center.x
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107201205007551500, guid: 748eb049994008c428809fa6cdd189b7, type: 3}
+      propertyPath: m_Center.y
+      value: 0.15000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107201205007551500, guid: 748eb049994008c428809fa6cdd189b7, type: 3}
+      propertyPath: m_Center.z
+      value: 0.09273881
       objectReference: {fileID: 0}
     - target: {fileID: 3107201205007551501, guid: 748eb049994008c428809fa6cdd189b7, type: 3}
       propertyPath: m_Name
@@ -4726,6 +4747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isVirusGone: 0
   Viruses: []
+  interactables: []
   legalCommands:
   - Move.Forward()
   - Move.Backward()
