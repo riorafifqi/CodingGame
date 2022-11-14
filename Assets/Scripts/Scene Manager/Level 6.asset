@@ -16,7 +16,7 @@ MonoBehaviour:
   shortDesc: Virus 3X|JumpTile 4X
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
-  levelThumbnail: {fileID: 21300000, guid: c035c991d28ceee4ab18afcffab60524, type: 3}
+  levelThumbnail: {fileID: 21300000, guid: 00885d6c8072a7f4ea47f242fb71e14f, type: 3}
   scores:
   - name: 
     totalLine: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   shortDesc: Virus 3X | Switch 2X | Moveable Tiles |Corrupt 2X|
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
-  levelThumbnail: {fileID: 21300000, guid: 5c073f69655cefd4e9e3eb3d671dd443, type: 3}
+  levelThumbnail: {fileID: 21300000, guid: 5faf5c9099a243046956f5f14df02bc5, type: 3}
   scores:
   - name: 
     totalLine: 0

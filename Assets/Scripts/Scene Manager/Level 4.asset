@@ -16,7 +16,7 @@ MonoBehaviour:
   shortDesc: Virus 3X
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
-  levelThumbnail: {fileID: 21300000, guid: 52082bf65cefaeb438d17466ccb336fd, type: 3}
+  levelThumbnail: {fileID: 21300000, guid: d44963e8eab8c564385387503f54434e, type: 3}
   scores:
   - name: 
     totalLine: 0
