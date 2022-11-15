@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
-    public void OnClickConnect()
+    public void Start()
     {
         PhotonNetwork.NickName = MainMenuManager.playerUsername;
         PhotonNetwork.ConnectUsingSettings();

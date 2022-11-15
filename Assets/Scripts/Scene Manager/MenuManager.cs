@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class MenuManager : MonoBehaviour
         PlayOpenMenuSound();
         levelSelectPanel.SetActive(!levelSelectPanel.activeSelf);
         levelSelectPanel.GetComponent<RectTransform>().localPosition = Vector3.zero;
+    }
+
+    public void PlayMultiplayerButton()
+    {
+        SceneManager.LoadScene("MultiplayerLoadingScreen");
     }
 
     public void SettingButton()

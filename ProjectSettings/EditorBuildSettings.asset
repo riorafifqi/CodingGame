@@ -65,4 +65,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level/Level_19.unity
     guid: 44fb59de89f698e458302fe949114ee4
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLoadingScreen.unity
+    guid: 632ce1869fab80844909c5bf8169f055
+  - enabled: 1
+    path: Assets/Scenes/MultiPlayerMainMenu.unity
+    guid: 3a380733cbf24d84f9356c4e583a6394
   m_configObjects: {}

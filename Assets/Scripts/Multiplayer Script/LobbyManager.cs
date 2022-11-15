@@ -16,9 +16,15 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     string legalChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+    public List<PlayerItem> playerItemsList = new List<PlayerItem>();
+    public PlayerItem playerItemPrefab;
+    public Transform playerItemParent;
+
     private void Start()
     {
         PhotonNetwork.JoinLobby();
+        lobbyPanel.SetActive(true);
+        roomPanel.SetActive(false);
     }
 
     public void OnClickCreate()
@@ -71,6 +77,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         roomPanel.SetActive(true);
         
         roomCodeUI.text = PhotonNetwork.CurrentRoom.Name;
+        UpdatePlayerList();
     }
 
     public override void OnLeftRoom()
@@ -93,5 +100,38 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         base.OnConnectedToMaster();
         PhotonNetwork.JoinLobby();
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        base.OnPlayerEnteredRoom(newPlayer);
+
+        UpdatePlayerList();
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        base.OnPlayerLeftRoom(otherPlayer);
+
+        UpdatePlayerList();
+    }
+
+    private void UpdatePlayerList()
+    {
+        // Destroy all playerItem in list
+        foreach (PlayerItem item in playerItemsList)
+        {
+            Destroy(item.gameObject);
+        }
+        playerItemsList.Clear();
+
+        if (PhotonNetwork.CurrentRoom == null)
+            return;
+
+        foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
+        {
+            PlayerItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
+            playerItemsList.Add(newPlayerItem);
+        }
     }
 }
