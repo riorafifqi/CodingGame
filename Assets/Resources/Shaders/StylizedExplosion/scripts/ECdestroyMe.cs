@@ -9,7 +9,7 @@ public class ECdestroyMe : MonoBehaviour{
 
 	// Use this for initialization
 	void Start () {
-	
+		StartCoroutine(FindObjectOfType<CameraController>().ShakeCam());
 	}
 	
 	// Update is called once per frame
