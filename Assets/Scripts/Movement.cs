@@ -1,5 +1,7 @@
+using Photon.Pun;
 using System.Collections;
 using UnityEngine;
+using Photon.Pun;
 
 public class Movement : MonoBehaviour
 {
@@ -35,6 +37,8 @@ public class Movement : MonoBehaviour
     [SerializeField] CommandManager commandManager;
     public GameObject explosion;
 
+    [HideInInspector] public PhotonView view;
+
     void Start()
     {
         //this.transform.position = new Vector3(0, 0.5f, 0);
@@ -49,6 +53,8 @@ public class Movement : MonoBehaviour
         playerPositionOnStart = transform.position;
         playerRotationOnStart = transform.rotation;
         distToGround = collider.bounds.extents.y;
+
+        view = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame

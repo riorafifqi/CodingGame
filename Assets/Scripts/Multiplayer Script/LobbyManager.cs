@@ -194,6 +194,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickStart()
     {
-        Debug.Log("Starting Game");
+        PhotonNetwork.LoadLevel("Multiplayer_Test_Level");
     }
 }

@@ -1,20 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManagerMultiplayer : MonoBehaviour
 {
     public bool isVirusGone;
     public List<GameObject> Viruses;
-    public List<GameObject> interactables;
+    public List<GameObject> interactables; 
 
     public List<string> legalCommands;
 
-    [HideInInspector] public CommandManager commandManager;
+    [HideInInspector] public CommandManagerMultiplayer commandManager;
     public Level levelData;
 
     private void Awake()
     {
-        commandManager = GetComponent<CommandManager>();
+        commandManager = GetComponent<CommandManagerMultiplayer>();
     }
 
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         isVirusGone = false;
         Viruses.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         interactables.AddRange(GameObject.FindGameObjectsWithTag("Interactable"));
-
+        
     }
 
     // Update is called once per frame
@@ -61,6 +61,9 @@ public class GameManager : MonoBehaviour
 
     public void ResetLevel()
     {
+        if (commandManager.view)
+            return;
+
         isVirusGone = false;
         foreach (GameObject virus in Viruses)
         {

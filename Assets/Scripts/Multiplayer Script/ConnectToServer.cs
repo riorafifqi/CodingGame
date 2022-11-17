@@ -9,6 +9,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public void Start()
     {
         PhotonNetwork.NickName = MainMenuManager.playerUsername;
+        PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
     }
 

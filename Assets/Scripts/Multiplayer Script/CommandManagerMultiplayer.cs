@@ -1,26 +1,39 @@
 using System.Collections;
 using UnityEngine;
+using Photon.Pun;
 
-public class CommandManager : MonoBehaviour
+public class CommandManagerMultiplayer : MonoBehaviour
 {
     public Movement movement;
     public Console console;
 
     public Stopwatch stopwatch;
-    GameManager gameManager;
+    GameManagerMultiplayer gameManager;
 
     public int currentCommandIndex;
+
+    [HideInInspector] public PhotonView view;
 
     private void Awake()
     {
         stopwatch = GetComponent<Stopwatch>();
-        movement = GameObject.Find("Player").GetComponent<Movement>();
-        gameManager = GetComponent<GameManager>();
+        gameManager = GetComponent<GameManagerMultiplayer>();
     }
 
     private void Start()
     {
         SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.level));
+
+        Debug.Log(GameObject.FindGameObjectsWithTag("Player").Length);
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            view = player.GetComponent<PhotonView>();
+            if (view.IsMine)
+            {
+                movement = view.gameObject.GetComponent<Movement>();
+                return;
+            }
+        }
     }
 
     private void Update()
@@ -33,23 +46,23 @@ public class CommandManager : MonoBehaviour
 
     public void OnPressRunCommand()     // On first time running command
     {
-        SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.confirm));
+        if (view.IsMine)
+        {
+            SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.confirm));
 
-        StopAllCoroutines();
+            StopAllCoroutines();
 
-        stopwatch.ResetStopwatch();
-        stopwatch.StartStopwatch();
+            stopwatch.ResetStopwatch();
+            stopwatch.StartStopwatch();
 
-        gameManager.ResetLevel();
+            currentCommandIndex = 0;
+            console.isFinish = false;
 
-        currentCommandIndex = 0;
-        console.isFinish = false;
+            console.SeparateByLine();
+            console.AssignCommand(currentCommandIndex);
 
-        console.SeparateByLine();
-        console.AssignCommand(currentCommandIndex);
-        StartCoroutine(RunCommand());
-
-
+            StartCoroutine(RunCommand());
+        }
     }
 
     public IEnumerator RunCommand()
