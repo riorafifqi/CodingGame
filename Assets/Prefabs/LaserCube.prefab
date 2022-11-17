@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7a50ffbd265e026468c2ade529c55938, type: 2}
+  - {fileID: 2100000, guid: b8d30a8f331400946bcfcebb5d5e73b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPoint: {fileID: 6732981862130210325}
+  length: 5000
 --- !u!4 &6364435493406692946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8022986677426120528, guid: 68a370c26715abb48bf86c685521e1fc, type: 3}

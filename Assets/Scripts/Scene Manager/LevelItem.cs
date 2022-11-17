@@ -10,8 +10,6 @@ public class LevelItem : MonoBehaviour
     public Sprite[] iconSprite;
     public GameObject selected;
 
-    public LevelInspector inspector;
-
     private void Start()
     {
         UpdateUI();
@@ -29,6 +27,7 @@ public class LevelItem : MonoBehaviour
         if (level == GetComponentInParent<LevelSelectManager>().selectedLevel)
         {
             selected.SetActive(true);
+            text.text = "<color=#000000>" + text.text + "</color>";
         }
         else
         {
@@ -45,11 +44,6 @@ public class LevelItem : MonoBehaviour
             icon.sprite = iconSprite[0];
         else
             icon.sprite = iconSprite[1];
-
-        //if (level.scores.Length > 0)
-        //    icon.sprite = iconSprite[1];
-        //else
-        //    icon.sprite = iconSprite[0];
     }
 
     public void SelectLevel()

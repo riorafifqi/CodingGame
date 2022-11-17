@@ -112,6 +112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialOn: {fileID: 2100000, guid: fcefdc451089ee64d8222c35376373a6, type: 2}
   materialOff: {fileID: 2100000, guid: c655ad0bd99523242bb143a86d106e30, type: 2}
+  lampOn: {fileID: 2100000, guid: 6f8b10d1c77f9244c90dcf344474f36a, type: 2}
+  lampOff: {fileID: 2100000, guid: c3e3af3689ebcb843b5374c60f8e9b3a, type: 2}
   isActive: 0
   affectedBlock: {fileID: 0}
 --- !u!1 &8621713569838875872
