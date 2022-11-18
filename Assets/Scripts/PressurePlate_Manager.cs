@@ -5,8 +5,6 @@ public class PressurePlate_Manager : MonoBehaviour
 {
     [SerializeField] Material materialOn;
     [SerializeField] Material materialOff;
-    [SerializeField] Material lampOn;
-    [SerializeField] Material lampOff;
 
     public bool isActive = false;
     public GameObject affectedBlock;
@@ -24,12 +22,10 @@ public class PressurePlate_Manager : MonoBehaviour
         if (isActive)
         {
             this.GetComponent<Renderer>().material = materialOn;
-            affectedBlock.GetComponent<Renderer>().material = lampOn;
         }
         else
         {
             this.GetComponent<Renderer>().material = materialOff;
-            affectedBlock.GetComponent<Renderer>().material = lampOff;
         }
     }
 
