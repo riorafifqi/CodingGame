@@ -4326,6 +4326,7 @@ GameObject:
   - component: {fileID: 1126474104}
   - component: {fileID: 1126474105}
   - component: {fileID: 1126474106}
+  - component: {fileID: 1126474107}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -4416,9 +4417,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - <b>What</b>
-    - the
-    - heck
+    - hi cypher...
+    - kau sudah tau kan tujuanku kesini ngapain?
+    - ...
+    - ...
+    - Kau bisa menggunakan code <b>Interact.Push()</b> untuk mendorong balok <color="blue">biru</color>
+      itu
+    - Nantinya balok itu dapat menjadi pijakan lompatmu menggapai virus diatas sana
+    - ...
+    - apa? aku terdengar sarkas?
+    - hanya imajinasimu saja
+    - cepat hancurkan <color="red>virus - virus</color> itu
 --- !u!114 &1126474106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4432,6 +4441,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 1844379855}
+--- !u!114 &1126474107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126474100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a8a736e09f908447b65dd5356989895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1128972071
 GameObject:
   m_ObjectHideFlags: 0
@@ -6943,7 +6964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460767321750, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 67.535
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460767321750, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.y

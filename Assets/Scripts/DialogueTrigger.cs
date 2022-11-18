@@ -11,6 +11,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         Debug.Log("Triggered");
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        FindObjectOfType<PlayableDirector>().playableGraph.GetRootPlayable(0).SetSpeed(0);
+        if(FindObjectOfType<PlayableDirector>() != null)
+            FindObjectOfType<PlayableDirector>().playableGraph.GetRootPlayable(0).SetSpeed(0);
     }
 }

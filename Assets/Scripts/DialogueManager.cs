@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Playables;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         dialogueAnimator = GameObject.Find("DialogueBox").GetComponent<Animator>();
+        GameObject.Find("DialogButton").GetComponent<Button>().onClick.AddListener( delegate{ DisplayNextDialogue(); });
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -69,7 +71,8 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        FindObjectOfType<PlayableDirector>().playableGraph.GetRootPlayable(0).SetSpeed(1);
+        if (FindObjectOfType<PlayableDirector>() != null)
+            FindObjectOfType<PlayableDirector>().playableGraph.GetRootPlayable(0).SetSpeed(1);
         dialogueAnimator.SetBool("IsOpen", false);
         Debug.Log("End Conversation");
     }
