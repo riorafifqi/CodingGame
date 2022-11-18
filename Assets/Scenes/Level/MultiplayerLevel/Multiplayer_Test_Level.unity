@@ -1208,6 +1208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothing: 5
+  target: {fileID: 0}
 --- !u!1 &238712246
 GameObject:
   m_ObjectHideFlags: 0
@@ -7018,6 +7019,7 @@ GameObject:
   - component: {fileID: 1126474105}
   - component: {fileID: 1126474106}
   - component: {fileID: 1126474107}
+  - component: {fileID: 1126474110}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -7149,6 +7151,28 @@ MonoBehaviour:
   selfCamera: {fileID: 195069910}
   otherCamera: {fileID: 1737646324}
   consolePanel: {fileID: 1782558859}
+--- !u!114 &1126474110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126474100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1128972071
 GameObject:
   m_ObjectHideFlags: 0
@@ -10707,6 +10731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothing: 5
+  target: {fileID: 0}
 --- !u!1001 &1739862975
 PrefabInstance:
   m_ObjectHideFlags: 0

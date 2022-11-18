@@ -15,6 +15,7 @@ public class CommandManagerMultiplayer : CommandManager
     public new int currentCommandIndex;
 
     [HideInInspector] public PhotonView view;
+    PhotonView commandManagerView;
 
     public Camera selfCamera;
     public Camera otherCamera;
@@ -24,6 +25,7 @@ public class CommandManagerMultiplayer : CommandManager
     {
         stopwatch = GetComponent<Stopwatch>();
         gameManager = GetComponent<GameManagerMultiplayer>();
+        commandManagerView = GetComponent<PhotonView>();
     }
 
     private void Start()
@@ -46,21 +48,8 @@ public class CommandManagerMultiplayer : CommandManager
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.confirm));
 
-        StopAllCoroutines();
-
-        StartCoroutine(CameraChange());
-        // CameraSplit();
-
-        stopwatch.ResetStopwatch();
-        stopwatch.StartStopwatch();
-
-        currentCommandIndex = 0;
-        console.isFinish = false;
-
-        console.SeparateByLine();
-        console.AssignCommand(currentCommandIndex);
-
-        StartCoroutine(RunCommand());
+        if(view.IsMine)
+            commandManagerView.RPC("StartCommandRPC", RpcTarget.All);
     }
 
     public override IEnumerator RunCommand()
@@ -184,7 +173,8 @@ public class CommandManagerMultiplayer : CommandManager
         selfCamera.rect = new Rect(selfCameraChange, Vector2.one);
         otherCamera.rect = new Rect(otherCameraChange, Vector2.one);
         consolePanel.transform.position = consolePanelChange;
-        yield return null;
+        
+        yield return new WaitForSeconds(2f);
 
     }
 
@@ -228,5 +218,25 @@ public class CommandManagerMultiplayer : CommandManager
 
         // set photon view back to ours
         view = movement.GetComponent<PhotonView>();
+    }
+
+    [PunRPC]
+    public void StartCommandRPC()
+    {
+        StopAllCoroutines();
+
+        StartCoroutine(CameraChange());
+        // CameraSplit();
+
+        stopwatch.ResetStopwatch();
+        stopwatch.StartStopwatch();
+
+        currentCommandIndex = 0;
+        console.isFinish = false;
+
+        console.SeparateByLine();
+        console.AssignCommand(currentCommandIndex);
+
+        StartCoroutine(RunCommand());
     }
 }
