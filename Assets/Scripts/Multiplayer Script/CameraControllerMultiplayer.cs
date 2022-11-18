@@ -13,7 +13,7 @@ public class CameraControllerMultiplayer : MonoBehaviour
     Vector3 offset;
 
     private bool drag = false;
-    Transform target;
+    public Transform target;
 
     private void LateUpdate()
     {

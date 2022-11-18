@@ -44,14 +44,12 @@ public class CommandManagerMultiplayer : CommandManager
 
     public override void OnPressRunCommand()     // On first time running command
     {
-        Debug.Log("Running");
-
         SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.confirm));
 
         StopAllCoroutines();
 
-        //StartCoroutine(CameraChange());
-        CameraSplit();
+        StartCoroutine(CameraChange());
+        // CameraSplit();
 
         stopwatch.ResetStopwatch();
         stopwatch.StartStopwatch();
@@ -62,8 +60,7 @@ public class CommandManagerMultiplayer : CommandManager
         console.SeparateByLine();
         console.AssignCommand(currentCommandIndex);
 
-        if(view.IsMine)
-            StartCoroutine(RunCommand());
+        StartCoroutine(RunCommand());
     }
 
     public override IEnumerator RunCommand()
@@ -79,74 +76,77 @@ public class CommandManagerMultiplayer : CommandManager
             Debug.Log(console.commandClass);
         }
 
-        switch (console.commandClass)
+        if (view.IsMine)
         {
-            case "Move":
-                if (console.commandMethod.Contains("Forward"))
-                {
-                    if (console.commandParams != "")
-                        movement.MoveForward(int.Parse(console.commandParams));
+            switch (console.commandClass)
+            {
+                case "Move":
+                    if (console.commandMethod.Contains("Forward"))
+                    {
+                        if (console.commandParams != "")
+                            movement.MoveForward(int.Parse(console.commandParams));
+                        else
+                            movement.MoveForward(1);
+                    }
+                    else if (console.commandMethod.Contains("Backward"))
+                    {
+                        if (console.commandParams != "")
+                            movement.MoveBackward(int.Parse(console.commandParams));
+                        else
+                            movement.MoveBackward(1);
+                    }
                     else
-                        movement.MoveForward(1);
-                }
-                else if (console.commandMethod.Contains("Backward"))
-                {
+                    {
+                        Debug.LogError("Invalid Method");
+                    }
+                    break;
+                case "Rotate":
+                    if (console.commandMethod.Contains("Right"))
+                    {
+                        StopAllCoroutines();
+                        if (console.commandParams != "")
+                            StartCoroutine(movement.RotateRight(int.Parse(console.commandParams)));
+                        else
+                            StartCoroutine(movement.RotateRight(1));
+                    }
+                    else if (console.commandMethod.Contains("Left"))
+                    {
+                        StopAllCoroutines();
+                        if (console.commandParams != "")
+                            StartCoroutine(movement.RotateLeft(int.Parse(console.commandParams)));
+                        else
+                            StartCoroutine(movement.RotateLeft(1));
+                    }
+                    break;
+                case "Jump":
+                    movement.Jump();
+                    break;
+                case "Interact":
+                    if (console.commandMethod.Contains("Push"))
+                    {
+                        if (console.commandParams != "")
+                            movement.Push(int.Parse(console.commandParams));
+                        else
+                            movement.Push(1);
+                    }
+                    else if (console.commandMethod.Contains("Press()"))
+                    {
+                        movement.Press();
+                    }
+                    break;
+                case "":
+                    movement.Empty();
+                    break;
+                case "Wait":
                     if (console.commandParams != "")
-                        movement.MoveBackward(int.Parse(console.commandParams));
+                        StartCoroutine(movement.Wait(int.Parse(console.commandParams)));
                     else
-                        movement.MoveBackward(1);
-                }
-                else
-                {
-                    Debug.LogError("Invalid Method");
-                }
-                break;
-            case "Rotate":
-                if (console.commandMethod.Contains("Right"))
-                {
-                    StopAllCoroutines();
-                    if (console.commandParams != "")
-                        StartCoroutine(movement.RotateRight(int.Parse(console.commandParams)));
-                    else
-                        StartCoroutine(movement.RotateRight(1));
-                }
-                else if (console.commandMethod.Contains("Left"))
-                {
-                    StopAllCoroutines();
-                    if (console.commandParams != "")
-                        StartCoroutine(movement.RotateLeft(int.Parse(console.commandParams)));
-                    else
-                        StartCoroutine(movement.RotateLeft(1));
-                }
-                break;
-            case "Jump":
-                movement.Jump();
-                break;
-            case "Interact":
-                if (console.commandMethod.Contains("Push"))
-                {
-                    if (console.commandParams != "")
-                        movement.Push(int.Parse(console.commandParams));
-                    else
-                        movement.Push(1);
-                }
-                else if (console.commandMethod.Contains("Press()"))
-                {
-                    movement.Press();
-                }
-                break;
-            case "":
-                movement.Empty();
-                break;
-            case "Wait":
-                if (console.commandParams != "")
-                    StartCoroutine(movement.Wait(int.Parse(console.commandParams)));
-                else
-                    StartCoroutine(movement.Wait(0));
-                break;
-            default:
-                Debug.Log("Command Error");
-                break;
+                        StartCoroutine(movement.Wait(0));
+                    break;
+                default:
+                    Debug.Log("Command Error");
+                    break;
+            }
         }
     }
 
@@ -225,5 +225,8 @@ public class CommandManagerMultiplayer : CommandManager
                 otherController.SetTarget(movementOther.transform);
             }
         }
+
+        // set photon view back to ours
+        view = movement.GetComponent<PhotonView>();
     }
 }
