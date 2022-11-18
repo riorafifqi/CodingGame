@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Playables;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextDialogue()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.hard_click));
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -58,6 +60,7 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
+                SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.soft_click));
                 dialogueText.text += letter;
                 yield return null;
             }
@@ -66,6 +69,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        FindObjectOfType<PlayableDirector>().playableGraph.GetRootPlayable(0).SetSpeed(1);
         dialogueAnimator.SetBool("IsOpen", false);
         Debug.Log("End Conversation");
     }
