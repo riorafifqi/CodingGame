@@ -1,0 +1,219 @@
+fileFormatVersion: 2
+guid: 3b2a557cc8c926e47a7a81189edc8364
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: -2704926941569432891
+    second: Armature|Armature.001|Armature|Idle
+  - first:
+      74: -17888209324810535
+    second: Armature|Armature.001|Armature|Jump
+  - first:
+      74: 9154761522517176248
+    second: Armature|Armature.001|Armature|Push
+  - first:
+      74: 214570594861550213
+    second: Armature|Armature.001|Armature|T-Pose
+  - first:
+      74: 4243446999320161055
+    second: Armature|Armature.001|Armature|Turn
+  - first:
+      74: 2221304354760095767
+    second: Armature|Armature.001|Armature|Turn.001
+  - first:
+      74: -8662892234934935339
+    second: Armature|Armature.001|Armature|Walk
+  - first:
+      74: -8317118206486585002
+    second: Armature|Armature|Armature|Armature|Armature|Idle
+  - first:
+      74: -3632340029879671667
+    second: Armature|Armature|Armature|Armature|Armature|Jump
+  - first:
+      74: 3610816358387760197
+    second: Armature|Armature|Armature|Armature|Armature|Push
+  - first:
+      74: -1628839236657747860
+    second: Armature|Armature|Armature|Armature|Armature|T-Pose
+  - first:
+      74: -7373781036229126865
+    second: Armature|Armature|Armature|Armature|Armature|Turn
+  - first:
+      74: -166661272899063961
+    second: Armature|Armature|Armature|Armature|Armature|Turn.001
+  - first:
+      74: 4796936861470670586
+    second: Armature|Armature|Armature|Armature|Armature|Walk
+  - first:
+      74: 9003578906191587930
+    second: Armature|Armature|Armature|Idle
+  - first:
+      74: -3968001693889913642
+    second: Armature|Armature|Armature|Jump
+  - first:
+      74: -1755303255943633935
+    second: Armature|Armature|Armature|Push
+  - first:
+      74: -7283653814647611451
+    second: Armature|Armature|Armature|T-Pose
+  - first:
+      74: 3858261738139987128
+    second: Armature|Armature|Armature|Turn
+  - first:
+      74: -4844758081313626947
+    second: Armature|Armature|Armature|Turn.001
+  - first:
+      74: -8009762979154779912
+    second: Armature|Armature|Armature|Walk
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Antenna
+    second: {fileID: 2100000, guid: 713c5dbad689e5b439281083cf04bfa5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bag.001
+    second: {fileID: 2100000, guid: 32b5399d39eaecd4096c812c4198ca11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BigEars.001
+    second: {fileID: 2100000, guid: 8aa3e2f34fc2d824eb1547725f531045, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chassis.001
+    second: {fileID: 2100000, guid: b9a1c2a07d3c98a41a4cc8634c5b3ee7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ears
+    second: {fileID: 2100000, guid: 823903b7a2ec5274bb8415046763d174, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face.001
+    second: {fileID: 2100000, guid: 7c9fc62c64695654c8399de2194cb7cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hat
+    second: {fileID: 2100000, guid: 91ebe87531f82904083fff004f147f61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Neon Green
+    second: {fileID: 2100000, guid: 3bbdb7284d8c05f4b97f3443b268b319, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red
+    second: {fileID: 2100000, guid: dcebedd1527c70846932b6eaf514df9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red Emission
+    second: {fileID: 2100000, guid: ee08dff60fbd98244946233bad138fe0, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
