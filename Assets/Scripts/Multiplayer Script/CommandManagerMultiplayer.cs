@@ -5,14 +5,10 @@ using Photon.Pun.Demo.Procedural;
 
 public class CommandManagerMultiplayer : CommandManager
 {
-    public new Movement movement;   // our player movement
-    public new Movement movementOther;  // second player movement
-    public new Console console;
+    public MovementMultiplayer movementMine;
+    public MovementMultiplayer movementOther;  // second player movement, first player in CommandManager
 
-    public new Stopwatch stopwatch;
     GameManagerMultiplayer gameManager;
-
-    public new int currentCommandIndex;
 
     [HideInInspector] public PhotonView view;
     PhotonView commandManagerView;
@@ -72,67 +68,77 @@ public class CommandManagerMultiplayer : CommandManager
                 case "Move":
                     if (console.commandMethod.Contains("Forward"))
                     {
+                        Debug.Log("Move Forward");
                         if (console.commandParams != "")
-                            movement.MoveForward(int.Parse(console.commandParams));
+                            movementMine.MoveForward(int.Parse(console.commandParams));
                         else
-                            movement.MoveForward(1);
+                            movementMine.MoveForward(1);
                     }
                     else if (console.commandMethod.Contains("Backward"))
                     {
+                        Debug.Log("Move Backward");
                         if (console.commandParams != "")
-                            movement.MoveBackward(int.Parse(console.commandParams));
+                            movementMine.MoveBackward(int.Parse(console.commandParams));
                         else
-                            movement.MoveBackward(1);
+                            movementMine.MoveBackward(1);
                     }
                     else
                     {
+                        console.isFinish = true;
                         Debug.LogError("Invalid Method");
                     }
                     break;
                 case "Rotate":
                     if (console.commandMethod.Contains("Right"))
                     {
+                        Debug.Log("Rotating Right");
                         StopAllCoroutines();
                         if (console.commandParams != "")
-                            StartCoroutine(movement.RotateRight(int.Parse(console.commandParams)));
+                            StartCoroutine(movementMine.RotateRight(int.Parse(console.commandParams)));
                         else
-                            StartCoroutine(movement.RotateRight(1));
+                            StartCoroutine(movementMine.RotateRight(1));
                     }
                     else if (console.commandMethod.Contains("Left"))
                     {
+                        Debug.Log("Rotating Left");
                         StopAllCoroutines();
                         if (console.commandParams != "")
-                            StartCoroutine(movement.RotateLeft(int.Parse(console.commandParams)));
+                            StartCoroutine(movementMine.RotateLeft(int.Parse(console.commandParams)));
                         else
-                            StartCoroutine(movement.RotateLeft(1));
+                            StartCoroutine(movementMine.RotateLeft(1));
                     }
+                    else
+                        console.isFinish = true;
                     break;
                 case "Jump":
-                    movement.Jump();
+                    Debug.Log("Is Jumping");
+                    movementMine.Jump();
                     break;
                 case "Interact":
                     if (console.commandMethod.Contains("Push"))
                     {
+                        Debug.Log("Pushing");
                         if (console.commandParams != "")
-                            movement.Push(int.Parse(console.commandParams));
+                            movementMine.view.RPC("PushRPC", RpcTarget.All, int.Parse(console.commandParams));
                         else
-                            movement.Push(1);
+                            movementMine.view.RPC("PushRPC", RpcTarget.All, 1);
                     }
                     else if (console.commandMethod.Contains("Press()"))
                     {
-                        movement.Press();
+                        movementMine.Press();
                     }
                     break;
                 case "":
-                    movement.Empty();
+                    movementMine.Empty();
                     break;
                 case "Wait":
                     if (console.commandParams != "")
-                        StartCoroutine(movement.Wait(int.Parse(console.commandParams)));
+                        StartCoroutine(movementMine.Wait(int.Parse(console.commandParams)));
                     else
-                        StartCoroutine(movement.Wait(0));
+                        StartCoroutine(movementMine.Wait(0));
                     break;
                 default:
+                    console.isFinish = true;
                     Debug.Log("Command Error");
                     break;
             }
@@ -141,15 +147,18 @@ public class CommandManagerMultiplayer : CommandManager
 
     public override void NextCommand()
     {
-        if (currentCommandIndex == console.lineCount - 1)
+        if (view.IsMine)
         {
-            console.isFinish = true;
-            return;
-        }
+            if (currentCommandIndex == console.lineCount - 1)
+            {
+                console.isFinish = true;
+                return;
+            }
 
-        currentCommandIndex++;
-        console.AssignCommand(currentCommandIndex);
-        StartCoroutine(this.RunCommand());
+            movementMine.currentCommandIndex++;
+            console.AssignCommand(movementMine.currentCommandIndex);
+            StartCoroutine(this.RunCommand());
+        }
     }
 
     IEnumerator CameraChange()
@@ -198,16 +207,16 @@ public class CommandManagerMultiplayer : CommandManager
             view = player.GetComponent<PhotonView>();
             if (view.IsMine)    // if this is our player
             {
-                movement = view.gameObject.GetComponent<Movement>();
+                movementMine = view.gameObject.GetComponent<MovementMultiplayer>();
                 Transform selfCameraParent = selfCamera.transform.parent;
-                selfCameraParent.transform.localPosition = new Vector3(movement.transform.localPosition.x, 0.5f, movement.transform.localPosition.z);
+                selfCameraParent.transform.localPosition = new Vector3(movementMine.transform.localPosition.x, 0.5f, movementMine.transform.localPosition.z);
 
                 CameraControllerMultiplayer selfController = selfCameraParent.GetComponent<CameraControllerMultiplayer>();
-                selfController.SetTarget(movement.transform);
+                selfController.SetTarget(movementMine.transform);
             }
             else if (view.IsMine == false)   // if this is enemy player
             {
-                movementOther = view.gameObject.GetComponent<Movement>();
+                movementOther = view.gameObject.GetComponent<MovementMultiplayer>();
                 Transform otherCameraParent = otherCamera.transform.parent;
                 otherCameraParent.transform.localPosition = new Vector3(movementOther.transform.localPosition.x, 0.5f, movementOther.transform.localPosition.z);
 
@@ -217,7 +226,7 @@ public class CommandManagerMultiplayer : CommandManager
         }
 
         // set photon view back to ours
-        view = movement.GetComponent<PhotonView>();
+        view = movementMine.GetComponent<PhotonView>();
     }
 
     [PunRPC]
@@ -235,7 +244,7 @@ public class CommandManagerMultiplayer : CommandManager
         console.isFinish = false;
 
         console.SeparateByLine();
-        console.AssignCommand(currentCommandIndex);
+        console.AssignCommand(movementMine.currentCommandIndex);
 
         StartCoroutine(RunCommand());
     }

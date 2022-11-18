@@ -1,43 +1,36 @@
 using Photon.Pun;
 using System.Collections;
 using UnityEngine;
-using Photon.Pun;
 
 public class Movement : MonoBehaviour
 {
-    Vector3 playerPositionOnStart;   // Player position when level start
-    Quaternion playerRotationOnStart;
+    protected Vector3 playerPositionOnStart;   // Player position when level start
+    protected Quaternion playerRotationOnStart;
 
     public Vector3 targetPos;
     public Vector3 startPos;
 
-    Quaternion targetRot;
-    Quaternion startRot;
+    protected float distToGround;
 
-    int amount;
-    float distToGround;
-
-    bool isMoving;
-    bool isRotating;
-    bool isPushing;
+    protected bool isMoving;
+    protected bool isRotating;
+    protected bool isPushing;
     public bool isJumping;
     public bool isGrounded;
 
-    float movingSpeed;
+    protected float movingSpeed;
     public float groundedSpeed = 3f;
     public float flyingSpeed = 1f;
 
     public float turnDuration = 0.01f;
     public float jumpForce = 10f;
 
-    [SerializeField] BoxCollider collider;
-    RaycastHit hitInfo;
-    Rigidbody rb;
+    [SerializeField] protected BoxCollider boxCollider;
+    protected RaycastHit hitInfo;
+    protected Rigidbody rb;
     public Animator animator;
-    [SerializeField] CommandManager commandManager;
+    [SerializeField] protected CommandManager commandManager;
     public GameObject explosion;
-
-    [HideInInspector] public PhotonView view;
 
     void Start()
     {
@@ -51,16 +44,14 @@ public class Movement : MonoBehaviour
         }
 
         animator = GetComponentInChildren<Animator>();
-        collider = GetComponent<BoxCollider>();
+        boxCollider = GetComponent<BoxCollider>();
 
         startPos = transform.position;
         targetPos = startPos;
 
         playerPositionOnStart = transform.position;
         playerRotationOnStart = transform.rotation;
-        distToGround = collider.bounds.extents.y;
-
-        view = GetComponent<PhotonView>();
+        distToGround = boxCollider.bounds.extents.y;
     }
 
     // Update is called once per frame
@@ -113,7 +104,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void MoveForward(int amount = 1)
+    public virtual void MoveForward(int amount = 1)
     {
         if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle"))
         {
@@ -132,7 +123,7 @@ public class Movement : MonoBehaviour
             animator.SetBool("Walk", true);
     }
 
-    public void MoveBackward(int amount = 1)
+    public virtual void MoveBackward(int amount = 1)
     {
         if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Interactable"))
         {
@@ -150,7 +141,7 @@ public class Movement : MonoBehaviour
         movingSpeed = groundedSpeed;
     }
 
-    public IEnumerator RotateLeft(int index = 1)
+    public virtual IEnumerator RotateLeft(int index = 1)
     {
         for (int i = 0; i < index; i++)
         {
@@ -169,7 +160,7 @@ public class Movement : MonoBehaviour
         commandManager.NextCommand();
     }
 
-    public IEnumerator RotateRight(int index = 1)
+    public virtual IEnumerator RotateRight(int index = 1)
     {
         for (int i = 0; i < index; i++)
         {
@@ -188,7 +179,7 @@ public class Movement : MonoBehaviour
         commandManager.NextCommand();
     }
 
-    public void Jump(float distance = 1f)
+    public virtual void Jump(float distance = 1f)
     {
         startPos = transform.position;
         targetPos = transform.position + transform.forward * distance;
@@ -206,7 +197,7 @@ public class Movement : MonoBehaviour
         animator.SetBool("Jump", true);
     }
 
-    public void Push(int amount)
+    public virtual void Push(int amount)
     {
         Push push = null;
         if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f)) 
@@ -232,18 +223,18 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void Empty()
+    public virtual void Empty()
     {
         commandManager.NextCommand();
     }
 
-    public IEnumerator Wait(int duration)
+    public virtual IEnumerator Wait(int duration)
     {
         yield return new WaitForSeconds(duration);
         commandManager.NextCommand();
     }
 
-    public void CheckGround()
+    public virtual void CheckGround()
     {
         
         RaycastHit hit;
@@ -259,7 +250,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void Press()
+    public virtual void Press()
     {
         Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f);
         Interactable interactable = hitInfo.transform.GetComponent<Interactable>();
@@ -269,7 +260,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void ResetPosition()
+    public virtual void ResetPosition()
     {
         isMoving = false;
         isRotating = false;
@@ -283,7 +274,7 @@ public class Movement : MonoBehaviour
         this.gameObject.SetActive(true);
     }
 
-    public void Death()
+    public virtual void Death()
     {
         Instantiate(explosion, transform.position, new Quaternion(0, 0, 0, 0));
         this.gameObject.SetActive(false);
@@ -297,6 +288,6 @@ public class Movement : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward);
-        Gizmos.DrawLine(transform.position, transform.position + -transform.up * (collider.bounds.extents.y + 0.01f));
+        Gizmos.DrawLine(transform.position, transform.position + -transform.up * (boxCollider.bounds.extents.y + 0.01f));
     }
 }

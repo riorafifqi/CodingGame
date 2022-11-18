@@ -22,6 +22,10 @@ public class Suggestion : MonoBehaviour
     {
         commandField = GetComponent<CommandField>();
         gameManager = FindObjectOfType<GameManager>();
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManagerMultiplayer>();
+        }
     }
 
     // Start is called before the first frame update

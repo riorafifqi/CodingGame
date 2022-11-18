@@ -1,42 +1,10 @@
 using Photon.Pun;
 using System.Collections;
 using UnityEngine;
-using Photon.Pun;
 
-public class MovementMultiplayer : MonoBehaviour
+public class MovementMultiplayer : Movement
 {
-    Vector3 playerPositionOnStart;   // Player position when level start
-    Quaternion playerRotationOnStart;
-
-    public Vector3 targetPos;
-    public Vector3 startPos;
-
-    Quaternion targetRot;
-    Quaternion startRot;
-
-    int amount;
-    float distToGround;
-
-    bool isMoving;
-    bool isRotating;
-    bool isPushing;
-    public bool isJumping;
-    public bool isGrounded;
-
-    float movingSpeed;
-    public float groundedSpeed = 3f;
-    public float flyingSpeed = 1f;
-
-    public float turnDuration = 0.01f;
-    public float jumpForce = 10f;
-
-    [SerializeField] BoxCollider collider;
-    RaycastHit hitInfo;
-    Rigidbody rb;
-    public Animator animator;
-    [SerializeField] CommandManager commandManager;
-    public GameObject explosion;
-
+    public int currentCommandIndex = 0;
     [HideInInspector] public PhotonView view;
 
     void Start()
@@ -44,17 +12,21 @@ public class MovementMultiplayer : MonoBehaviour
         //this.transform.position = new Vector3(0, 0.5f, 0);
         rb = transform.GetComponent<Rigidbody>();
 
-        commandManager = FindObjectOfType<CommandManagerMultiplayer>();
+        commandManager = GameObject.Find("Game Manager").GetComponent<CommandManager>();
+        if (commandManager == null)
+        {
+            commandManager = FindObjectOfType<CommandManagerMultiplayer>();
+        }
 
         animator = GetComponentInChildren<Animator>();
-        collider = GetComponent<BoxCollider>();
+        boxCollider = GetComponent<BoxCollider>();
 
         startPos = transform.position;
         targetPos = startPos;
 
         playerPositionOnStart = transform.position;
         playerRotationOnStart = transform.rotation;
-        distToGround = collider.bounds.extents.y;
+        distToGround = boxCollider.bounds.extents.y;
 
         view = GetComponent<PhotonView>();
     }
@@ -62,156 +34,205 @@ public class MovementMultiplayer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        CheckGround();
-
-        if (isMoving)
+        if (view.IsMine)
         {
-            if (Mathf.Abs(transform.position.x - targetPos.x) < 0.1f && Mathf.Abs(transform.position.z - targetPos.z) < 0.1f)   // if arrived
+            CheckGround();
+
+            if (isMoving)
             {
-                //Debug.Log("Achieved");
-                transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
+                if (Mathf.Abs(transform.position.x - targetPos.x) < 0.1f && Mathf.Abs(transform.position.z - targetPos.z) < 0.1f)   // if arrived
+                {
+                    //Debug.Log("Achieved");
+                    transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
 
-                isMoving = false;
-                isPushing = false;
+                    isMoving = false;
+                    isPushing = false;
 
-                animator.SetBool("Push", false);
-                animator.SetBool("Walk", false);
-                
-                if(isGrounded)    // not falling
-                    commandManager.NextCommand();
+                    animator.SetBool("Push", false);
+                    animator.SetBool("Walk", false);
+
+                    if (isGrounded)    // not falling
+                        commandManager.NextCommand();
+
+                    return;
+                }
+
+                if (isGrounded)
+                    transform.position = Vector3.MoveTowards(transform.position, targetPos, movingSpeed * Time.deltaTime);
+                isJumping = false;
 
                 return;
             }
 
             if (isGrounded)
-                transform.position = Vector3.MoveTowards(transform.position, targetPos, movingSpeed * Time.deltaTime);
-            isJumping = false;
-
-            return;
-        }
-
-        if (isGrounded)
-        {
-            if (isJumping)
             {
-                Debug.Log("Is Jumping called");
+                if (isJumping)
+                {
+                    Debug.Log("Is Jumping called");
+                    transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
+                    isJumping = false;
+                    animator.SetBool("Jump", isJumping);
+
+                    if (!JumpPlatform.isJumpingPlatform)
+                        commandManager.NextCommand();
+
+                    JumpPlatform.isJumpingPlatform = false;
+                }
+
+                return;
+            }
+        }
+    }
+
+    public override void MoveForward(int amount = 1)
+    {
+        if (view.IsMine)
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle"))
+            {
+                return;
+            }
+            else
+            {
+                targetPos = transform.position + transform.forward * amount;
+            }
+            //this.amount = amount;
+            startPos = transform.position;
+            isMoving = true;
+            movingSpeed = groundedSpeed;
+
+            if (!isPushing)
+                animator.SetBool("Walk", true);
+        }
+    }
+
+    public override void MoveBackward(int amount = 1)
+    {
+        if (view.IsMine)
+        {
+            if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Interactable"))
+            {
+                Debug.Log("There's object");
+                return;
+            }
+            else
+            {
+                targetPos = transform.position + transform.forward * amount;
+            }
+            //this.amount = amount;
+            targetPos = transform.position + transform.forward * amount * -1;
+            startPos = transform.position;
+            isMoving = true;
+            movingSpeed = groundedSpeed;
+        }
+    }
+
+    public override IEnumerator RotateLeft(int index = 1)
+    {
+        if (view.IsMine)
+        {
+            for (int i = 0; i < index; i++)
+            {
+                float startRotation = transform.eulerAngles.y;
+                float endRotation = startRotation - 90.0f;
+                float t = 0.0f;
+                while (t < turnDuration)
+                {
+                    t += Time.deltaTime;
+                    float yRotation = Mathf.Lerp(startRotation, endRotation, t / turnDuration);
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
+                    yield return null;
+                }
                 transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
-                isJumping = false;
-                animator.SetBool("Jump", isJumping);
-
-                if(!JumpPlatform.isJumpingPlatform)
-                    commandManager.NextCommand();
-
-                JumpPlatform.isJumpingPlatform = false;
             }
-
-            return;
+            commandManager.NextCommand();
         }
     }
 
-    public void MoveForward(int amount = 1)
+    public override IEnumerator RotateRight(int index = 1)
     {
-        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle"))
+        if (view.IsMine)
         {
-            return;
-        }
-        else
-        {
-            targetPos = transform.position + transform.forward * amount;
-        }
-        //this.amount = amount;
-        startPos = transform.position;
-        isMoving = true;
-        movingSpeed = groundedSpeed;
-
-        if (!isPushing)
-            animator.SetBool("Walk", true);
-    }
-
-    public void MoveBackward(int amount = 1)
-    {
-        if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Interactable"))
-        {
-            Debug.Log("There's object");
-            return;
-        }
-        else
-        {
-            targetPos = transform.position + transform.forward * amount;
-        }
-        //this.amount = amount;
-        targetPos = transform.position + transform.forward * amount * -1;
-        startPos = transform.position;
-        isMoving = true;
-        movingSpeed = groundedSpeed;
-    }
-
-    public IEnumerator RotateLeft(int index = 1)
-    {
-        for (int i = 0; i < index; i++)
-        {
-            float startRotation = transform.eulerAngles.y;
-            float endRotation = startRotation - 90.0f;
-            float t = 0.0f;
-            while (t < turnDuration)
+            for (int i = 0; i < index; i++)
             {
-                t += Time.deltaTime;
-                float yRotation = Mathf.Lerp(startRotation, endRotation, t / turnDuration);
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
-                yield return null;
+                float startRotation = transform.eulerAngles.y;
+                float endRotation = startRotation + 90.0f;
+                float t = 0.0f;
+                while (t < turnDuration)
+                {
+                    t += Time.deltaTime;
+                    float yRotation = Mathf.Lerp(startRotation, endRotation, t / turnDuration);
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
+                    yield return null;
+                }
+                transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
             }
-            transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
+            commandManager.NextCommand();
         }
-        commandManager.NextCommand();
+        
     }
 
-    public IEnumerator RotateRight(int index = 1)
+    public override void Jump(float distance = 1f)
     {
-        for (int i = 0; i < index; i++)
+        if (view.IsMine)
         {
-            float startRotation = transform.eulerAngles.y;
-            float endRotation = startRotation + 90.0f;
-            float t = 0.0f;
-            while (t < turnDuration)
-            {
-                t += Time.deltaTime;
-                float yRotation = Mathf.Lerp(startRotation, endRotation, t / turnDuration);
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
-                yield return null;
-            }
-            transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
+            startPos = transform.position;
+            targetPos = transform.position + transform.forward * distance;
+
+            float maxHeight = 2f;
+            float maxDistance = distance;
+
+            var g = Physics.gravity.magnitude;
+            var vSpeed = Mathf.Sqrt(2 * g * maxHeight);
+            var totalTime = 2 * vSpeed / g;
+            var hSpeed = maxDistance / totalTime;
+
+            rb.velocity = transform.forward * hSpeed + transform.up * vSpeed;
+
+            animator.SetBool("Jump", true);
         }
-        commandManager.NextCommand();
     }
 
-    public void Jump(float distance = 1f)
+    public override void Push(int amount)
     {
-        startPos = transform.position;
-        targetPos = transform.position + transform.forward * distance;
+        if (view.IsMine)
+        {
+            Push push = null;
+            if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f))
+                push = hitInfo.transform.GetComponent<Push>();
 
-        float maxHeight = 2f;
-        float maxDistance = distance;
+            /*        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 2f) && hitInfo.transform.tag == "Obstacle")
+                    {
+                        return;
+                    }*/
 
-        var g = Physics.gravity.magnitude;
-        var vSpeed = Mathf.Sqrt(2 * g * maxHeight);
-        var totalTime = 2 * vSpeed / g;
-        var hSpeed = maxDistance / totalTime;
+            if (push != null)
+            {
+                isPushing = true;
 
-        rb.velocity = transform.forward * hSpeed + transform.up * vSpeed;
-
-        animator.SetBool("Jump", true);
+                push.Pushed(push.transform.position + transform.forward * amount);
+                MoveForward(amount);
+                animator.SetBool("Push", true);
+            }
+            else
+            {
+                commandManager.NextCommand();
+                return;
+            }
+        }
     }
 
-    public void Push(int amount)
+    [PunRPC]
+    public void PushRPC(int amount)
     {
         Push push = null;
-        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f)) 
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f))
             push = hitInfo.transform.GetComponent<Push>();
 
-/*        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 2f) && hitInfo.transform.tag == "Obstacle")
-        {
-            return;
-        }*/
+        /*        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 2f) && hitInfo.transform.tag == "Obstacle")
+                {
+                    return;
+                }*/
 
         if (push != null)
         {
@@ -228,44 +249,53 @@ public class MovementMultiplayer : MonoBehaviour
         }
     }
 
-    public void Empty()
+    public override void Empty()
     {
-        commandManager.NextCommand();
+        if(view.IsMine)
+            commandManager.NextCommand();
     }
 
-    public IEnumerator Wait(int duration)
+    public override IEnumerator Wait(int duration)
     {
-        yield return new WaitForSeconds(duration);
-        commandManager.NextCommand();
-    }
-
-    public void CheckGround()
-    {
-        
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround))
+        if (view.IsMine)
         {
-            if(hit.collider.tag != "Enemy")
-                isGrounded = true;
-        }
-        else
-        {
-            isJumping = true;
-            isGrounded = false;
+            yield return new WaitForSeconds(duration);
+            commandManager.NextCommand();
         }
     }
 
-    public void Press()
+    public override void CheckGround()
     {
-        Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f);
-        Interactable interactable = hitInfo.transform.GetComponent<Interactable>();
-        if (interactable != null)
+        if (view.IsMine)
         {
-            interactable.Interact();
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround))
+            {
+                if (hit.collider.tag != "Enemy")
+                    isGrounded = true;
+            }
+            else
+            {
+                isJumping = true;
+                isGrounded = false;
+            }
         }
     }
 
-    public void ResetPosition()
+    public override void Press()
+    {
+        if (view.IsMine)
+        {
+            Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f);
+            Interactable interactable = hitInfo.transform.GetComponent<Interactable>();
+            if (interactable != null)
+            {
+                interactable.Interact();
+            }
+        }        
+    }
+
+    public override void ResetPosition()
     {
         isMoving = false;
         isRotating = false;
@@ -279,20 +309,22 @@ public class MovementMultiplayer : MonoBehaviour
         this.gameObject.SetActive(true);
     }
 
-    public void Death()
+    public override void Death()
     {
-        Instantiate(explosion, transform.position, new Quaternion(0, 0, 0, 0));
-        this.gameObject.SetActive(false);
-        commandManager.console.isFinish = true;
-        commandManager.NextCommand();
-        return;
-
+        if (view.IsMine)
+        {
+            Instantiate(explosion, transform.position, new Quaternion(0, 0, 0, 0));
+            this.gameObject.SetActive(false);
+            commandManager.console.isFinish = true;
+            commandManager.NextCommand();
+            return;
+        }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward);
-        Gizmos.DrawLine(transform.position, transform.position + -transform.up * (collider.bounds.extents.y + 0.01f));
+        Gizmos.DrawLine(transform.position, transform.position + -transform.up * (boxCollider.bounds.extents.y + 0.01f));
     }
 }

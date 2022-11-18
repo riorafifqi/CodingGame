@@ -7142,11 +7142,7 @@ MonoBehaviour:
   console: {fileID: 750543491}
   stopwatch: {fileID: 0}
   currentCommandIndex: 0
-  movement: {fileID: 0}
   movementOther: {fileID: 0}
-  console: {fileID: 750543491}
-  stopwatch: {fileID: 0}
-  currentCommandIndex: 0
   view: {fileID: 0}
   selfCamera: {fileID: 195069910}
   otherCamera: {fileID: 1737646324}

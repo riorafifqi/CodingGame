@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7968817144245671365}
   - component: {fileID: 5623520668575767036}
   - component: {fileID: 997030479020772564}
+  - component: {fileID: 4235446077401509479}
   m_Layer: 0
   m_Name: Player_Multi
   m_TagString: Player
@@ -106,7 +107,7 @@ MonoBehaviour:
     SynchronizeEnabled: 1
     TeleportEnabled: 1
     TeleportIfDistanceGreaterThan: 0.5
-    InterpolateOption: 2
+    InterpolateOption: 3
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 1
     ExtrapolateOption: 0
@@ -130,7 +131,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3107201205007551501}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eefd2f850f129d9488773492899795e5, type: 3}
   m_Name: 
@@ -143,10 +144,35 @@ MonoBehaviour:
   flyingSpeed: 1
   turnDuration: 0.5
   jumpForce: 450
-  collider: {fileID: 3107201205007551500}
+  boxCollider: {fileID: 3107201205007551500}
   animator: {fileID: 0}
   commandManager: {fileID: 0}
   explosion: {fileID: 1000012903210382, guid: 77ddfc8ca3fb23e4c8d33539623cc265, type: 3}
+--- !u!114 &4235446077401509479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3107201205007551501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5838d9e3b885bc46b07f4de7dfb1dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPos: {x: 0, y: 0, z: 0}
+  startPos: {x: 0, y: 0, z: 0}
+  isJumping: 0
+  isGrounded: 0
+  groundedSpeed: 3
+  flyingSpeed: 1
+  turnDuration: 0.5
+  jumpForce: 450
+  boxCollider: {fileID: 3107201205007551500}
+  animator: {fileID: 0}
+  commandManager: {fileID: 0}
+  explosion: {fileID: 1000012903210382, guid: 77ddfc8ca3fb23e4c8d33539623cc265, type: 3}
+  currentCommandIndex: 0
   view: {fileID: 0}
 --- !u!1001 &3798385078075349947
 PrefabInstance:
