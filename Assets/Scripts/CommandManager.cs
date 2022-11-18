@@ -31,7 +31,7 @@ public class CommandManager : MonoBehaviour
         }
     }
 
-    public void OnPressRunCommand()     // On first time running command
+    public virtual void OnPressRunCommand()     // On first time running command
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.confirm));
 
@@ -52,7 +52,7 @@ public class CommandManager : MonoBehaviour
 
     }
 
-    public IEnumerator RunCommand()
+    public virtual IEnumerator RunCommand()
     {
         Debug.Log("Run Command");
         //console.Separate();
@@ -136,7 +136,7 @@ public class CommandManager : MonoBehaviour
         }
     }
 
-    public void NextCommand()
+    public virtual void NextCommand()
     {
         if (currentCommandIndex == console.lineCount - 1)
         {

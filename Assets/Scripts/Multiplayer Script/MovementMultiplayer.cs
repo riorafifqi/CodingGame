@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Photon.Pun;
 
-public class Movement : MonoBehaviour
+public class MovementMultiplayer : MonoBehaviour
 {
     Vector3 playerPositionOnStart;   // Player position when level start
     Quaternion playerRotationOnStart;
@@ -43,12 +43,8 @@ public class Movement : MonoBehaviour
     {
         //this.transform.position = new Vector3(0, 0.5f, 0);
         rb = transform.GetComponent<Rigidbody>();
-        
-        commandManager = GameObject.Find("Game Manager").GetComponent<CommandManager>();
-        if (commandManager == null)
-        {
-            commandManager = FindObjectOfType<CommandManagerMultiplayer>();
-        }
+
+        commandManager = FindObjectOfType<CommandManagerMultiplayer>();
 
         animator = GetComponentInChildren<Animator>();
         collider = GetComponent<BoxCollider>();

@@ -15,46 +15,17 @@ public class CameraControllerMultiplayer : MonoBehaviour
     private bool drag = false;
     Transform target;
 
-    private void Awake()
-    {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
-
-    private void Start()
-    {
-        offset = transform.position - target.position;
-        resetCamera = transform.position;
-    }
-
-
     private void LateUpdate()
     {
-        if (Input.GetMouseButton(0))
-        {
-            difference = (Camera.main.ScreenToWorldPoint(Input.mousePosition - transform.position));
-            if (drag == false && !EventSystem.current.IsPointerOverGameObject())
-            {
-                drag = true;
-                origin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            }
+        Vector3 targetCamPos = target.position + offset;
+        transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
 
-        }
-        else
-        {
-            drag = false;
-        }
+    }
 
-        if (drag)
-        {
-            transform.position = origin - difference * 0.5f;
-        }
-
-        if (!Input.GetMouseButton(0))
-        {
-            Vector3 targetCamPos = target.position + offset;
-            transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
-        }
-
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+        offset = transform.position - this.target.position;
+        resetCamera = transform.position;
     }
 }
