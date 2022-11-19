@@ -4323,6 +4323,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1535351457}
     m_Modifications:
+    - target: {fileID: -368501818259376752, guid: 080548c9c0f45d846aeb93a2c35a5433, type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 381430321389938250, guid: 080548c9c0f45d846aeb93a2c35a5433, type: 3}
       propertyPath: m_Name
       value: Pushable
@@ -4517,6 +4521,7 @@ MonoBehaviour:
   - Interact.Push()
   commandManager: {fileID: 0}
   levelData: {fileID: 11400000, guid: 54fa3c63fdf2e8b4ebcce883f121a18e, type: 2}
+  skins3D: []
 --- !u!114 &1126474104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7203,7 +7208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460767321750, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 67.535
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460767321750, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7914,6 +7919,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1535351457}
     m_Modifications:
+    - target: {fileID: -368501818259376752, guid: 080548c9c0f45d846aeb93a2c35a5433, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 381430321389938250, guid: 080548c9c0f45d846aeb93a2c35a5433, type: 3}
       propertyPath: m_Name
       value: Pushable

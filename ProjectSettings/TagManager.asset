@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - Interactable
   - Enemy
+  - Skin
   layers:
   - Default
   - TransparentFX

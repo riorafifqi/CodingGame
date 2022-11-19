@@ -12,8 +12,11 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public CommandManager commandManager;
     public Level levelData;
 
+    public GameObject[] skins3D;
+
     private void Awake()
     {
+        ChangeSkin(MainMenuManager.skinIndex);
         commandManager = GetComponent<CommandManager>();
     }
 
@@ -77,5 +80,15 @@ public class GameManager : MonoBehaviour
         }
 
         commandManager.movement.ResetPosition();
+    }
+
+    public void ChangeSkin(int selected)
+    {
+        skins3D = GameObject.FindGameObjectsWithTag("Skin");
+        foreach (var skin in skins3D)
+        {
+            skin.SetActive(false);
+        }
+        skins3D[selected].SetActive(true);
     }
 }

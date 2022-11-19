@@ -1666,10 +1666,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 296398029, guid: 748eb049994008c428809fa6cdd189b7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1126474104}
     - target: {fileID: 1059274419, guid: 748eb049994008c428809fa6cdd189b7, type: 3}
       propertyPath: m_Camera
       value: 
@@ -4011,6 +4007,7 @@ MonoBehaviour:
   - Interact.Push()
   commandManager: {fileID: 0}
   levelData: {fileID: 11400000, guid: 170266bfdda6fa94cbb06b41f1c7d76b, type: 2}
+  skins3D: []
 --- !u!114 &1126474104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6123,7 +6120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460767321750, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 67.535
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460767321750, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.y
