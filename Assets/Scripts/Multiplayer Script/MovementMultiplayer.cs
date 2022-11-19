@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovementMultiplayer : Movement
 {
+    public int virusKill = 0;
     public int currentCommandIndex = 0;
     [HideInInspector] public PhotonView view;
 
@@ -326,5 +327,31 @@ public class MovementMultiplayer : Movement
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward);
         Gizmos.DrawLine(transform.position, transform.position + -transform.up * (boxCollider.bounds.extents.y + 0.01f));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (view.IsMine)
+        {
+            if (other.transform.tag == "Enemy")
+            {
+                view.RPC("KillVirus", RpcTarget.All);
+            }
+
+            if (other.gameObject.name == "FinishLine")
+            {
+                if (FindObjectOfType<GameManagerMultiplayer>().isVirusGone)
+                {
+                    // Winning
+                }
+
+            }
+        }
+    }
+
+    [PunRPC]
+    public void KillVirus()
+    {
+        virusKill++;
     }
 }

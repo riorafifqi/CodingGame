@@ -8,10 +8,10 @@ public class CommandManagerMultiplayer : CommandManager
     public MovementMultiplayer movementMine;
     public MovementMultiplayer movementOther;  // second player movement, first player in CommandManager
 
-    GameManagerMultiplayer gameManager;
+    [HideInInspector] public GameManagerMultiplayer gameManager;
 
     [HideInInspector] public PhotonView view;
-    PhotonView commandManagerView;
+    [HideInInspector] public PhotonView commandManagerView;
 
     public Camera selfCamera;
     public Camera otherCamera;
@@ -44,8 +44,9 @@ public class CommandManagerMultiplayer : CommandManager
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.confirm));
 
-        if(view.IsMine)
-            commandManagerView.RPC("StartCommandRPC", RpcTarget.All);
+        /*if(view.IsMine)
+            commandManagerView.RPC("StartCommandRPC", RpcTarget.All);*/
+        commandManagerView.RPC("TimesRunOut", RpcTarget.All);
     }
 
     public override IEnumerator RunCommand()
@@ -227,6 +228,7 @@ public class CommandManagerMultiplayer : CommandManager
 
         // set photon view back to ours
         view = movementMine.GetComponent<PhotonView>();
+        gameManager.StartTimer();
     }
 
     [PunRPC]

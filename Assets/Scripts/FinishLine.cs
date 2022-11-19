@@ -11,6 +11,8 @@ public class FinishLine : MonoBehaviour
     {
         winPanel = GameObject.FindObjectOfType<WinPanelManager>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        if (!gameManager)
+            gameManager = FindObjectOfType<GameManagerMultiplayer>();
         lampMat = GameObject.Find("BezierCurve.007").GetComponent<Renderer>().materials;
         ChangeMat(lampMat[4], Color.red);
         ChangeMat(lampMat[1], Color.red * 10);

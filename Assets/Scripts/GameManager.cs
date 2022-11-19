@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CheckVirus()
+    public virtual void CheckVirus()
     {
         foreach (GameObject virus in Viruses)
         {

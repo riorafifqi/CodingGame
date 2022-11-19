@@ -172,6 +172,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   commandManager: {fileID: 0}
   explosion: {fileID: 1000012903210382, guid: 77ddfc8ca3fb23e4c8d33539623cc265, type: 3}
+  virusKill: 0
   currentCommandIndex: 0
   view: {fileID: 0}
 --- !u!1001 &3798385078075349947
