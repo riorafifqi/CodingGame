@@ -8,6 +8,8 @@ public class WinPanelManager : MonoBehaviour
 {
     public TMP_Text lineCount;
     public TMP_Text time;
+    
+    public TMP_Text status;
 
     public ScenesData scenesData;
 
@@ -50,5 +52,10 @@ public class WinPanelManager : MonoBehaviour
     public void SetTime(float count)
     {
         time.text = count.ToString() + "s";
+    }
+
+    public void SetStatus(string sentence)
+    {
+        status.text = sentence;
     }
 }

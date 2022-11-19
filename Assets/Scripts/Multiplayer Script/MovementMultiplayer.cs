@@ -8,6 +8,12 @@ public class MovementMultiplayer : Movement
     public int currentCommandIndex = 0;
     [HideInInspector] public PhotonView view;
 
+    public bool isPlayerMoving = true;
+
+    ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
+    public bool isOnFinishLine = false;
+    public enum endGameState { Win, Lose, Draw }
+
     void Start()
     {
         //this.transform.position = new Vector3(0, 0.5f, 0);
@@ -30,6 +36,9 @@ public class MovementMultiplayer : Movement
         distToGround = boxCollider.bounds.extents.y;
 
         view = GetComponent<PhotonView>();
+
+        playerProperties["IsMoving"] = false;
+        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
     }
 
     // Update is called once per frame
@@ -340,11 +349,11 @@ public class MovementMultiplayer : Movement
 
             if (other.gameObject.name == "FinishLine")
             {
-                if (FindObjectOfType<GameManagerMultiplayer>().isVirusGone)
-                {
-                    // Winning
-                }
-
+                view.RPC("IsOnFinishLine", RpcTarget.All, true);
+            }
+            else
+            {
+                view.RPC("IsOnFinishLine", RpcTarget.All, false);
             }
         }
     }
@@ -353,5 +362,21 @@ public class MovementMultiplayer : Movement
     public void KillVirus()
     {
         virusKill++;
+    }
+
+    [PunRPC]
+    public void IsOnFinishLine(bool condition)
+    {
+        isOnFinishLine = condition;
+    }
+
+    [PunRPC]
+    public void CheckIsMoving()
+    {
+        playerProperties["IsMoving"] = !commandManager.console.isFinish;
+        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+        // isPlayerMoving = !commandManager.console.isFinish;
+
+        //Debug.Log(PhotonNetwork.NickName + " is moving? " + isPlayerMoving);
     }
 }

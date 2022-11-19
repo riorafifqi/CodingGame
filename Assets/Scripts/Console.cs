@@ -30,10 +30,6 @@ public class Console : MonoBehaviour
     private void Awake()
     {
         resetButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<GameManager>().ResetLevel(); });
-    }
-
-    private void Start()
-    {
         isFinish = false;
     }
 

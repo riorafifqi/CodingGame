@@ -13,8 +13,11 @@ public class GameManagerMultiplayer : GameManager
     public TMP_Text timeText;
 
     public MovementMultiplayer winningPlayer;
+    public bool isEveryoneStopMoving;
 
-    int virusCount = 0;
+    public int virusCount = 0;
+    public WinPanelManager winPanelManager;
+
     private void Awake()
     {
         commandManagerMultiplayer = GetComponent<CommandManagerMultiplayer>();
@@ -23,8 +26,7 @@ public class GameManagerMultiplayer : GameManager
     // Start is called before the first frame update
     void Start()
     {
-        isVirusGone = false;
-        
+        isVirusGone = false;   
     }
 
     // Update is called once per frame
@@ -33,14 +35,41 @@ public class GameManagerMultiplayer : GameManager
         CheckVirus();
 
         Timer();
+
+        if(commandManagerMultiplayer.view.IsMine)
+            commandManagerMultiplayer.view.RPC("CheckIsMoving", RpcTarget.All);
+
+        if (commandManagerMultiplayer.isStarting)
+        {
+            foreach (var player in PhotonNetwork.PlayerList)
+            {
+                if (player.CustomProperties.ContainsKey("IsMoving"))
+                {
+                    if ((bool)player.CustomProperties["IsMoving"] == true)   // if someone is still moving
+                    {
+                        Debug.Log("Someone is still moving");
+                        isEveryoneStopMoving = false;
+                        return;
+                    }
+                }
+                isEveryoneStopMoving = true;
+                Debug.Log("Everybody has stop moving");
+            }
+        }
+
+        commandManagerMultiplayer.commandManagerView.RPC("GameOver", RpcTarget.All);
+        
     }
 
-    public override void CheckVirus()
+    public bool CheckVirus(int killCount)
     {
-        if (commandManagerMultiplayer.movementMine.virusKill >= virusCount)
+        if (killCount >= virusCount)
         {
-            isVirusGone = true;
-            
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -87,8 +116,54 @@ public class GameManagerMultiplayer : GameManager
         timeRemaining = 5f;
     }
 
+    [PunRPC]
     public void GameOver()
     {
-        if(winning)
+        var players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (var player in players)
+        {
+            MovementMultiplayer movementMulti = player.GetComponent<MovementMultiplayer>();
+            if (movementMulti.isOnFinishLine)
+            {
+                // Check if all virus death on it's arena
+                if (CheckVirus(movementMulti.virusKill))
+                {
+                    // show panel
+                    winningPlayer = movementMulti;
+                    commandManagerMultiplayer.commandManagerView.RPC("ShowWinningPanel", RpcTarget.All);
+                }                
+            }
+            else if (isEveryoneStopMoving)
+            {
+                commandManagerMultiplayer.commandManagerView.RPC("ShowWinningPanel", RpcTarget.All);
+            }
+        }
+    }
+
+    [PunRPC]
+    public void ShowWinningPanel()
+    {
+        winPanelManager.OpenWinPanel();
+        if (winningPlayer == null)
+        {
+            winPanelManager.SetStatus("Draw!");
+        }
+        else
+        {
+            if (winningPlayer == commandManagerMultiplayer.movementMine)
+            {
+                winPanelManager.SetStatus("You Win!");
+            }
+            else if (winningPlayer != commandManagerMultiplayer.movementMine)
+            {
+                winPanelManager.SetStatus("You Lose!");
+            }
+        }
+
+    }
+
+    public void DisconnectFromServer()
+    {
+        PhotonNetwork.Disconnect();
     }
 }

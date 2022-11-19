@@ -49,7 +49,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.01, y: 1.2815365, z: 0.01}
+  m_Size: {x: 0.001, y: 1.2815365, z: 0.001}
   m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!54 &3107201205007551499
 Rigidbody:
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_PositionModel:
     SynchronizeEnabled: 1
     TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 0.5
+    TeleportIfDistanceGreaterThan: 1
     InterpolateOption: 3
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 1
@@ -175,6 +175,8 @@ MonoBehaviour:
   virusKill: 0
   currentCommandIndex: 0
   view: {fileID: 0}
+  isPlayerMoving: 1
+  isOnFinishLine: 0
 --- !u!1001 &3798385078075349947
 PrefabInstance:
   m_ObjectHideFlags: 0

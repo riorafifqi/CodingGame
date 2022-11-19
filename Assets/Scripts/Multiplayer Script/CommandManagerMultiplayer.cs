@@ -8,7 +8,7 @@ public class CommandManagerMultiplayer : CommandManager
     public MovementMultiplayer movementMine;
     public MovementMultiplayer movementOther;  // second player movement, first player in CommandManager
 
-    [HideInInspector] public GameManagerMultiplayer gameManager;
+    [HideInInspector] public GameManagerMultiplayer gameManagerMultiplayer;
 
     [HideInInspector] public PhotonView view;
     [HideInInspector] public PhotonView commandManagerView;
@@ -17,11 +17,14 @@ public class CommandManagerMultiplayer : CommandManager
     public Camera otherCamera;
     public GameObject consolePanel;
 
+    public bool isStarting = false;
+
     private void Awake()
     {
         stopwatch = GetComponent<Stopwatch>();
-        gameManager = GetComponent<GameManagerMultiplayer>();
+        gameManagerMultiplayer = GetComponent<GameManagerMultiplayer>();
         commandManagerView = GetComponent<PhotonView>();
+        isStarting = false;
     }
 
     private void Start()
@@ -150,7 +153,7 @@ public class CommandManagerMultiplayer : CommandManager
     {
         if (view.IsMine)
         {
-            if (currentCommandIndex == console.lineCount - 1)
+            if (movementMine.currentCommandIndex >= console.lineCount - 1)
             {
                 console.isFinish = true;
                 return;
@@ -228,12 +231,14 @@ public class CommandManagerMultiplayer : CommandManager
 
         // set photon view back to ours
         view = movementMine.GetComponent<PhotonView>();
-        gameManager.StartTimer();
+        gameManagerMultiplayer.StartTimer();
     }
 
     [PunRPC]
     public void StartCommandRPC()
     {
+        isStarting = true;
+
         StopAllCoroutines();
 
         StartCoroutine(CameraChange());
