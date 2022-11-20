@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1729970221102681163}
   - component: {fileID: 1729970221102681162}
   - component: {fileID: 1729970221102681165}
+  - component: {fileID: 8021477936719077502}
   m_Layer: 0
   m_Name: FinishLine
   m_TagString: Untagged
@@ -111,6 +112,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2029770d689a7084f84041bedd0858a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8021477936719077502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729970221102681164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302f2f1f961ba284fbbb4148edcaef87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 'Finish Portal : Your destination of course!'
 --- !u!1001 &1729970220917533765
 PrefabInstance:
   m_ObjectHideFlags: 0

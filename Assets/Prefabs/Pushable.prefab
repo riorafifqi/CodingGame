@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 594625262}
   - component: {fileID: -368501818259376752}
   - component: {fileID: 4235861184289777228}
+  - component: {fileID: 4452008565302037959}
   m_Layer: 0
   m_Name: Pushable
   m_TagString: Interactable
@@ -135,6 +136,19 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &4452008565302037959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381430321389938250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302f2f1f961ba284fbbb4148edcaef87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 'Pushable Block : You can push this, if you''re strong enough'
 --- !u!1001 &8000893259851171598
 PrefabInstance:
   m_ObjectHideFlags: 0

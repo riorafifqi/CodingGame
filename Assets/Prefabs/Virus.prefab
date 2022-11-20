@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 8178397173347367471}
   - component: {fileID: 2515346349252060495}
   - component: {fileID: 7867638241409437807}
+  - component: {fileID: 6789235281777883719}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Enemy
@@ -163,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1000012903210382, guid: 77ddfc8ca3fb23e4c8d33539623cc265, type: 3}
+  isDead: 0
 --- !u!65 &7867638241409437807
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -176,6 +178,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.2762868, z: 0.25}
   m_Center: {x: 0, y: 0.32781845, z: 0}
+--- !u!114 &6789235281777883719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8178397173347367457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302f2f1f961ba284fbbb4148edcaef87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 'Virus : Your archnemesis. Hit them with the body of yours'
 --- !u!1001 &8178397172329549622
 PrefabInstance:
   m_ObjectHideFlags: 0

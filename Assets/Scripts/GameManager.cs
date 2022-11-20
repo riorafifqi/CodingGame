@@ -13,9 +13,11 @@ public class GameManager : MonoBehaviour
     public Level levelData;
 
     public GameObject[] skins3D;
+    GameObjectInspector goInspector;
 
     private void Awake()
     {
+        goInspector = gameObject.AddComponent<GameObjectInspector>();
         ChangeSkin(MainMenuManager.skinIndex);
         commandManager = GetComponent<CommandManager>();
     }

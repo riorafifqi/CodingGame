@@ -112,8 +112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialOn: {fileID: 2100000, guid: fcefdc451089ee64d8222c35376373a6, type: 2}
   materialOff: {fileID: 2100000, guid: c655ad0bd99523242bb143a86d106e30, type: 2}
-  lampOn: {fileID: 2100000, guid: 6f8b10d1c77f9244c90dcf344474f36a, type: 2}
-  lampOff: {fileID: 2100000, guid: c3e3af3689ebcb843b5374c60f8e9b3a, type: 2}
   isActive: 0
   affectedBlock: {fileID: 0}
 --- !u!1 &8621713569838875872
@@ -126,6 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6110829154524564908}
   - component: {fileID: 1417666363}
+  - component: {fileID: 7576713219826844055}
   m_Layer: 0
   m_Name: PressureTile
   m_TagString: Untagged
@@ -162,3 +161,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7576713219826844055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621713569838875872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302f2f1f961ba284fbbb4148edcaef87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 'Pressure Tile : Something cool happened when you step on this!'

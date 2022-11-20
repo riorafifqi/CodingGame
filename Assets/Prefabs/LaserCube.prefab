@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3964394437077780789}
   - component: {fileID: 3964394437077780788}
   - component: {fileID: 3964394437077780787}
+  - component: {fileID: -5376601656314800104}
   m_Layer: 0
   m_Name: LaserCube
   m_TagString: Untagged
@@ -98,6 +99,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5376601656314800104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964394437077780786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302f2f1f961ba284fbbb4148edcaef87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 'Laser : You''ll die if you touch this'
 --- !u!1001 &3964394436309823746
 PrefabInstance:
   m_ObjectHideFlags: 0

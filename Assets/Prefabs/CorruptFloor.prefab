@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6504205121719323116}
   - component: {fileID: 6267066479766512777}
   - component: {fileID: 583244750323463876}
+  - component: {fileID: -2507250852979038276}
   m_Layer: 0
   m_Name: CorruptFloor
   m_TagString: Untagged
@@ -98,6 +99,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-2507250852979038276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381430321389938250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302f2f1f961ba284fbbb4148edcaef87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 'Corrupt Floor : Careful! It''s hot!'
 --- !u!1 &5352560993363446415
 GameObject:
   m_ObjectHideFlags: 0
