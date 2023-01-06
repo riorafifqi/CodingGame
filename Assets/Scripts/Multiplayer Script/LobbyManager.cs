@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
@@ -195,5 +196,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public void OnClickStart()
     {
         PhotonNetwork.LoadLevel("Multiplayer_Test_Level");
+    }
+
+    public void OnClickHome()
+    {
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("MainMenu");
+        
     }
 }
