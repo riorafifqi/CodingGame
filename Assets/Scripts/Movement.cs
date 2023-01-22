@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Movement : MonoBehaviour
 {
@@ -31,6 +32,11 @@ public class Movement : MonoBehaviour
     public Animator animator;
     [SerializeField] protected CommandManager commandManager;
     public GameObject explosion;
+    public VisualEffect smokeTrail;
+
+    public float smokeMaxSize = 0.05f;
+    public float smokeMinSize = 0;
+    public Vector3 smokeDir;
 
     void Start()
     {
@@ -52,6 +58,8 @@ public class Movement : MonoBehaviour
         playerPositionOnStart = transform.position;
         playerRotationOnStart = transform.rotation;
         distToGround = boxCollider.bounds.extents.y;
+
+        smokeDir = smokeTrail.GetVector3("Velocity");
     }
 
     // Update is called once per frame
@@ -104,6 +112,18 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!isMoving)
+        {
+            smokeTrail.SetFloat("Spawn Rate", 0);
+        }
+        else
+        {
+            smokeTrail.SetFloat("Spawn Rate", 16);
+        }
+    }
+
     public virtual void MoveForward(int amount = 1)
     {
         if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle"))
@@ -118,6 +138,7 @@ public class Movement : MonoBehaviour
         startPos = transform.position;
         isMoving = true;
         movingSpeed = groundedSpeed;
+        smokeTrail.SetVector3("Velocity", new Vector3(smokeDir.x,smokeDir.y,-smokeDir.z));
 
         if (!isPushing)
             animator.SetBool("Walk", true);
@@ -139,6 +160,7 @@ public class Movement : MonoBehaviour
         startPos = transform.position;
         isMoving = true;
         movingSpeed = groundedSpeed;
+        smokeTrail.SetVector3("Velocity", new Vector3(smokeDir.x, smokeDir.y, Mathf.Abs(smokeDir.z)));
     }
 
     public virtual IEnumerator RotateLeft(int index = 1)
@@ -282,6 +304,11 @@ public class Movement : MonoBehaviour
         commandManager.NextCommand();
         return;
 
+    }
+
+    public void trailSmoke()
+    {
+        
     }
 
     private void OnDrawGizmos()

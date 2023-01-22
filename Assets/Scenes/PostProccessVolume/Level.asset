@@ -378,7 +378,7 @@ MonoBehaviour:
     m_Value: 73.26
   scatter:
     m_OverrideState: 1
-    m_Value: 0.581
+    m_Value: 0.507
   clamp:
     m_OverrideState: 1
     m_Value: 5.24
@@ -393,8 +393,8 @@ MonoBehaviour:
     m_Value: 5
   dirtTexture:
     m_OverrideState: 0
-    m_Value: {fileID: 2800000, guid: 85eeef889b0604f42914513ae56d20a4, type: 3}
+    m_Value: {fileID: 2800000, guid: f02c0aea7c564c2429409393b5241209, type: 3}
     dimension: 1
   dirtIntensity:
     m_OverrideState: 0
-    m_Value: 0.03
+    m_Value: 1

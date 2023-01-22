@@ -19,10 +19,10 @@ MonoBehaviour:
     m_Bits: 8
   outlinesOccluderLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   outlineSettings:
     outlineColor: {r: 0, g: 0, b: 0, a: 1}
-    outlineScale: 1.4
+    outlineScale: 2
     depthThreshold: 1.5
     robertsCrossMultiplier: 100
     normalThreshold: 0.3
