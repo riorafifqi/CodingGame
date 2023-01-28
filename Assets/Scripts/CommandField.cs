@@ -104,7 +104,9 @@ public class CommandField : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
             }
         }
         else
+        {
             suggestion.ApplySuggestion();
+        }
 
     }
 

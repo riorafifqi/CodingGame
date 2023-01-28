@@ -122,6 +122,12 @@ public class Suggestion : MonoBehaviour
 
         commandField.inputField.text = "";
         commandField.inputField.text = selectedText.text;
+
+        commandField.inputField.ActivateInputField();
+        commandField.inputField.Select();
+
+        commandField.inputField.caretPosition = 0;
+        Debug.Log(commandField.inputField.caretPosition);
     }
 
     public bool IsSuggestionActive()
