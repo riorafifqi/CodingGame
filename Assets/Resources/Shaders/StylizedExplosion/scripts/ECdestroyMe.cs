@@ -10,7 +10,7 @@ public class ECdestroyMe : MonoBehaviour{
 
 	// Use this for initialization
 	void Awake() {
-		StartCoroutine(FindObjectOfType<CameraController>().ShakeCam());
+		//StartCoroutine(FindObjectOfType<CameraController>().ShakeCam());
 		smoke.SetActive(true);
 	}
 	

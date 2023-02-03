@@ -30,12 +30,13 @@ public class WinPanelManager : MonoBehaviour
     public void ContinueButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
+        SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.coding));
     }
 
     public void RetryButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.coding));
     }
 
     public void MenuButton()

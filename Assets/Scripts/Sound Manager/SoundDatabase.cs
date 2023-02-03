@@ -19,7 +19,9 @@ public enum BGM
     level,
     menu,
     win,
-    lost
+    lost,
+    coding,
+    go
 }
 
 [System.Serializable]
