@@ -13,6 +13,9 @@ public class CommandField : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
     Console console;
     public int indexInList;
 
+    // Flag etc
+    private bool isDeleting = true;
+
     private void Awake()
     {
         suggestion = GetComponent<Suggestion>();
@@ -33,18 +36,27 @@ public class CommandField : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
 
         if (inputField.isFocused)
         {
-            if (inputField.text == "")
+            if (Input.GetKeyDown(KeyCode.Backspace))
             {
-                if (Input.GetKeyDown(KeyCode.Backspace))  // if no text in this commandField
+                if (isDeleting)
                 {
                     if (indexInList == 0)   // don't delete if this is the only commandField
                         return;
 
-                    // delete this commandField and focused to upper command field
-                    console.commandsPerLine[indexInList - 1].Select();
-                    console.commandsPerLine[indexInList - 1].caretPosition = console.commandsPerLine[indexInList - 1].text.Length;
-
-                    Destroy(this.gameObject);
+                    DeleteInputField();
+                }
+                else
+                {
+                    if (inputField.text.Length == 0)  // if no text in this commandField
+                    {
+                        // Check if input field is already empty
+                        if (isDeleting)
+                        {
+                            DeleteInputField();
+                        }
+                        else
+                            isDeleting = true;  // Set isDeleting flag to true
+                    }
                 }
             }
 
@@ -177,7 +189,19 @@ public class CommandField : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
         }
         else
         {
+            // Set isDeleting flag to true
+            isDeleting = false;
             SoundManager.Instance.PlaySoundRandomPitch(SoundManager.Instance._Database.GetClip(SFX.soft_click));
         }
+    }
+
+    private void DeleteInputField()
+    {
+        // Destroy this command field field
+        Destroy(this.gameObject);
+
+        // focused to upper command field
+        console.commandsPerLine[indexInList - 1].Select();
+        console.commandsPerLine[indexInList - 1].caretPosition = console.commandsPerLine[indexInList - 1].text.Length;
     }
 }

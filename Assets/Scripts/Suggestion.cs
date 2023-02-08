@@ -126,7 +126,7 @@ public class Suggestion : MonoBehaviour
         commandField.inputField.ActivateInputField();
         commandField.inputField.Select();
 
-        commandField.inputField.caretPosition = 0;
+        commandField.inputField.caretPosition = commandField.inputField.text.Length;
         Debug.Log(commandField.inputField.caretPosition);
     }
 
