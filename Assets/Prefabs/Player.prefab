@@ -713,7 +713,7 @@ MonoBehaviour:
   flyingSpeed: 1
   turnDuration: 0.5
   jumpForce: 450
-  boxCollider: {fileID: 0}
+  boxCollider: {fileID: 3107201205007551500}
   animator: {fileID: 0}
   commandManager: {fileID: 0}
   explosion: {fileID: 1000012903210382, guid: 77ddfc8ca3fb23e4c8d33539623cc265, type: 3}

@@ -20,11 +20,11 @@ public class Movement : MonoBehaviour
     public bool isGrounded;
 
     protected float movingSpeed;
-    public float groundedSpeed = 3f;
+    public float groundedSpeed = 0.01f;
     public float flyingSpeed = 1f;
 
     public float turnDuration = 0.01f;
-    public float jumpForce = 10f;
+    public float jumpForce = 5f;
 
     [SerializeField] protected BoxCollider boxCollider;
     protected RaycastHit hitInfo;
@@ -98,11 +98,12 @@ public class Movement : MonoBehaviour
             if (isJumping)
             {
                 Debug.Log("Is Jumping called");
-                transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y, targetPos.z);
                 isJumping = false;
                 animator.SetBool("Jump", isJumping);
+                boxCollider.enabled = true;
 
-                if(!JumpPlatform.isJumpingPlatform)
+                if (!JumpPlatform.isJumpingPlatform)
                     commandManager.NextCommand();
 
                 JumpPlatform.isJumpingPlatform = false;
@@ -163,6 +164,57 @@ public class Movement : MonoBehaviour
         smokeTrail.SetVector3("Velocity", new Vector3(smokeDir.x, smokeDir.y, Mathf.Abs(smokeDir.z)));
     }
 
+    public virtual IEnumerator ForwardMove(int index = 1)
+    {
+        for (int i = 0; i < index; i++)
+        {
+            /*if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle"))
+            {
+                Debug.Log("Obstacle ahead");
+                break;
+            }*/
+
+            Vector3 startPosition = transform.position;
+            Vector3 endPosition = startPosition + transform.forward;
+            float t = 0.0f;
+            while (t < groundedSpeed)
+            {
+                t += Time.deltaTime;
+                Vector3 tempPos = Vector3.Lerp(startPosition, endPosition, t / groundedSpeed);
+                transform.position = tempPos;
+                yield return null;
+            }
+            //transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
+        }
+        targetPos = transform.position;
+        commandManager.NextCommand();
+    }
+
+    public virtual IEnumerator BackwardMove(int index = 1)
+    {
+        for (int i = 0; i < index; i++)
+        {
+            /*if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle"))
+            {
+                Debug.Log("Obstacle ahead");
+                break;
+            }*/
+
+            Vector3 startPosition = transform.position;
+            Vector3 endPosition = startPosition - transform.forward;
+            float t = 0.0f;
+            while (t < groundedSpeed)
+            {
+                t += Time.deltaTime;
+                Vector3 tempPos = Vector3.Lerp(startPosition, endPosition, t / groundedSpeed);
+                transform.position = tempPos;
+                yield return null;
+            }
+            //transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
+        }
+        commandManager.NextCommand();
+    }
+
     public virtual IEnumerator RotateLeft(int index = 1)
     {
         for (int i = 0; i < index; i++)
@@ -216,6 +268,7 @@ public class Movement : MonoBehaviour
 
         rb.velocity = transform.forward * hSpeed + transform.up * vSpeed;
 
+        boxCollider.enabled = false;
         animator.SetBool("Jump", true);
     }
 

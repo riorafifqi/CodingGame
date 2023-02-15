@@ -71,16 +71,16 @@ public class CommandManager : MonoBehaviour
                 if (console.commandMethod.Contains("Forward"))
                 {
                     if (console.commandParams != "")
-                        movement.MoveForward(int.Parse(console.commandParams));
+                        StartCoroutine(movement.ForwardMove(int.Parse(console.commandParams)));
                     else
-                        movement.MoveForward(1);
+                        StartCoroutine(movement.ForwardMove(1));
                 }
                 else if (console.commandMethod.Contains("Backward"))
                 {
                     if (console.commandParams != "")
-                        movement.MoveBackward(int.Parse(console.commandParams));
+                        StartCoroutine(movement.BackwardMove(int.Parse(console.commandParams)));
                     else
-                        movement.MoveBackward(1);
+                        StartCoroutine(movement.BackwardMove(1));
                 }
                 else
                 {
