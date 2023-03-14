@@ -106,7 +106,7 @@ public class CommandManager : MonoBehaviour
                 }
                 break;
             case "Jump":
-                movement.Jump();
+                StartCoroutine(movement.Jump());
                 break;
             case "Interact":
                 if (console.commandMethod.Contains("Push"))

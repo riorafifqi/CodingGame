@@ -182,7 +182,7 @@ public class MovementMultiplayer : Movement
         
     }
 
-    public override void Jump(float distance = 1f)
+    /*public override IEnumerator Jump(float distance = 1f)
     {
         if (view.IsMine)
         {
@@ -201,7 +201,7 @@ public class MovementMultiplayer : Movement
 
             animator.SetBool("Jump", true);
         }
-    }
+    }*/
 
     public override void Push(int amount)
     {

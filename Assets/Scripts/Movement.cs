@@ -92,25 +92,6 @@ public class Movement : MonoBehaviour
 
             return;
         }
-
-        if (isGrounded)
-        {
-            if (isJumping)
-            {
-                Debug.Log("Is Jumping called");
-                transform.position = new Vector3(transform.position.x, transform.position.y, targetPos.z);
-                isJumping = false;
-                animator.SetBool("Jump", isJumping);
-                boxCollider.enabled = true;
-
-                if (!JumpPlatform.isJumpingPlatform)
-                    commandManager.NextCommand();
-
-                JumpPlatform.isJumpingPlatform = false;
-            }
-
-            return;
-        }
     }
 
     private void Update()
@@ -122,7 +103,7 @@ public class Movement : MonoBehaviour
         else
         {
             smokeTrail.SetFloat("Spawn Rate", 16);
-        }
+        }        
     }
 
     public virtual void MoveForward(int amount = 1)
@@ -168,20 +149,34 @@ public class Movement : MonoBehaviour
     {
         for (int i = 0; i < index; i++)
         {
-            /*if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle"))
-            {
-                Debug.Log("Obstacle ahead");
-                break;
-            }*/
-
             Vector3 startPosition = transform.position;
             Vector3 endPosition = startPosition + transform.forward;
+
             float t = 0.0f;
             while (t < groundedSpeed)
             {
                 t += Time.deltaTime;
-                Vector3 tempPos = Vector3.Lerp(startPosition, endPosition, t / groundedSpeed);
-                transform.position = tempPos;
+                Debug.Log((int)transform.forward.z);
+
+                // Calculate which axis is affected by transform.forward
+                float tempValue, deltaForward = 0;
+                if ((int)transform.forward.x != 0)
+                {
+                    tempValue = Mathf.Lerp(startPosition.x, endPosition.x, t / groundedSpeed);
+                    deltaForward = Mathf.Abs(tempValue - transform.position.x);
+                }
+                else if ((int)transform.forward.z != 0)
+                {
+                    tempValue = Mathf.Lerp(startPosition.z, endPosition.z, t / groundedSpeed);
+                    deltaForward = Mathf.Abs(tempValue - transform.position.z);
+                    Debug.Log("toward z");
+                }
+
+                //Vector3 tempPos = Vector3.Lerp(startPosition, endPosition, t / groundedSpeed);
+                Vector3 newPosition = transform.position + transform.forward * deltaForward;
+
+                transform.position = newPosition;
+
                 yield return null;
             }
             //transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
@@ -192,6 +187,11 @@ public class Movement : MonoBehaviour
 
     public virtual IEnumerator BackwardMove(int index = 1)
     {
+        /*if (!isGrounded)
+        {
+            transform.position += Vector3.down * 0.1f;
+        }*/
+
         for (int i = 0; i < index; i++)
         {
             /*if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle"))
@@ -209,6 +209,7 @@ public class Movement : MonoBehaviour
                 Vector3 tempPos = Vector3.Lerp(startPosition, endPosition, t / groundedSpeed);
                 transform.position = tempPos;
                 yield return null;
+
             }
             //transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
         }
@@ -253,7 +254,7 @@ public class Movement : MonoBehaviour
         commandManager.NextCommand();
     }
 
-    public virtual void Jump(float distance = 1f)
+    public virtual IEnumerator Jump(float distance = 1f)
     {
         startPos = transform.position;
         targetPos = transform.position + transform.forward * distance;
@@ -270,6 +271,23 @@ public class Movement : MonoBehaviour
 
         boxCollider.enabled = false;
         animator.SetBool("Jump", true);
+
+        // Character on the peak
+        while (rb.velocity.y > 0)
+        {
+            yield return null;
+        }
+        
+        boxCollider.enabled = true;
+
+        // Wait for the character to touch the ground
+        while (!isGrounded)
+        {
+            yield return null;
+        }
+
+        animator.SetBool("Jump", false);
+        commandManager.NextCommand();
     }
 
     public virtual void Push(int amount)
@@ -320,7 +338,6 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            isJumping = true;
             isGrounded = false;
         }
     }
