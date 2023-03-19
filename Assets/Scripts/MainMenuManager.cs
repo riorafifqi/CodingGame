@@ -26,8 +26,8 @@ public class MainMenuManager : MonoBehaviour
             
             if (nameInputField.text != "")
             {
-                playerUsername = nameInputField.text;
-                nameText.text = playerUsername;
+                PlayerPrefs.SetString("Name", nameInputField.text);
+                nameText.text = PlayerPrefs.GetString("Name");
             }
         }
         else
@@ -39,34 +39,17 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
-        NameRandomizer();
-        nameText.text = playerUsername;
-
+        string tempName = "";
+        if (!PlayerPrefs.HasKey("Name"))
+            tempName = NameRandomizer();
+        else
+            tempName = PlayerPrefs.GetString("Name");
+        
+        nameText.text = tempName;
         SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.menu));
-
-        skinIndex = 0;
-        profileSkinImage.sprite = skins[skinIndex];
     }
 
-    private void Update()
-    {
-        profileSkinImage.sprite = skins[skinIndex];
-        if (skinIndex <= 0)
-        {
-            leftButton.SetActive(false);
-        }
-        else
-            leftButton.SetActive(true);
-
-        if (skinIndex >= skins.Length - 1)
-        {
-            rightButton.SetActive(false);
-        }
-        else
-            rightButton.SetActive(true);
-    }
-
-    private void NameRandomizer()
+    private string NameRandomizer()
     {
         string numbers = "0123456789";
         string numberYield = "";
@@ -74,25 +57,7 @@ public class MainMenuManager : MonoBehaviour
         {
             numberYield = numberYield + numbers[Random.Range(0, 10)];
         }
-        playerUsername = "Player_" + numberYield;
-    }
-
-    public void OnClickProfile()
-    {
-        profileSkinTab.SetActive(true);
-    }
-
-    public void OnClickProfileLeft()
-    {
-        skinIndex -= 1;
-        if (skinIndex <= 0)
-            skinIndex = 0;            
-    }
-
-    public void OnClickProfileRight()
-    {
-        skinIndex += 1;
-        if (skinIndex >= skins.Length - 1)
-            skinIndex = skins.Length - 1;
+        
+        return "Player_" + numberYield;
     }
 }
