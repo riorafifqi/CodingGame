@@ -29,9 +29,9 @@ public class DatabaseHandler : MonoBehaviour
     }
 
     // used for after game
-    public void PostScore(string name, float time, int line)
+    public void PostScore(string levelName, string name, float time, int line)
     {
-        string url = databaseUrl + "leaderboards/" + gameManager.GetLevelName() + "/" + PlayerPrefs.GetString("UID") + ".json";
+        string url = databaseUrl + "leaderboards/" + levelName + "/" + PlayerPrefs.GetString("UID") + ".json";
 
         // Send a GET request to retrieve the current best time (if any)
         RestClient.Get(url).Then(response =>
@@ -115,10 +115,10 @@ public class DatabaseHandler : MonoBehaviour
         });
     }
 
-    [ContextMenu("Print Scores")]
-    public void GetScores(Action<List<PlayerScore>> callback)
+    public void GetScores(string levelName, Action<List<PlayerScore>> callback)
     {
-        string url = databaseUrl + "leaderboards/" + gameManager.GetLevelName() + ".json";
+        string url = databaseUrl + "leaderboards/" + levelName + ".json";
+        Debug.Log(url);
 
         RestClient.Get(url).Then(response =>
         {

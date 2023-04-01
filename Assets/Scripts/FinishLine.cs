@@ -37,7 +37,7 @@ public class FinishLine : MonoBehaviour
                 winPanel.OpenWinPanel();
 
                 // Store to database
-                leaderboard.PostScore(PlayerPrefs.GetString("Name"), timeCount, lineCount);
+                leaderboard.PostScore(gameManager.GetLevelName(), PlayerPrefs.GetString("Name"), timeCount, lineCount);
 
                 gameManager.commandManager.stopwatch.StopStopwatch();
                 gameManager.SetHighscore();
