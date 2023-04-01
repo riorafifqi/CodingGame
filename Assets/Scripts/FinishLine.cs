@@ -3,6 +3,7 @@ using UnityEngine;
 public class FinishLine : MonoBehaviour
 {
     GameManager gameManager;
+    DatabaseHandler leaderboard;
     WinPanelManager winPanel;
 
     Material[] lampMat;
@@ -16,6 +17,8 @@ public class FinishLine : MonoBehaviour
         lampMat = GameObject.Find("BezierCurve.007").GetComponent<Renderer>().materials;
         ChangeMat(lampMat[4], Color.red);
         ChangeMat(lampMat[1], Color.red * 10);
+
+        leaderboard = FindObjectOfType<DatabaseHandler>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,9 +29,15 @@ public class FinishLine : MonoBehaviour
             {
                 Debug.Log("You Win!");
 
-                winPanel.SetLineCount(gameManager.commandManager.console.lineCount);
-                winPanel.SetTime(gameManager.commandManager.stopwatch.GetTime());
+                int lineCount = gameManager.commandManager.console.lineCount;
+                float timeCount = gameManager.commandManager.stopwatch.GetTime();
+
+                winPanel.SetLineCount(lineCount);
+                winPanel.SetTime(timeCount);
                 winPanel.OpenWinPanel();
+
+                // Store to database
+                leaderboard.PostScore(PlayerPrefs.GetString("Name"), timeCount, lineCount);
 
                 gameManager.commandManager.stopwatch.StopStopwatch();
                 gameManager.SetHighscore();

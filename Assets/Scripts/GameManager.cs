@@ -1,5 +1,8 @@
+using JetBrains.Annotations;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,13 +15,17 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public CommandManager commandManager;
     public Level levelData;
 
-    public GameObject[] skins3D;
     GameObjectInspector goInspector;
+
+    [SerializeField] private Character[] skinDatabase;
+    [SerializeField] private GameObject characterModel;
 
     private void Awake()
     {
+        characterModel = FindObjectOfType<PlayerAnimManager>().gameObject;
+
         goInspector = gameObject.AddComponent<GameObjectInspector>();
-        ChangeSkin(MainMenuManager.skinIndex);
+        ChangeSkin();
         commandManager = GetComponent<CommandManager>();
     }
 
@@ -84,13 +91,24 @@ public class GameManager : MonoBehaviour
         commandManager.movement.ResetPosition();
     }
 
-    public void ChangeSkin(int selected)
+    public void ChangeSkin()
     {
-        skins3D = GameObject.FindGameObjectsWithTag("Skin");
-        foreach (var skin in skins3D)
+        GameObject tempChar = new GameObject();
+        foreach (Character skin in skinDatabase)
         {
-            skin.SetActive(false);
+            if (PlayerPrefs.GetInt("SelectedSkin") == skin.ID)
+            {
+                tempChar = skin.modelPrefab;
+            }
         }
-        skins3D[selected].SetActive(true);
+
+        Instantiate(tempChar, characterModel.transform.position, characterModel.transform.rotation, characterModel.transform.parent);
+        tempChar.transform.SetAsFirstSibling();
+        Destroy(characterModel);
+    }
+
+    public string GetLevelName()
+    {
+        return SceneManager.GetActiveScene().name;
     }
 }

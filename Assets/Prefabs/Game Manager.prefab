@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6472702531347148571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6472702531347148569}
+  - component: {fileID: 6472702531347148570}
+  - component: {fileID: 6472702531347148568}
+  - component: {fileID: 6472702531347148565}
+  - component: {fileID: 4314941880095223753}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6472702531347148569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6472702531347148571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6472702531347148570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6472702531347148571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20ba845a57ebc044b24519447ce77ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 0}
+  console: {fileID: 0}
+  stopwatch: {fileID: 0}
+  currentCommandIndex: 0
+--- !u!114 &6472702531347148568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6472702531347148571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5287d3dcbf230b1448d168884bafb60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVirusGone: 0
+  Viruses: []
+  interactables: []
+  legalCommands:
+  - Move.Forward()
+  - Move.Backward()
+  - Rotate.Left()
+  - Rotate.Right()
+  - Wait()
+  - Jump()
+  - Interact.Push()
+  commandManager: {fileID: 0}
+  levelData: {fileID: 11400000, guid: 4a78ea00533ea2743a9eef84646c267f, type: 2}
+  skinDatabase:
+  - {fileID: 11400000, guid: 116d6bbaab90b8d4683e0efcbe8885c4, type: 2}
+  - {fileID: 11400000, guid: 7a2fcfc7b3abaf2478a7c7c2c01ce3c9, type: 2}
+  - {fileID: 11400000, guid: 2249708cd43d87e44829f193fdcf13f3, type: 2}
+  - {fileID: 11400000, guid: 7da375a12785d8b49abaa46c047ca854, type: 2}
+  characterModel: {fileID: 0}
+--- !u!114 &6472702531347148565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6472702531347148571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e35d39c5ffac384d9d5b8df6c97883e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeText: {fileID: 0}
+--- !u!114 &4314941880095223753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6472702531347148571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d1c623b51478b46a7ea4731483e537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  databaseUrl: https://cypher-code-ihaten-default-rtdb.asia-southeast1.firebasedatabase.app/

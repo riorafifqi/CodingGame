@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
     [SerializeField] protected BoxCollider boxCollider;
     protected RaycastHit hitInfo;
     protected Rigidbody rb;
-    public Animator animator;
+    [SerializeField] protected Animator animator;
     [SerializeField] protected CommandManager commandManager;
     public GameObject explosion;
     public VisualEffect smokeTrail;
@@ -42,15 +42,14 @@ public class Movement : MonoBehaviour
     {
         //this.transform.position = new Vector3(0, 0.5f, 0);
         rb = transform.GetComponent<Rigidbody>();
-        
-        commandManager = GameObject.Find("Game Manager").GetComponent<CommandManager>();
+
+        commandManager = FindObjectOfType<CommandManager>();
         if (commandManager == null)
         {
             commandManager = FindObjectOfType<CommandManagerMultiplayer>();
         }
 
-        animator = GetComponentInChildren<Animator>();
-        boxCollider = GetComponent<BoxCollider>();
+        StartCoroutine(FetchComponent());
 
         startPos = transform.position;
         targetPos = startPos;
@@ -147,6 +146,7 @@ public class Movement : MonoBehaviour
 
     public virtual IEnumerator ForwardMove(int index = 1)
     {
+        animator.SetBool("Walk", true);
         for (int i = 0; i < index; i++)
         {
             Vector3 startPosition = transform.position;
@@ -181,38 +181,48 @@ public class Movement : MonoBehaviour
             }
             //transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
         }
+        animator.SetBool("Walk", false);
         targetPos = transform.position;
         commandManager.NextCommand();
     }
 
     public virtual IEnumerator BackwardMove(int index = 1)
     {
-        /*if (!isGrounded)
-        {
-            transform.position += Vector3.down * 0.1f;
-        }*/
-
         for (int i = 0; i < index; i++)
         {
-            /*if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f) && (hitInfo.transform.tag == "Obstacle"))
-            {
-                Debug.Log("Obstacle ahead");
-                break;
-            }*/
-
             Vector3 startPosition = transform.position;
             Vector3 endPosition = startPosition - transform.forward;
+
             float t = 0.0f;
             while (t < groundedSpeed)
             {
                 t += Time.deltaTime;
-                Vector3 tempPos = Vector3.Lerp(startPosition, endPosition, t / groundedSpeed);
-                transform.position = tempPos;
-                yield return null;
+                Debug.Log((int)transform.forward.z);
 
+                // Calculate which axis is affected by transform.forward
+                float tempValue, deltaForward = 0;
+                if ((int)transform.forward.x != 0)
+                {
+                    tempValue = Mathf.Lerp(startPosition.x, endPosition.x, t / groundedSpeed);
+                    deltaForward = Mathf.Abs(tempValue - transform.position.x);
+                }
+                else if ((int)transform.forward.z != 0)
+                {
+                    tempValue = Mathf.Lerp(startPosition.z, endPosition.z, t / groundedSpeed);
+                    deltaForward = Mathf.Abs(tempValue - transform.position.z);
+                    Debug.Log("toward z");
+                }
+
+                //Vector3 tempPos = Vector3.Lerp(startPosition, endPosition, t / groundedSpeed);
+                Vector3 newPosition = transform.position - transform.forward * deltaForward;
+
+                transform.position = newPosition;
+
+                yield return null;
             }
             //transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
         }
+        targetPos = transform.position;
         commandManager.NextCommand();
     }
 
@@ -270,6 +280,9 @@ public class Movement : MonoBehaviour
         rb.velocity = transform.forward * hSpeed + transform.up * vSpeed;
 
         boxCollider.enabled = false;
+        if (!animator)
+            animator = GameObject.FindGameObjectWithTag("Skin").GetComponent<Animator>();
+
         animator.SetBool("Jump", true);
 
         // Character on the peak
@@ -306,7 +319,7 @@ public class Movement : MonoBehaviour
             isPushing = true;
 
             push.Pushed(push.transform.position + transform.forward * amount);
-            MoveForward(amount);
+            StartCoroutine(ForwardMove(amount));
             animator.SetBool("Push", true);
         }
         else
@@ -386,5 +399,13 @@ public class Movement : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward);
         Gizmos.DrawLine(transform.position, transform.position + -transform.up * (boxCollider.bounds.extents.y + 0.01f));
+    }
+
+    private IEnumerator FetchComponent()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        animator = GameObject.FindGameObjectWithTag("Skin").GetComponent<Animator>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 }

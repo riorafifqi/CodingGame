@@ -4091,7 +4091,12 @@ MonoBehaviour:
   - Interact.Push()
   commandManager: {fileID: 0}
   levelData: {fileID: 11400000, guid: cb08b6c130a4cc243bda6b9beb11dc51, type: 2}
-  skins3D: []
+  skinDatabase:
+  - {fileID: 11400000, guid: 116d6bbaab90b8d4683e0efcbe8885c4, type: 2}
+  - {fileID: 11400000, guid: 7a2fcfc7b3abaf2478a7c7c2c01ce3c9, type: 2}
+  - {fileID: 11400000, guid: 2249708cd43d87e44829f193fdcf13f3, type: 2}
+  - {fileID: 11400000, guid: 7da375a12785d8b49abaa46c047ca854, type: 2}
+  characterModel: {fileID: 0}
 --- !u!114 &1126474104
 MonoBehaviour:
   m_ObjectHideFlags: 0

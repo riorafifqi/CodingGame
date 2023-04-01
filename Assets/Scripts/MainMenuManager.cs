@@ -15,7 +15,6 @@ public class MainMenuManager : MonoBehaviour
     public Image profileSkinImage;
     public GameObject leftButton;
     public GameObject rightButton;
-    public Sprite[] skins;
 
     public void OnClickApplyName()
     {

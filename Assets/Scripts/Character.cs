@@ -8,4 +8,5 @@ public class Character : ScriptableObject
     public int ID;
     public Sprite icon;
     public Sprite preview;
+    public GameObject modelPrefab;
 }
