@@ -17,15 +17,14 @@ public class GameManager : MonoBehaviour
 
     GameObjectInspector goInspector;
 
-    [SerializeField] private Character[] skinDatabase;
-    [SerializeField] private GameObject characterModel;
+    /*[SerializeField] private Character[] skinDatabase;
+    [SerializeField] private GameObject characterModel;*/
 
     private void Awake()
     {
-        characterModel = FindObjectOfType<PlayerAnimManager>().gameObject;
+        //characterModel = FindObjectOfType<PlayerAnimManager>().gameObject;
 
         goInspector = gameObject.AddComponent<GameObjectInspector>();
-        ChangeSkin();
         commandManager = GetComponent<CommandManager>();
     }
 
@@ -91,7 +90,7 @@ public class GameManager : MonoBehaviour
         commandManager.movement.ResetPosition();
     }
 
-    public void ChangeSkin()
+    /*public void ChangeSkin()
     {
         GameObject tempChar = new GameObject();
         foreach (Character skin in skinDatabase)
@@ -105,7 +104,7 @@ public class GameManager : MonoBehaviour
         Instantiate(tempChar, characterModel.transform.position, characterModel.transform.rotation, characterModel.transform.parent);
         tempChar.transform.SetAsFirstSibling();
         Destroy(characterModel);
-    }
+    }*/
 
     public string GetLevelName()
     {

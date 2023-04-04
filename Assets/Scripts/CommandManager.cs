@@ -14,7 +14,7 @@ public class CommandManager : MonoBehaviour
     private void Awake()
     {
         stopwatch = GetComponent<Stopwatch>();
-        movement = GameObject.Find("Player").GetComponent<Movement>();
+        movement = FindObjectOfType<Movement>();
         gameManager = GetComponent<GameManager>();
         console = FindObjectOfType<Console>();
     }

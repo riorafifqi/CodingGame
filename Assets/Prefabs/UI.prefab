@@ -3613,6 +3613,7 @@ MonoBehaviour:
   commandMethod: 
   commandParams: 
   resetButton: {fileID: 460387441}
+  playButton: {fileID: 1249561460787004783}
   isFinish: 0
   first: {r: 0.76862746, g: 0.9372549, b: 0.2784314, a: 0}
   number: {r: 0, g: 0.8705883, b: 0.83921576, a: 0}
@@ -10357,7 +10358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1701224222462356059, guid: 1b006fd8583f46041990365e52132a9c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1701224222462356059, guid: 1b006fd8583f46041990365e52132a9c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -10365,7 +10366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1701224222462356059, guid: 1b006fd8583f46041990365e52132a9c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1701224222462356059, guid: 1b006fd8583f46041990365e52132a9c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -10405,11 +10406,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1701224222462356059, guid: 1b006fd8583f46041990365e52132a9c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 117.935
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1701224222462356059, guid: 1b006fd8583f46041990365e52132a9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10.4513855
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1701224222462356059, guid: 1b006fd8583f46041990365e52132a9c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

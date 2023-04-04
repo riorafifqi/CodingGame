@@ -9,9 +9,9 @@ using System.Linq;
 
 public class PlayerScore
 {
-    public string name { get; set; }
-    public float time { get; set; }
-    public int line { get; set; }
+    public string name;
+    public float time;
+    public int line;
 }
 
 public class DatabaseHandler : MonoBehaviour
@@ -32,7 +32,7 @@ public class DatabaseHandler : MonoBehaviour
     public void PostScore(string levelName, string name, float time, int line)
     {
         string url = databaseUrl + "leaderboards/" + levelName + "/" + PlayerPrefs.GetString("UID") + ".json";
-
+        Debug.Log(url);
         // Send a GET request to retrieve the current best time (if any)
         RestClient.Get(url).Then(response =>
         {
@@ -45,9 +45,10 @@ public class DatabaseHandler : MonoBehaviour
                     try
                     {
                         PlayerScore currentPlayerScore = JsonConvert.DeserializeObject<PlayerScore>(response.Text);
+                        Debug.Log(currentPlayerScore.time);
                         if (currentPlayerScore != null)
                         {
-                            currentBestTime = currentPlayerScore.time;
+                            currentBestTime = currentPlayerScore.time;                            
                         }
                     }
                     catch (Exception e)

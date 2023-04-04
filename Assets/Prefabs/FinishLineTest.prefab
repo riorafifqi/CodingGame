@@ -29,10 +29,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1932159743032371472}
+  m_Children: []
   m_Father: {fileID: 4300000958090322710}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7731994955529050863
 BoxCollider:
@@ -59,7 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2029770d689a7084f84041bedd0858a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winPanel: {fileID: 0}
 --- !u!1 &4300000958090322714
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +86,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1932159743032371472}
   - {fileID: 5213633717763905624}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,7 +96,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5213633717763905624}
+    m_TransformParent: {fileID: 4300000958090322710}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 866559fc694e7894e9f89bb9fa268f10, type: 3}
       propertyPath: m_RootOrder

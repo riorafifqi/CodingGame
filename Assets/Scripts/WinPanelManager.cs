@@ -42,7 +42,7 @@ public class WinPanelManager : MonoBehaviour
     public void MenuButton()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.exit));
-        SceneManager.LoadSceneAsync("MainMenu");
+        SceneManager.LoadSceneAsync("RevampedMainMenu");
     }
 
     public void SetLineCount(int count)

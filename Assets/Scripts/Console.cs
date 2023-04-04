@@ -21,6 +21,7 @@ public class Console : MonoBehaviour
     public string commandParams;
 
     public Button resetButton;
+    public Button playButton;
 
     public bool isFinish;
 
@@ -30,6 +31,7 @@ public class Console : MonoBehaviour
     private void Awake()
     {
         resetButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<GameManager>().ResetLevel(); });
+        playButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<CommandManager>().OnPressRunCommand(); });
         isFinish = false;
     }
 

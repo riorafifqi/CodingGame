@@ -51,6 +51,6 @@ public class PauseManager : MonoBehaviour
     public void BackToMainMenu()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.exit));
-        SceneManager.LoadSceneAsync("MainMenu");
+        SceneManager.LoadSceneAsync("RevampedMainMenu");
     }
 }

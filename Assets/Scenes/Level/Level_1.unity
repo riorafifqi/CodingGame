@@ -2086,10 +2086,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - Setelah kau hancurkan semua <color="red">virus</color> di area ini
-    - Lampu disini akan berubah <color="green">hijau</color>
-    - Dan kau harus memijaknya
-    - Untuk pergi ke area selanjutnya
+    - After you destroy all the <color="red">virus</color> in this area,
+    - The lamp sign wil turn to  <color="green">green</color>
+    - And you have to step on it
+    - To proceed to the next area
 --- !u!1 &836923431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,8 +2550,8 @@ MonoBehaviour:
   dialogue:
     sentences:
     - ....
-    - Ya, ini <color="red">virus</color>
-    - Kau bisa menghancurkannya dengan melindasnya
+    - Yup, this is <color="red">virus</color>
+    - You can destroy it by ran over it
 --- !u!1001 &989589440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2943,7 +2943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1044664625
 Transform:
   m_ObjectHideFlags: 0
@@ -3323,8 +3323,8 @@ MonoBehaviour:
   dialogue:
     sentences:
     - Hi <b>Cypher</b>!
-    - Aku <b>Navi 1973</b> akan membantumu
-    - Tugas utamamu adalah menghancurkan <color="red">virus</color>
+    - I'm <b>Navi 1973</b> and I'm here to help
+    - Your main task is to destroy this <color="red">virus</color>
 --- !u!1 &1139775821
 GameObject:
   m_ObjectHideFlags: 0
@@ -4652,9 +4652,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - Karena kau software lama
-    - Kau harus bergerak secara manual dengan menulis code
-    - Cobalah menulis <b>Move.Forward()</b> di <b>console</b> untuk maju kedepan
+    - Because you're an old software
+    - You have to move manually by typing a command code
+    - Try to type <b>Move.Forward()</b> in the <b>console</b> to move forward
+    - You can also try other command code by pressing the "?" button in the command
 --- !u!1 &1535351456
 GameObject:
   m_ObjectHideFlags: 0
@@ -5222,25 +5223,29 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1155869313, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 489946701253923757, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 117.935
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10.4514
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460767321750, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5272,6 +5277,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1249561461316091217, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221685648083509882, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8201851564923719456, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
@@ -5321,10 +5330,6 @@ PrefabInstance:
     - target: {fileID: 9163082127599458586, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 9163082127599458586, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}

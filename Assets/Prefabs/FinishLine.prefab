@@ -180,7 +180,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinishLineTest
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1069945638951429905, guid: 37eb106aa31eae942a1fd8c67c4b2f3d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 37eb106aa31eae942a1fd8c67c4b2f3d, type: 3}
 --- !u!4 &2571197868800675667 stripped
 Transform:

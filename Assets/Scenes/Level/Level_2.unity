@@ -1630,6 +1630,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1782558859}
     - target: {fileID: 6472702531347148568, guid: 99a5def872279f2449bda3a507695a15, type: 3}
+      propertyPath: levelData
+      value: 
+      objectReference: {fileID: 11400000, guid: 170266bfdda6fa94cbb06b41f1c7d76b, type: 2}
+    - target: {fileID: 6472702531347148568, guid: 99a5def872279f2449bda3a507695a15, type: 3}
       propertyPath: characterModel
       value: 
       objectReference: {fileID: 459425407}
