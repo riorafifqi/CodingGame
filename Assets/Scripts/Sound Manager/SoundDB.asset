@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgm:
   - type: 0
-    audioClip: {fileID: 8300000, guid: 9fc1672285b7dd64d8224acb5e4adf44, type: 3}
+    audioClip: {fileID: 8300000, guid: ab04f7b782440de47b1ba08e14945596, type: 3}
   - type: 1
     audioClip: {fileID: 8300000, guid: fd53e2c3186eb3c469ed82007513a9d3, type: 3}
   - type: 2

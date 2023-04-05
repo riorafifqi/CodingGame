@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
         }
 
         commandManager.movement.ResetPosition();
+        SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.level));
     }
 
     /*public void ChangeSkin()
