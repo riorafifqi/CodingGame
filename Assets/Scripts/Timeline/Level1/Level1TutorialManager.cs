@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class Level1TutorialManager : MonoBehaviour
 {
@@ -8,11 +10,29 @@ public class Level1TutorialManager : MonoBehaviour
     public Level level;
 
     public GameObject tutorial;
+    public Animator player;
+
+    public TimelineAsset playerTrack;
+    public PlayableDirector playableDirector;
 
     private void Awake()
     {
         if (level.scores[0].time > 0)
             tutorial.SetActive(false);
+        player = GameObject.Find("Default(Clone)").GetComponent<Animator>();
+        Debug.Log(player);
+
+        TrackAsset track = null;
+        foreach (var t in playerTrack.GetOutputTracks())
+        {
+            if (t.name == "Player Track")
+            {
+                track = t;
+                break;
+            }
+        }
+
+        playableDirector.SetGenericBinding(track, player);
     }
 
     public void DisableGO()
