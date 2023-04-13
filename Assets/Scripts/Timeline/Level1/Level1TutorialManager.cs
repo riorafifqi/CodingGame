@@ -19,7 +19,7 @@ public class Level1TutorialManager : MonoBehaviour
     {
         if (level.scores[0].time > 0)
             tutorial.SetActive(false);
-        player = GameObject.Find("Default(Clone)").GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Skin").GetComponent<Animator>();
         Debug.Log(player);
 
         TrackAsset track = null;
