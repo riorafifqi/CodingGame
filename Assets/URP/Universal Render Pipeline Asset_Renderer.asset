@@ -22,7 +22,7 @@ MonoBehaviour:
     m_Bits: 0
   outlineSettings:
     outlineColor: {r: 0, g: 0, b: 0, a: 1}
-    outlineScale: 2
+    outlineScale: 0.8
     depthThreshold: 1.5
     robertsCrossMultiplier: 100
     normalThreshold: 0.3
