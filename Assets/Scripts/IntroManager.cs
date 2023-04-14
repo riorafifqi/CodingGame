@@ -10,6 +10,7 @@ namespace CypherCode
     {
         private VideoPlayer cutscene;
         private Text clickText;
+        private bool hasClicked = false;
 
         // Start is called before the first frame update
         void Start()
@@ -21,7 +22,8 @@ namespace CypherCode
             StartCoroutine(StartBlinking());
             cutscene.loopPointReached += DisableIntro;
 
-            
+            if (hasClicked)
+                gameObject.SetActive(false);
         }
 
         // Update is called once per frame
@@ -49,6 +51,7 @@ namespace CypherCode
         {
             vp.Stop();
             this.gameObject.SetActive(false);
+            hasClicked = true;
         }
     }
 }

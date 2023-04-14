@@ -58,7 +58,7 @@ public class DatabaseHandler : MonoBehaviour
                 }
 
                 // Only update the best time if the new time is less than the current best time
-                if (time < currentBestTime)
+                if (time <= currentBestTime)
                 {
                     PlayerScore newPlayerScore = new PlayerScore();
                     newPlayerScore.time = time;
