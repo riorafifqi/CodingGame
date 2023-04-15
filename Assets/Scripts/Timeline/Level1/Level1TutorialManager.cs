@@ -17,8 +17,6 @@ public class Level1TutorialManager : MonoBehaviour
 
     private void Awake()
     {
-        if (level.scores[0].time > 0)
-            tutorial.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Skin").GetComponent<Animator>();
         Debug.Log(player);
 
