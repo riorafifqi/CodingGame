@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour
 
         playerPositionOnStart = transform.position;
         playerRotationOnStart = transform.rotation;
-        distToGround = boxCollider.bounds.extents.y;
+        distToGround = boxCollider.bounds.extents.y * 2;
 
         smokeDir = smokeTrail.GetVector3("Velocity");
     }
@@ -64,8 +64,6 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        CheckGround();
-
         if (isMoving)
         {
             if (Mathf.Abs(transform.position.x - targetPos.x) < 0.1f && Mathf.Abs(transform.position.z - targetPos.z) < 0.1f)   // if arrived
@@ -95,6 +93,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        CheckGround();
         if (!isMoving)
         {
             smokeTrail.SetFloat("Spawn Rate", 0);
@@ -146,7 +145,11 @@ public class Movement : MonoBehaviour
 
     public virtual IEnumerator ForwardMove(int index = 1)
     {
-        animator.SetBool("Walk", true);
+        if (isPushing)
+            animator.SetBool("Push", true);
+        else
+            animator.SetBool("Walk", true);
+
         for (int i = 0; i < index; i++)
         {
             Vector3 startPosition = transform.position;
@@ -181,7 +184,10 @@ public class Movement : MonoBehaviour
             }
             //transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
         }
+        isPushing = false;
         animator.SetBool("Walk", false);
+        animator.SetBool("Push", false);
+
         targetPos = transform.position;
         commandManager.NextCommand();
     }
@@ -317,10 +323,8 @@ public class Movement : MonoBehaviour
         if (push != null)
         {
             isPushing = true;
-
             push.Pushed(push.transform.position + transform.forward * amount);
             StartCoroutine(ForwardMove(amount));
-            animator.SetBool("Push", true);
         }
         else
         {
@@ -342,7 +346,7 @@ public class Movement : MonoBehaviour
 
     public virtual void CheckGround()
     {
-        
+        Debug.Log("Check ground is running");
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround))
         {

@@ -125,9 +125,17 @@ public class Suggestion : MonoBehaviour
 
         commandField.inputField.ActivateInputField();
         commandField.inputField.Select();
+        
+        StartCoroutine(SetCaretToEnd());
+    }
 
-        commandField.inputField.caretPosition = commandField.inputField.text.Length;
-        Debug.Log(commandField.inputField.caretPosition);
+    private IEnumerator SetCaretToEnd()
+    {
+        // Delay
+        yield return new WaitForEndOfFrame();
+
+        commandField.inputField.caretPosition = commandField.inputField.text.Length - 1;
+        commandField.inputField.ForceLabelUpdate();
     }
 
     public bool IsSuggestionActive()

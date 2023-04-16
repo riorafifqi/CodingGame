@@ -689,8 +689,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.01, y: 1.2815365, z: 0.01}
-  m_Center: {x: 0, y: 0.15000004, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: -0.15, z: 0}
 --- !u!114 &3068920504866844326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,7 +711,7 @@ MonoBehaviour:
   flyingSpeed: 1
   turnDuration: 0.3
   jumpForce: 5
-  boxCollider: {fileID: 0}
+  boxCollider: {fileID: 3107201205007551500}
   animator: {fileID: 0}
   commandManager: {fileID: 0}
   explosion: {fileID: 1000012903210382, guid: 77ddfc8ca3fb23e4c8d33539623cc265, type: 3}
