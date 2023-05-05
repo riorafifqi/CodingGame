@@ -34,8 +34,9 @@ public class CommandManager : MonoBehaviour
 
     public virtual void OnPressRunCommand()     // On first time running command
     {
-        SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.confirm));
-        
+        SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(SFX.confirm));
+        SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.go));
+
         StopAllCoroutines();
 
         stopwatch.ResetStopwatch();
@@ -56,7 +57,7 @@ public class CommandManager : MonoBehaviour
     public virtual IEnumerator RunCommand()
     {
         Debug.Log("Run Command");
-        SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.go));
+        
         //console.Separate();
         yield return new WaitForSeconds(0.5f);
 
