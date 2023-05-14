@@ -8,6 +8,7 @@ public class Console : MonoBehaviour
     public GameObject commandsFieldParent;
     public GameObject commandFieldPrefab;
     public GameObject helpPanel;
+    public GameObject descriptionBox;
 
     public int lineCount;
     public TMP_Text lineText;
@@ -33,6 +34,8 @@ public class Console : MonoBehaviour
         resetButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<GameManager>().ResetLevel(); });
         playButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<CommandManager>().OnPressRunCommand(); });
         isFinish = false;
+
+        descriptionBox = GameObject.Find("DescriptionBox");
     }
 
     private void Update()

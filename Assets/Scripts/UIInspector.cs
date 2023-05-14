@@ -10,13 +10,9 @@ public class UIInspector : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     string textToBeDisplay;
     public GameObject descriptionBox;
 
-    public void Awake()
-    {
-        descriptionBox = GameObject.Find("DescriptionBox");
-    }
-
     void Start()
     {
+        descriptionBox = FindObjectOfType<Console>().descriptionBox;
         inspectedInputField = GetComponentInChildren<TMP_InputField>();
         textToBeDisplay = "";
     }
