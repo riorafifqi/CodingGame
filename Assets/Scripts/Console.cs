@@ -32,7 +32,8 @@ public class Console : MonoBehaviour
     private void Awake()
     {
         resetButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<GameManager>().ResetLevel(); });
-        playButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<CommandManager>().OnPressRunCommand(); });
+        //playButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<CommandManager>().OnPressRunCommand(); });      // Singleplayer
+        playButton.onClick.AddListener(() => GameObject.FindObjectOfType<Countdown>().DecreaseCountdownServerRPC());
         isFinish = false;
 
         descriptionBox = GameObject.Find("DescriptionBox");
@@ -50,6 +51,7 @@ public class Console : MonoBehaviour
                 CommandField comField = command.GetComponentInParent<CommandField>();
                 comField.highlight.SetActive(false);
             }
+            Movement.LocalInstance.SetAllCommandExecutedServerRPC(true);
         }
     }
 

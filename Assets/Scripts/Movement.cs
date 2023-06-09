@@ -1,9 +1,12 @@
 using Photon.Pun;
+using System;
 using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.VFX;
 
-public class Movement : MonoBehaviour
+public class Movement : NetworkBehaviour
 {
     protected Vector3 playerPositionOnStart;   // Player position when level start
     protected Quaternion playerRotationOnStart;
@@ -18,6 +21,12 @@ public class Movement : MonoBehaviour
     protected bool isPushing;
     public bool isJumping;
     public bool isGrounded;
+
+    private int killCount;
+    private int enemyCount;
+
+    private bool isFinish;
+    private bool isAllCommandExecuted;
 
     protected float movingSpeed;
     public float groundedSpeed = 0.01f;
@@ -38,10 +47,30 @@ public class Movement : MonoBehaviour
     public float smokeMinSize = 0;
     public Vector3 smokeDir;
 
+    public static event EventHandler OnAnyPlayerSpawned;
+
+    public static Movement LocalInstance { get; private set; }
+
+    public override void OnNetworkSpawn()
+    {
+        if (IsOwner)
+        {
+            LocalInstance = this;
+        }
+        commandManager = FindObjectOfType<CommandManager>();
+
+        Debug.Log(commandManager.GetSpawnPos((int)OwnerClientId));
+        transform.position = commandManager.GetSpawnPos((int)OwnerClientId);
+        OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
+
+        Reset();   
+    }
+
     void Start()
     {
         //this.transform.position = new Vector3(0, 0.5f, 0);
         rb = transform.GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
 
         commandManager = FindObjectOfType<CommandManager>();
         if (commandManager == null)
@@ -49,7 +78,7 @@ public class Movement : MonoBehaviour
             commandManager = FindObjectOfType<CommandManagerMultiplayer>();
         }
 
-        StartCoroutine(FetchComponent());
+        //StartCoroutine(FetchComponent());
 
         startPos = transform.position;
         targetPos = startPos;
@@ -286,8 +315,6 @@ public class Movement : MonoBehaviour
         rb.velocity = transform.forward * hSpeed + transform.up * vSpeed;
 
         boxCollider.enabled = false;
-        if (!animator)
-            animator = GameObject.FindGameObjectWithTag("Skin").GetComponent<Animator>();
 
         animator.SetBool("Jump", true);
 
@@ -393,11 +420,6 @@ public class Movement : MonoBehaviour
 
     }
 
-    public void trailSmoke()
-    {
-        
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -411,5 +433,51 @@ public class Movement : MonoBehaviour
 
         animator = GameObject.FindGameObjectWithTag("Skin").GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider>();
+    }
+
+    private void Reset()
+    {
+        isFinish = false;
+        isAllCommandExecuted = false;
+    }
+
+    public void SetFinishStatus(bool status)
+    {
+        isFinish = status;
+    }
+
+    public bool GetFinishStatus()
+    {
+        return isFinish;
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SetAllCommandExecutedServerRPC(bool status)
+    {
+        commandManager.SetAllCommandExecuted_PlayerClientRpc(this, status);
+    }
+
+    public void SetAllCommandExecuted(bool status)
+    {
+        isAllCommandExecuted = status;
+    }
+
+    public bool GetAllCommandExecuted()
+    {
+        return isAllCommandExecuted;
+    }
+
+    public void AddKillCount()
+    {
+        killCount++;
+        if (killCount >= enemyCount)
+        {
+            isFinish = true;
+        }
+    }
+
+    public int GetKillCount()
+    {
+        return killCount;
     }
 }

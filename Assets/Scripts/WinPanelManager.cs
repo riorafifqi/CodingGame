@@ -12,19 +12,38 @@ public class WinPanelManager : MonoBehaviour
     public TMP_Text status;
 
     public ScenesData scenesData;
+    [SerializeField] GameObject succeedPanel;        // For Single player
+    [SerializeField] GameObject winPanel;       // For Multiplayer
+    [SerializeField] GameObject losePanel;      // For Multiplayer
+    [SerializeField] GameObject drawPanel;      // For Multiplayer
 
     GameManager gameManager;
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+    }
+
+    public void OpenSucceedPanel()
+    {
+        succeedPanel.SetActive(true);
+        scenesData.UnlockNextLevel();
     }
 
     public void OpenWinPanel()
     {
-        gameObject.SetActive(true);
-        scenesData.UnlockNextLevel();
+        winPanel.SetActive(true);
+    }
+
+    public void OpenLosePanel()
+    {
+        losePanel.SetActive(true);
+    }
+
+    public void OpenDrawPanel()
+    {
+        drawPanel.SetActive(true);
     }
 
     public void ContinueButton()

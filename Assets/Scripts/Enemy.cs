@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : NetworkBehaviour
 {
     GameManager gameManager;
     public GameObject explosion;
@@ -17,6 +18,10 @@ public class Enemy : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
+            /*if (other.gameObject == Movement.LocalInstance.gameObject)
+                GameplayEvent.OnEnemyDestroyed();*/
+            other.GetComponent<Movement>().AddKillCount();
+
             isDead = true;
             gameObject.SetActive(false);
             Instantiate(explosion, transform.position, new Quaternion(0, 0, 0, 0));
