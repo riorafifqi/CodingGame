@@ -28,8 +28,6 @@ public class MultiplayerGameManager : NetworkBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
-
         Movement.OnAnyPlayerSpawned += Movement_OnAnyPlayerSpawned;
         gameManager = FindObjectOfType<GameManager>();
     }

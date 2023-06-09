@@ -373,7 +373,6 @@ public class Movement : NetworkBehaviour
 
     public virtual void CheckGround()
     {
-        Debug.Log("Check ground is running");
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround))
         {
