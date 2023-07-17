@@ -21,7 +21,7 @@ namespace CypherCode
         
         private Vector3 targetPosition;
         private Quaternion targetRotation;
-        private const float positionInterpolationSpeed = 10f;
+        private const float positionInterpolationSpeed = 5f;
 
         //core component
         public Collider[] colliders;
@@ -173,6 +173,7 @@ namespace CypherCode
         {
             Vector3 currentRotation = transform.rotation.eulerAngles;
             Vector3 newRotation = new Vector3(currentRotation.x, currentRotation.y + angle, currentRotation.z);
+            newRotation.y = Mathf.Round(newRotation.y / 90) * 90;
             targetRotation = Quaternion.Euler(newRotation);
         }
 
