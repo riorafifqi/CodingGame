@@ -56,7 +56,14 @@ public class MultiplayerGameManager : NetworkBehaviour
 
     public void SplitScreen()
     {
-        StartCoroutine(SplitScreenCoroutine());
+        // StartCoroutine(SplitScreenCoroutine());
+
+        Camera localCamera = localCameraController.GetComponentInChildren<Camera>();
+        Camera otherCamera = otherPlayerCameraController.GetComponentInChildren<Camera>();
+
+        localCamera.rect = new Rect(0f, 0f, 0.5f, 1f);
+        otherCamera.rect = new Rect(0.5f, 0f, 0.5f, 1f);
+        consolePanel.position = new Vector2(Screen.width, consolePanel.transform.position.y);
     }
 
     private IEnumerator SplitScreenCoroutine()

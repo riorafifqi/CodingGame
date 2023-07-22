@@ -18,13 +18,21 @@ public class CameraController : MonoBehaviour
     public float shakeDuration = .5f;
     public AnimationCurve curve;
 
-    private void Awake()
+    private void OnEnable()
     {
-        // Singleplayer
-        /*if (Movement.LocalInstance != null)
-            target = Movement.LocalInstance.transform;
-        else
-            Movement.OnAnyPlayerSpawned += Movement_OnAnyPlayerSpawned;*/
+        if (!MultiplayerFlowManager.playMultiplayer)
+        {
+            // Singleplayer
+            if (Movement.LocalInstance != null)
+                target = Movement.LocalInstance.transform;
+            else
+                Movement.OnAnyPlayerSpawned += Movement_OnAnyPlayerSpawned;
+        }
+    }
+
+    private void OnDisable()
+    {
+        Movement.OnAnyPlayerSpawned -= Movement_OnAnyPlayerSpawned;
     }
 
     private void Movement_OnAnyPlayerSpawned(object sender, System.EventArgs e)

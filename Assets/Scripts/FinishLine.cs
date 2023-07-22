@@ -36,18 +36,21 @@ public class FinishLine : NetworkBehaviour
 
                 //gameManager.SetGameFinish(true);
 
-                ShowEndPanelServerRPC();    // Get win status from player, whether they're colliding or not, and send it to Server
-                
-                // Singleplayer
-                /*winPanel.SetLineCount(lineCount);
-                winPanel.SetTime(timeCount);
-                winPanel.OpenSucceedPanel();
+                if(MultiplayerFlowManager.playMultiplayer)
+                    ShowEndPanelServerRPC();    // Get win status from player, whether they're colliding or not, and send it to Server
+                else
+                {
+                    // Singleplayer
+                    winPanel.SetLineCount(lineCount);
+                    winPanel.SetTime(timeCount);
+                    winPanel.OpenSucceedPanel();
 
-                // Store to database
-                leaderboard.PostScore(gameManager.GetLevelName(), PlayerPrefs.GetString("Name"), timeCount, lineCount);
+                    // Store to database
+                    leaderboard.PostScore(gameManager.GetLevelName(), PlayerPrefs.GetString("Name"), timeCount, lineCount);
 
-                gameManager.commandManager.stopwatch.StopStopwatch();
-                gameManager.SetHighscore();*/
+                    gameManager.commandManager.stopwatch.StopStopwatch();
+                    gameManager.SetHighscore();
+                }
             }
             else
             {

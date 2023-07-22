@@ -64,7 +64,10 @@ public class CommandManager : MonoBehaviour
     {
         GameplayEvent.OnStartRunning();
 
-        yield return new WaitForSeconds(2f);
+        if (MultiplayerFlowManager.playMultiplayer)
+            yield return new WaitForSeconds(2f);
+        else
+            yield return null;
 
         SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(SFX.confirm));
         SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.go));

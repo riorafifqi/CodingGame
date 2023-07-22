@@ -34,6 +34,7 @@ public class GameManager : NetworkBehaviour
     private void OnDisable()
     {
         GameplayEvent.OnEnemyDestroyedE -= AddVirusKilledCount;
+        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted -= SceneManager_OnLoadEventCompleted;
     }
 
     private void Awake()
@@ -50,7 +51,10 @@ public class GameManager : NetworkBehaviour
         Viruses.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         interactables.AddRange(GameObject.FindGameObjectsWithTag("Interactable"));
 
-        virusCount = Viruses.Count / 2;
+        if(MultiplayerFlowManager.playMultiplayer)
+            virusCount = Viruses.Count / 2;
+        else
+            virusCount = Viruses.Count;
         isGameFinish = false;
 
     }
@@ -154,8 +158,22 @@ public class GameManager : NetworkBehaviour
     {
         foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
         {
-            Transform playerTransform = Instantiate(playerPrefab);
+            GameObject choosenSkinPrefab;
+            if (MultiplayerFlowManager.playMultiplayer)
+            {
+                PlayerData playerData = MultiplayerFlowManager.Instance.GetPlayerDataFromClientId(clientId);
+                choosenSkinPrefab = MultiplayerFlowManager.Instance.GetPlayerSkin(playerData.skinId);
+            }
+            else
+            {
+                choosenSkinPrefab = MultiplayerFlowManager.Instance.GetPlayerSkin(PlayerPrefs.GetInt(MultiplayerFlowManager.SKIN_ID_PLAYERPREFS));
+            }
+
+            Transform playerTransform = Instantiate(choosenSkinPrefab.transform);
             playerTransform.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
+
+            if (!MultiplayerFlowManager.playMultiplayer)
+                break;
         }
     }
 }

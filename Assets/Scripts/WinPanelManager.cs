@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.Netcode;
 
 public class WinPanelManager : MonoBehaviour
 {
@@ -48,20 +49,28 @@ public class WinPanelManager : MonoBehaviour
 
     public void ContinueButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //NetworkManager.Singleton.Shutdown();
+        string nextScene = NameOfSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1);
+
+        NetworkManager.Singleton.SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
+
         SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.coding));
     }
 
     public void RetryButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        NetworkManager.Singleton.SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);        
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.coding));
     }
 
     public void MenuButton()
     {
+        NetworkManager.Singleton.Shutdown();
+        Destroy(NetworkManager.Singleton.gameObject);
+
         SoundManager.Instance.PlaySound(SoundManager.Instance._Database.GetClip(SFX.exit));
-        SceneManager.LoadSceneAsync("RevampedMainMenu");
+        SceneManager.LoadScene("RevampedMainMenu");
     }
 
     public void SetLineCount(int count)
@@ -78,4 +87,14 @@ public class WinPanelManager : MonoBehaviour
     {
         status.text = sentence;
     }
+
+    public string NameOfSceneByBuildIndex(int buildIndex)
+    {
+        string path = SceneUtility.GetScenePathByBuildIndex(buildIndex);
+        int slash = path.LastIndexOf('/');
+        string name = path.Substring(slash + 1);
+        int dot = name.LastIndexOf('.');
+        return name.Substring(0, dot);
+    }
+
 }

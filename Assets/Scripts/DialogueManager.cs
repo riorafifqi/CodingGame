@@ -12,11 +12,21 @@ public class DialogueManager : MonoBehaviour
 
     public TMP_Text dialogueText;
 
+    private void Awake()
+    {
+        Movement.OnAnyPlayerSpawned += Movement_OnAnyPlayerSpawned;
+    }
+
+    private void Movement_OnAnyPlayerSpawned(object sender, System.EventArgs e)
+    {
+        dialogueText = GameObject.Find("DialogueBox").GetComponentInChildren<TMP_Text>();
+        dialogueAnimator = GameObject.Find("DialogueBox").GetComponent<Animator>();
+        GameObject.Find("DialogButton").GetComponent<Button>().onClick.AddListener(delegate { DisplayNextDialogue(); });
+    }
+
     void Start()
     {
         sentences = new Queue<string>();
-        dialogueAnimator = GameObject.Find("DialogueBox").GetComponent<Animator>();
-        GameObject.Find("DialogButton").GetComponent<Button>().onClick.AddListener( delegate{ DisplayNextDialogue(); });
     }
 
     public void StartDialogue(Dialogue dialogue)

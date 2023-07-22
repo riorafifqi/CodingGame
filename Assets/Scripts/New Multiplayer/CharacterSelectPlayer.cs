@@ -1,30 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CharacterSelectPlayer : MonoBehaviour
 {
 
     [SerializeField] private int playerIndex;
+    [SerializeField] private TextMeshPro playerNameText;
+    [SerializeField] private GameObject readyMark;
+    [SerializeField] private GameObject[] skins;
+
     private void Start()
     {
         MultiplayerFlowManager.Instance.OnPlayerDataNetworkListChanged += MultiplayerFlowManager_OnPlayerDataNetworkListChanged;
+        CharacterSelectReady.Instance.OnReadyChanged += CharacterSelectReady_OnReadyChanged;
 
         UpdatePlayer();
     }
 
-    private void MultiplayerFlowManager_OnPlayerDataNetworkListChanged(object sender, System.EventArgs e)
+    private void CharacterSelectReady_OnReadyChanged(object sender, System.EventArgs e)
     {
-        Debug.Log("DataPlayer List changed");
+        UpdatePlayer();
+    }
+
+    private void MultiplayerFlowManager_OnPlayerDataNetworkListChanged(object sender, System.EventArgs e)
+    {        
         UpdatePlayer();
     }
 
     void UpdatePlayer()
     {
-        Hide();
         if (MultiplayerFlowManager.Instance.IsPlayerIndexConnected(playerIndex))
         {
             Show();
+
+            PlayerData playerData = MultiplayerFlowManager.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
+
+            readyMark.SetActive(CharacterSelectReady.Instance.IsPlayerReady(playerData.clientId));
+            playerNameText.text = playerData.playerName.ToString();
+            ChooseSkin(playerData.skinId);
         }
         else
         {
@@ -32,18 +47,32 @@ public class CharacterSelectPlayer : MonoBehaviour
         }
     }
 
-    public void Show(int skinId = 0)
+    public void Show()
     {
-        if (this.gameObject.transform.childCount == 1)
+        /*if (playerModel.transform.childCount == 1)
             return;
 
         GameObject playerCharacter = MultiplayerFlowManager.Instance.GetCharacterPrefab(skinId);
-        Instantiate(playerCharacter, this.gameObject.transform);
+        Instantiate(playerCharacter, playerModel.transform);*/
+
+        gameObject.SetActive(true);        
     }
 
     public void Hide()
     {
-        if (this.gameObject.transform.childCount > 0)
-            Destroy(this.gameObject.transform.GetChild(0));
+        /*if (playerModel.transform.childCount > 0)
+            Destroy(playerModel.transform.GetChild(0).gameObject);*/
+
+        gameObject.SetActive(false);
+    }
+
+    public void ChooseSkin(int skinIndex)
+    {
+        foreach (GameObject skin in skins)
+        {
+            skin.SetActive(false);
+        }
+
+        skins[skinIndex].SetActive(true);
     }
 }

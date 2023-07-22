@@ -59,11 +59,16 @@ public class Movement : NetworkBehaviour
         }
         commandManager = FindObjectOfType<CommandManager>();
 
-        Debug.Log(commandManager.GetSpawnPos((int)OwnerClientId));
         transform.position = commandManager.GetSpawnPos((int)OwnerClientId);
         OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
 
-        Reset();   
+        Reset();
+
+        if (!MultiplayerFlowManager.playMultiplayer)
+        {
+            if (!IsLocalPlayer)
+                Destroy(this.gameObject);
+        }
     }
 
     void Start()
@@ -188,7 +193,6 @@ public class Movement : NetworkBehaviour
             while (t < groundedSpeed)
             {
                 t += Time.deltaTime;
-                Debug.Log((int)transform.forward.z);
 
                 // Calculate which axis is affected by transform.forward
                 float tempValue, deltaForward = 0;
@@ -201,7 +205,6 @@ public class Movement : NetworkBehaviour
                 {
                     tempValue = Mathf.Lerp(startPosition.z, endPosition.z, t / groundedSpeed);
                     deltaForward = Mathf.Abs(tempValue - transform.position.z);
-                    Debug.Log("toward z");
                 }
 
                 //Vector3 tempPos = Vector3.Lerp(startPosition, endPosition, t / groundedSpeed);
@@ -232,7 +235,6 @@ public class Movement : NetworkBehaviour
             while (t < groundedSpeed)
             {
                 t += Time.deltaTime;
-                Debug.Log((int)transform.forward.z);
 
                 // Calculate which axis is affected by transform.forward
                 float tempValue, deltaForward = 0;
@@ -245,7 +247,6 @@ public class Movement : NetworkBehaviour
                 {
                     tempValue = Mathf.Lerp(startPosition.z, endPosition.z, t / groundedSpeed);
                     deltaForward = Mathf.Abs(tempValue - transform.position.z);
-                    Debug.Log("toward z");
                 }
 
                 //Vector3 tempPos = Vector3.Lerp(startPosition, endPosition, t / groundedSpeed);

@@ -29,11 +29,15 @@ public class Console : MonoBehaviour
     [SerializeField] Color first;
     [SerializeField] Color number;
 
-    private void Awake()
+    private void OnEnable()
     {
         resetButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<GameManager>().ResetLevel(); });
-        //playButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<CommandManager>().OnPressRunCommand(); });      // Singleplayer
-        playButton.onClick.AddListener(() => GameObject.FindObjectOfType<Countdown>().DecreaseCountdownServerRPC());
+        
+        if (MultiplayerFlowManager.playMultiplayer)
+            playButton.onClick.AddListener(() => GameObject.FindObjectOfType<Countdown>().DecreaseCountdownServerRPC());
+        else
+            playButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<CommandManager>().OnPressRunCommand(); });      // Singleplayer        
+        
         isFinish = false;
 
         descriptionBox = GameObject.Find("DescriptionBox");
@@ -52,6 +56,8 @@ public class Console : MonoBehaviour
                 comField.highlight.SetActive(false);
             }
             Movement.LocalInstance.SetAllCommandExecutedServerRPC(true);
+
+            isFinish = false;
         }
     }
 

@@ -15,11 +15,19 @@ public class Level1TutorialManager : MonoBehaviour
     public TimelineAsset playerTrack;
     public PlayableDirector playableDirector;
 
-    private void Awake()
+    private void OnEnable()
+    {
+        Movement.OnAnyPlayerSpawned += Movement_OnAnyPlayerSpawned;
+    }
+    private void OnDisable()
+    {
+        Movement.OnAnyPlayerSpawned -= Movement_OnAnyPlayerSpawned;
+    }
+
+    private void Movement_OnAnyPlayerSpawned(object sender, System.EventArgs e)
     {
         player = GameObject.FindGameObjectWithTag("Skin").GetComponent<Animator>();
-        Debug.Log(player);
-
+        
         TrackAsset track = null;
         foreach (var t in playerTrack.GetOutputTracks())
         {
