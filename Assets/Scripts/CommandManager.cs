@@ -30,6 +30,11 @@ public class CommandManager : MonoBehaviour
         {
             stopwatch.StopStopwatch();
         }
+
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            OnPressRunCommand();
+        }
     }
 
     public virtual void OnPressRunCommand()     // On first time running command

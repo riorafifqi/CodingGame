@@ -346,7 +346,6 @@ public class Movement : MonoBehaviour
 
     public virtual void CheckGround()
     {
-        Debug.Log("Check ground is running");
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround))
         {
@@ -374,11 +373,13 @@ public class Movement : MonoBehaviour
         isMoving = false;
         isRotating = false;
 
-        transform.position = playerPositionOnStart;
-        transform.rotation = playerRotationOnStart;
-
         startPos = playerPositionOnStart;
         targetPos = playerPositionOnStart;
+
+        if (Vector3.Distance(transform.position, playerPositionOnStart) > 0.1f)
+            transform.position = playerPositionOnStart;
+
+        transform.rotation = playerRotationOnStart;
 
         this.gameObject.SetActive(true);
     }
@@ -411,5 +412,34 @@ public class Movement : MonoBehaviour
 
         animator = GameObject.FindGameObjectWithTag("Skin").GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider>();
+    }
+
+    public IEnumerator OnGroundEnter()
+    {
+        RaycastHit hit;
+
+        yield return new WaitForSeconds(0.5f);
+
+        while (true)
+        {
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround))
+            {
+                if (hit.collider.tag != "Enemy")
+                {
+                    yield return null;
+                }
+                else
+                    break;
+            }
+            else
+            {
+                Debug.Log("No collider detected");
+                yield return null;
+            }
+        }
+
+        animator.SetBool("Jump", false);
+
+        yield return null;
     }
 }

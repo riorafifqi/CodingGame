@@ -35,7 +35,7 @@ public class JumpPlatform : MonoBehaviour
         Animator animator = target.GetComponentInChildren<Animator>();
 
         player.startPos = transform.position;
-        player.targetPos = transform.position + transform.forward * distance;
+        player.targetPos += transform.position + transform.forward * distance;
 
         float maxHeight = 2f;
         float maxDistance = distance;
@@ -54,5 +54,7 @@ public class JumpPlatform : MonoBehaviour
 
         GetComponentInChildren<Animator>().SetTrigger("Activate");
         animator.SetBool("Jump", true);
+        
+        StartCoroutine(player.OnGroundEnter());
     }
 }
