@@ -19,13 +19,20 @@ public class CharacterSelectPlayer : MonoBehaviour
         UpdatePlayer();
     }
 
+    private void OnDisable()
+    {
+        MultiplayerFlowManager.Instance.OnPlayerDataNetworkListChanged -= MultiplayerFlowManager_OnPlayerDataNetworkListChanged;
+        CharacterSelectReady.Instance.OnReadyChanged -= CharacterSelectReady_OnReadyChanged;
+        Hide();
+    }
+
     private void CharacterSelectReady_OnReadyChanged(object sender, System.EventArgs e)
     {
         UpdatePlayer();
     }
 
     private void MultiplayerFlowManager_OnPlayerDataNetworkListChanged(object sender, System.EventArgs e)
-    {        
+    {
         UpdatePlayer();
     }
 
@@ -64,6 +71,11 @@ public class CharacterSelectPlayer : MonoBehaviour
             Destroy(playerModel.transform.GetChild(0).gameObject);*/
 
         gameObject.SetActive(false);
+    }
+
+    public void ResetCharacter()
+    {
+        
     }
 
     public void ChooseSkin(int skinIndex)

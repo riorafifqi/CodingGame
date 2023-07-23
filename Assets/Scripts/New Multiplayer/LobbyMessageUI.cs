@@ -24,7 +24,15 @@ public class LobbyMessageUI : MonoBehaviour
         LobbyCypherCode.Instance.OnJoinStarted += LobbyCypherCode_OnJoinStarted;
         LobbyCypherCode.Instance.OnJoinFailed += LobbyCypherCode_OnJoinFailed;
         LobbyCypherCode.Instance.OnQuickJoinFailed += LobbyCypherCode_OnQuickJoinFailed;
+    }
 
+    private void OnDisable()
+    {
+        LobbyCypherCode.Instance.OnCreateLobbyStarted -= LobbyCypherCode_OnCreateLobbyStarted;
+        LobbyCypherCode.Instance.OnCreateLobbyFailed -= LobbyCypherCode_OnCreateLobbyFailed;
+        LobbyCypherCode.Instance.OnJoinStarted -= LobbyCypherCode_OnJoinStarted;
+        LobbyCypherCode.Instance.OnJoinFailed -= LobbyCypherCode_OnJoinFailed;
+        LobbyCypherCode.Instance.OnQuickJoinFailed -= LobbyCypherCode_OnQuickJoinFailed;
     }
 
     private void LobbyCypherCode_OnQuickJoinFailed(object sender, EventArgs e)

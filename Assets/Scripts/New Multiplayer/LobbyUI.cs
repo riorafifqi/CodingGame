@@ -20,7 +20,11 @@ public class LobbyUI : MonoBehaviour
         mainMenuButton.onClick.AddListener(() =>
         {
             LobbyCypherCode.Instance.LeaveLobby();
+            LobbyCypherCode.Instance.DeleteLobby();
+            
+            NetworkManager.Singleton.Shutdown();
             Destroy(NetworkManager.Singleton.gameObject);
+            
             SceneManager.LoadScene(0);
         });
 

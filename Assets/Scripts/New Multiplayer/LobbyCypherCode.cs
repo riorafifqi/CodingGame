@@ -1,4 +1,3 @@
-using Photon.Pun.UtilityScripts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -35,7 +34,7 @@ public class LobbyCypherCode : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {

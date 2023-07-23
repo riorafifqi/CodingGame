@@ -19,6 +19,9 @@ public class CharacterSelectUI : MonoBehaviour
     {
         mainMenuButton.onClick.AddListener(() =>
         {
+            LobbyCypherCode.Instance.LeaveLobby();
+            LobbyCypherCode.Instance.DeleteLobby();
+
             NetworkManager.Singleton.Shutdown();
             Destroy(NetworkManager.Singleton.gameObject);
             SceneManager.LoadScene("RevampedMainMenu");

@@ -26,7 +26,9 @@ public class MultiplayerFlowManager : NetworkBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this.gameObject);
+            StartCoroutine(DestroyWithCoroutine());
+
+            return;
         }
         else
         {
@@ -41,6 +43,24 @@ public class MultiplayerFlowManager : NetworkBehaviour
         playerDataNetworkList = new NetworkList<PlayerData>();
 
         playerDataNetworkList.OnListChanged += PlayerDataNetworkList_OnListChanged;
+    }
+
+    private void OnDisable()
+    {
+        UnsubscribeEvent();
+    }
+
+    private void UnsubscribeEvent()
+    {
+        playerDataNetworkList.OnListChanged -= PlayerDataNetworkList_OnListChanged;
+        NetworkManager.Singleton.OnClientConnectedCallback -= NetworkManager_OnClientConnectedCallback;
+    }
+
+    private IEnumerator DestroyWithCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        Destroy(this.gameObject);
     }
 
     public void ApplyPlayerPrefsToPlayerData()
@@ -115,6 +135,7 @@ public class MultiplayerFlowManager : NetworkBehaviour
     {
         ApplyPlayerPrefsToPlayerData();
 
+        NetworkManager.Singleton.OnClientConnectedCallback -= NetworkManager_OnClientConnectedCallback;
         NetworkManager.Singleton.OnClientConnectedCallback += NetworkManager_OnClientConnectedCallback;
 
         NetworkManager.Singleton.StartHost();

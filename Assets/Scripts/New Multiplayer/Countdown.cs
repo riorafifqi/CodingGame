@@ -29,7 +29,10 @@ public class Countdown : NetworkBehaviour
 
     private void Movement_OnAnyPlayerSpawned(object sender, System.EventArgs e)
     {
-        StartCoroutine(CountdownStart());
+        playerCount++;
+
+        if (playerCount >= 2)
+            StartCoroutine(CountdownStart());
     }
 
     IEnumerator CountdownStart()
@@ -60,10 +63,10 @@ public class Countdown : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void DecreaseCountdownServerRPC()
     {
-        if (timeLeft <= 5f)
+        if (timeLeft <= 6f)
             return;
 
-        timeLeft = 5f;
+        timeLeft = 6f;
     }
 
     [ClientRpc]
