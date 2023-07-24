@@ -159,7 +159,6 @@ public class Movement : MonoBehaviour
             while (t < groundedSpeed)
             {
                 t += Time.deltaTime;
-                Debug.Log((int)transform.forward.z);
 
                 // Calculate which axis is affected by transform.forward
                 float tempValue, deltaForward = 0;
@@ -172,7 +171,6 @@ public class Movement : MonoBehaviour
                 {
                     tempValue = Mathf.Lerp(startPosition.z, endPosition.z, t / groundedSpeed);
                     deltaForward = Mathf.Abs(tempValue - transform.position.z);
-                    Debug.Log("toward z");
                 }
 
                 //Vector3 tempPos = Vector3.Lerp(startPosition, endPosition, t / groundedSpeed);
@@ -190,6 +188,7 @@ public class Movement : MonoBehaviour
 
         targetPos = transform.position;
         commandManager.NextCommand();
+        EventManager.OnMovementFinish();
     }
 
     public virtual IEnumerator BackwardMove(int index = 1)
@@ -230,6 +229,7 @@ public class Movement : MonoBehaviour
         }
         targetPos = transform.position;
         commandManager.NextCommand();
+        EventManager.OnMovementFinish();
     }
 
     public virtual IEnumerator RotateLeft(int index = 1)
@@ -249,6 +249,7 @@ public class Movement : MonoBehaviour
             transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
         }
         commandManager.NextCommand();
+        EventManager.OnMovementFinish();
     }
 
     public virtual IEnumerator RotateRight(int index = 1)
@@ -268,6 +269,7 @@ public class Movement : MonoBehaviour
             transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
         }
         commandManager.NextCommand();
+        EventManager.OnMovementFinish();
     }
 
     public virtual IEnumerator Jump(float distance = 1f)
@@ -307,6 +309,7 @@ public class Movement : MonoBehaviour
 
         animator.SetBool("Jump", false);
         commandManager.NextCommand();
+        EventManager.OnMovementFinish();
     }
 
     public virtual void Push(int amount)
@@ -329,6 +332,7 @@ public class Movement : MonoBehaviour
         else
         {
             commandManager.NextCommand();
+            EventManager.OnMovementFinish();
             return;
         }
     }
@@ -391,7 +395,6 @@ public class Movement : MonoBehaviour
         commandManager.console.isFinish = true;
         commandManager.NextCommand();
         return;
-
     }
 
     public void trailSmoke()

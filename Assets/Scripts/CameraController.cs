@@ -13,14 +13,14 @@ public class CameraController : MonoBehaviour
     Vector3 offset;
 
     private bool drag = false;
-    Transform target;
+    [SerializeField] Transform target;
 
     public float shakeDuration = .5f;
     public AnimationCurve curve;
 
     private void Awake()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Start()

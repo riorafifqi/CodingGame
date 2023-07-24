@@ -72,6 +72,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetLevel()
     {
+        EventManager.OnResetLevel();
+
         isVirusGone = false;
         foreach (GameObject virus in Viruses)
         {

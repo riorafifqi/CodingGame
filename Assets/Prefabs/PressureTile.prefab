@@ -212,6 +212,8 @@ MonoBehaviour:
   materialOff: {fileID: 2100000, guid: c655ad0bd99523242bb143a86d106e30, type: 2}
   isActive: 0
   affectedBlock: {fileID: 0}
+  descentPosY: -2
+  ascentPosY: -1
 --- !u!1 &8621713569838875872
 GameObject:
   m_ObjectHideFlags: 0
