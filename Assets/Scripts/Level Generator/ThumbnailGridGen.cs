@@ -9,6 +9,7 @@ namespace CypherCode
         public GameObject thumbnailPrefab;
         public Transform gridParent;
         public GameObject[] prefabsList;
+        public GameObject selectedObject;
         // Start is called before the first frame update
         void Start()
         {

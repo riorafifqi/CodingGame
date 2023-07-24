@@ -12,4 +12,5 @@ public class GameScene : ScriptableObject
 
     [Header("Visual")]
     public VolumeProfile volumeProfile;
+
 }

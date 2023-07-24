@@ -70,6 +70,7 @@ namespace CypherCode
                 ObjectMover mover = draggingInstance.gameObject.AddComponent<ObjectMover>();
                 if (mover != null)
                 {
+                    //FindObjectOfType<ThumbnailGridGen>().GetComponent<ThumbnailGridGen>().selectedObject = prefab;
                     mover.Select();
                 }
             }
@@ -88,25 +89,11 @@ namespace CypherCode
                 ObjectMover mover = draggingInstance.gameObject.GetComponent<ObjectMover>();
                 if (mover != null)
                 {
-                    mover.StopDragging();
+                    mover.Deselect();
                 }
 
                 draggingInstance = null;
             }
         }
-
-        private void SetCoreComponentStatus(bool status)
-        {
-            foreach (var collider in draggingColliders)
-            {
-                collider.enabled = status;
-            }
-
-            foreach (var script in draggingScripts)
-            {
-                script.enabled = status;
-            }
-        }
-
     }
 }

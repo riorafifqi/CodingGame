@@ -8,6 +8,7 @@ namespace CypherCode
     public class ObjectMover : MonoBehaviour
     {
         private Camera mainCamera;
+        private ThumbnailGridGen thumbnailGridGen;
         
         //flags
         private bool isDragging = false;
@@ -33,14 +34,20 @@ namespace CypherCode
             initialPosition = transform.position;
             initialRotation = transform.rotation;
             targetPosition = initialPosition;
+            targetRotation = initialRotation;
             colliders = GetComponentsInChildren<Collider>();
             scripts = GetComponentsInChildren<MonoBehaviour>();
+            thumbnailGridGen = FindObjectOfType<ThumbnailGridGen>().GetComponent<ThumbnailGridGen>();
+            thumbnailGridGen.selectedObject = gameObject;
         }
 
         public void Select()
         {
             isSelected = true;
             isDragging = true;
+            Debug.Log(gameObject);
+            //if(gameObject != null)
+            //thumbnailGridGen.selectedObject = gameObject;
         }
 
         public void Deselect()
@@ -48,6 +55,7 @@ namespace CypherCode
             isSelected = false;
             isDragging = false;
             SetCoreComponentStatus(true);
+            thumbnailGridGen.selectedObject = null;
         }
 
         public void StopDragging()
