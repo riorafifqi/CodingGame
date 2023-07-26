@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,6 +47,12 @@ public class MainMenuManager : MonoBehaviour
         
         nameText.text = tempName;
         SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.menu));
+
+        string folderName = "CypherCodeCustoms";
+        string path = Path.Combine(Application.persistentDataPath, folderName);
+
+        if (!Directory.Exists(path))
+            Directory.CreateDirectory(path);
     }
 
     private string NameRandomizer()

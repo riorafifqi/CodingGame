@@ -8,10 +8,14 @@ namespace CypherCode
     {
         private Camera mainCamera;
         private ObjectMover selectedObject;
+        private LEDescriptor descriptor;
+        private GameObject highlight;
 
         private void Start()
         {
             mainCamera = Camera.main;
+            descriptor = FindObjectOfType<LEDescriptor>().GetComponent<LEDescriptor>();
+            highlight = FindObjectOfType<ObjectHighlightHandler>().gameObject;
         }
 
         private void Update()
@@ -33,6 +37,8 @@ namespace CypherCode
                         // Select the new object
                         selectedObject = objectMover;
                         selectedObject.Select();
+                        descriptor.SetObjDesc(selectedObject.gameObject);
+                        highlight.GetComponent<ObjectHighlightHandler>().SetParent(selectedObject.gameObject);
                     }
                 }
                 else if (selectedObject != null)

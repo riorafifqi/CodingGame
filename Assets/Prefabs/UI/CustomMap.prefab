@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666533616266273506, guid: 99eb6aceda41720428e3153a9b0024c3, type: 3}
       propertyPath: m_Name
-      value: QuitGame
+      value: CustomMap
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99eb6aceda41720428e3153a9b0024c3, type: 3}

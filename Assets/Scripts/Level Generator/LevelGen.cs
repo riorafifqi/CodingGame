@@ -1,7 +1,9 @@
+﻿using System.IO;
 using TMPro;
 using Unity.Mathematics;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace CypherCode
 {
@@ -16,10 +18,56 @@ namespace CypherCode
 
         void Awake()
         {
+            if(map == null)
+            {
+                string folderName = "CypherCodeCustoms";
+                string path = Path.Combine(Application.persistentDataPath, folderName);
+
+                if(CustomLevelLoader.selectedLevelFileName != null || CustomLevelLoader.selectedLevelFileName == "")
+                {
+                    string[] parts = CustomLevelLoader.selectedLevelFileName.Split('_');
+                    path += "/" + parts[0] + "_" + parts[1] + "_" + parts[2] + "_" + parts[3];
+                    numLayers = int.Parse(parts[2]);
+                }
+                else
+                {
+                    path += "/Level_Sampler​_3_Udin.png";
+                }
+                
+                map = LoadImageFromFile(path);
+            }
+            else
+            {
+                //numLayers = int.Parse(map.name.Split('_')[2]);
+                GetDataFromName();
+            }
+
             colorMapDictionary = Resources.Load<ColorToPrefabDictionary>("LevelGen");
-            GetDataFromName();
+            Debug.Log(map.name);
             layerWidth = map.width / numLayers;
             GenerateLevel();
+        }
+
+        private Texture2D LoadImageFromFile(string path)
+        {
+            // Load the image data into a byte array
+            byte[] bytes = System.IO.File.ReadAllBytes(path);
+
+            // Create a new Texture2D and load the image data into it using ImageConversion.LoadImage
+            Texture2D texture = new Texture2D(11, 22);
+            if (ImageConversion.LoadImage(texture, bytes))
+            {
+                // Set point filtering on the texture
+                texture.filterMode = FilterMode.Point;
+                
+                
+                return texture;
+            }
+            else
+            {
+                Debug.LogError("Failed to load image data into the Texture2D.");
+                return null;
+            }
         }
 
         void GetDataFromName()
@@ -27,12 +75,12 @@ namespace CypherCode
             string[] parts = map.name.Split('_');
             levelName = parts[1];
             numLayers = int.Parse(parts[2]);
-            Debug.Log(map.name + " | Level name : " + levelName + " | Layer : " + numLayers);
+            //Debug.Log(map.name + " | Level name : " + levelName + " | Layer : " + numLayers);
         }
 
         void GenerateLevel()
         {
-            
+            //Debug.Log("Generating level : " + levelName);
             for (int x = 0; x < map.width; x++)
             {
                 int currentLayer = x / layerWidth;
@@ -45,7 +93,7 @@ namespace CypherCode
 
         void GenerateTile(int x, int y, int layer)
         {
-            Color pixelColor = map.GetPixel(x, y);  
+            Color pixelColor = map.GetPixel(x, y);
             if (pixelColor == Color.black) { return; } //if alpha, gtfo
 
             //Debug.Log("Pixel color at : " + x + " " + y + " is " + pixelColor);

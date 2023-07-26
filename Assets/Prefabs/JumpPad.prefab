@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: -6575288085719995008}
   - component: {fileID: 885297330}
   - component: {fileID: -4953910235915894942}
+  - component: {fileID: 7015864477871464140}
   m_Layer: 0
   m_Name: JumpPad
   m_TagString: Untagged
@@ -175,6 +176,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: 'Jump Pad : You step, jump far'
+--- !u!65 &7015864477871464140
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3797586503165101762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5084425, y: 0.37557077, z: 0.51827717}
+  m_Center: {x: -0.009304702, y: -0.085015416, z: 0.007704735}
 --- !u!1001 &3797586502555819890
 PrefabInstance:
   m_ObjectHideFlags: 0

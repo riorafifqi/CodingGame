@@ -8,7 +8,6 @@ namespace CypherCode
     public class ObjectMover : MonoBehaviour
     {
         private Camera mainCamera;
-        private ThumbnailGridGen thumbnailGridGen;
         
         //flags
         private bool isDragging = false;
@@ -28,6 +27,8 @@ namespace CypherCode
         public Collider[] colliders;
         public MonoBehaviour[] scripts;
 
+        public GameObject dashLine;
+
         private void Start()
         {
             mainCamera = Camera.main;
@@ -37,15 +38,18 @@ namespace CypherCode
             targetRotation = initialRotation;
             colliders = GetComponentsInChildren<Collider>();
             scripts = GetComponentsInChildren<MonoBehaviour>();
-            thumbnailGridGen = FindObjectOfType<ThumbnailGridGen>().GetComponent<ThumbnailGridGen>();
-            thumbnailGridGen.selectedObject = gameObject;
+            dashLine = GameObject.FindGameObjectWithTag("Highlight");
+            SetScriptStatus(false);
+            //Debug.Log(descriptor);
         }
 
         public void Select()
         {
             isSelected = true;
             isDragging = true;
-            Debug.Log(gameObject);
+            //Debug.Log(gameObject);
+
+            //Debug.Log(descriptor);
             //if(gameObject != null)
             //thumbnailGridGen.selectedObject = gameObject;
         }
@@ -54,8 +58,7 @@ namespace CypherCode
         {
             isSelected = false;
             isDragging = false;
-            SetCoreComponentStatus(true);
-            thumbnailGridGen.selectedObject = null;
+            SetColliderStatus(true);
         }
 
         public void StopDragging()
@@ -70,15 +73,16 @@ namespace CypherCode
                 HandleMovementInput();
                 HandleRotationInput();
                 HandleHeightAdjustmentInput();
+                HandleRemove();
             }
             if (isDragging)
             {
-                SetCoreComponentStatus(false);
+                SetColliderStatus(false);
                 // Interpolate towards the target position for smoother movement
             }
             else
             {
-                SetCoreComponentStatus(true);
+                SetColliderStatus(true);
             }
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * positionInterpolationSpeed);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * positionInterpolationSpeed);
@@ -113,6 +117,18 @@ namespace CypherCode
             return false;
         }
 
+        private void HandleRemove()
+        {
+            if(Input.GetKeyDown(KeyCode.X))
+            {
+                if(gameObject.name.Contains("Finish"))
+                    ThumbnailGridGen.thereIsAFinishLine = false;
+                Destroy(gameObject);
+                dashLine.transform.parent = null;
+                dashLine.transform.position = new Vector3(0, -5, 0);
+            }
+        }
+
         private void HandleMovementInput()
         {
             if (Input.GetMouseButtonDown(0))
@@ -129,6 +145,7 @@ namespace CypherCode
             { 
                 Vector2 pointerScreenPos = Input.mousePosition;
                 bool isVirus = transform.name.Contains("Virus");
+                bool isJumpPad = transform.name.Contains("JumpPad");
 
                 // Check if the pointer has moved since the last frame
                 bool pointerMoved = pointerScreenPos != lastPointerScreenPos;
@@ -149,6 +166,10 @@ namespace CypherCode
                 if (isVirus)
                 {
                     pointerWorldPos.y -= 1;
+                }
+                else if (isJumpPad)
+                {
+                    pointerWorldPos.y -= 0.5f;
                 }
 
                 // Snap the position to the grid (optional - if you have a grid-based level editor)
@@ -231,16 +252,29 @@ namespace CypherCode
             transform.rotation = initialRotation;
         }
 
-        private void SetCoreComponentStatus(bool status)
+        //private void SetCoreComponentStatus(bool status)
+        //{
+        //    foreach (var script in scripts)
+        //    {
+        //        if(script == this)
+        //            continue;
+        //        script.enabled = status;
+        //    }
+        //}
+
+        private void SetColliderStatus(bool status)
         {
             foreach (var collider in colliders)
             {
                 collider.enabled = status;
             }
+        }
 
+        public void SetScriptStatus(bool status)
+        {
             foreach (var script in scripts)
             {
-                if(script == this)
+                if (script == this || script.name == "RotationColorChange")
                     continue;
                 script.enabled = status;
             }

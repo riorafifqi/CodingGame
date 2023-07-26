@@ -9,10 +9,16 @@ namespace CypherCode
         public GameObject thumbnailPrefab;
         public Transform gridParent;
         public GameObject[] prefabsList;
-        public GameObject selectedObject;
-        // Start is called before the first frame update
+        public static bool thereIsAFinishLine { get; set; }
+
+        private void Awake()
+        {
+            DisableObjectsScript();
+        }
+
         void Start()
         {
+            thereIsAFinishLine = DoesFinishLineExist();
             ClearGrid();
 
             foreach(var i in prefabsList)
@@ -32,6 +38,15 @@ namespace CypherCode
             }
         }
 
+        void DisableObjectsScript()
+        {
+            ObjectMover[] movers = FindObjectsOfType<ObjectMover>();
+
+            foreach (ObjectMover mover in movers)
+            {
+                mover.SetScriptStatus(false);
+            }
+        }
         private void ClearGrid()
         {
             // Clear the grid by destroying all child elements
@@ -39,6 +54,21 @@ namespace CypherCode
             {
                 Destroy(child.gameObject);
             }
+        }
+
+        public bool DoesFinishLineExist()
+        {
+            GameObject[] allObjects = FindObjectsOfType<GameObject>();
+
+            foreach (GameObject obj in allObjects)
+            {
+                if (obj.name.Contains("Finish"))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

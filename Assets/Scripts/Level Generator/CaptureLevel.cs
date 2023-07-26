@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System.IO;
 using UnityEditor;
+using System.Runtime.CompilerServices;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 namespace CypherCode
 {
@@ -17,6 +20,7 @@ namespace CypherCode
         public float levelOffset = -0.5f;
         public int levelSizeOffset = 4;
         public string levelName;
+        public TMP_Text levelNameInput;
 
         private void Awake()
         {
@@ -28,12 +32,7 @@ namespace CypherCode
             //DisableOtherLayerRenderers(currentLayer);
             //Debug.Log(GetLevelBounds().size);
             targetSize = new Vector2Int((int)GetLevelBounds().size.x, (int)GetLevelBounds().size.z);
-            numLayers = (int)GetLevelBounds().size.y;
-        }
-
-        public void SaveLevel()
-        {
-            
+            numLayers = 0; //(int)GetLevelBounds().size.y;
         }
 
         private Bounds GetLevelBounds()
@@ -88,14 +87,16 @@ namespace CypherCode
 
             foreach (Renderer renderer in renderers)
             {
-                if (renderer.transform.name == "VirusPlane" && renderer.transform.position.y == currentLayer - 1)
+                float yPos = Mathf.Round(renderer.transform.position.y * 10f) / 10f;
+                if (renderer.transform.name == "VirusPlane" && Mathf.Round(renderer.transform.position.y) == currentLayer - 1)
                 {
                     renderer.enabled = true;
                 }
-                else if (renderer.transform.position.y != currentLayer + levelOffset)
+                else if (yPos != currentLayer + levelOffset)
                 {
                     renderer.enabled = false;
                 }
+
             }
 
             //foreach (Renderer renderer in renderers)
@@ -148,6 +149,8 @@ namespace CypherCode
         {
             if (rt != null)
             {
+                Debug.Log((int)GetLevelBounds().size.y);
+                numLayers = (int)GetLevelBounds().size.y + 1;
                 int width = rt.width;
                 int height = rt.height;
 
@@ -162,10 +165,16 @@ namespace CypherCode
             }
         }
 
+        public void BackToMenu()
+        {
+            SceneManager.LoadScene("RevampedMainMenu");
+        }
+
         private IEnumerator CaptureLayersWithDelay(RenderTexture rt, int width, int height, Texture2D[] layerTextures, int targetWidth, int targetHeight)
         {
             for (int layer = 0; layer < numLayers; layer++)
             {
+                //Debug.Log("Capturing layer : " + layer + 1);
                 DisableOtherLayerRenderers(layer);
 
                 yield return new WaitForEndOfFrame();
@@ -174,7 +183,7 @@ namespace CypherCode
 
                 EnableAllRenderers();
 
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(2.5f);
             }
 
             // Combine the layer textures into a final texture
@@ -182,7 +191,21 @@ namespace CypherCode
 
             // Save the final texture as a PNG file
             byte[] bytes = finalTexture.EncodeToPNG();
-            File.WriteAllBytes("Assets/CustomLevelList/Level_" + levelName + "_" + numLayers + ".png", bytes);
+
+            string folderName = "CypherCodeCustoms";
+            string path = Path.Combine(Application.persistentDataPath, folderName);
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            if (levelName == "" || levelName == null)
+                levelName = "CustomLevel";
+            
+            
+
+            File.WriteAllBytes(path + "/Level_" + levelName + "_" + numLayers + "Username" + ".png", bytes);
+
+            //File.WriteAllBytes("Assets/CustomLevelList/Level_" + levelName + "_" + numLayers + ".png", bytes);
 
             // Destroy the textures to free up memory
             foreach (Texture2D tex in layerTextures)
@@ -194,6 +217,8 @@ namespace CypherCode
 
         private Texture2D CaptureLayerTexture(RenderTexture rt, int width, int height)
         {
+            levelName = levelNameInput.text;
+
             Texture2D texture = new Texture2D(width, height, TextureFormat.RGBAHalf, false);
             RenderTexture.active = rt;
             texture.ReadPixels(new Rect(0, 0, width, height), 0, 0);

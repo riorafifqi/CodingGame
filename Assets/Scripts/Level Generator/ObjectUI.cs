@@ -11,10 +11,16 @@ namespace CypherCode
     {
         public GameObject prefab;
         public Image UIThumbnail;
+        public CaptureLevel levelRoot;
 
         private Transform draggingInstance;
-        private Collider[] draggingColliders;
-        private MonoBehaviour[] draggingScripts;
+        private GameObject highlight;
+
+        private void Start()
+        {
+            highlight = FindObjectOfType<ObjectHighlightHandler>().gameObject;
+            levelRoot = FindObjectOfType<CaptureLevel>().GetComponent<CaptureLevel>();
+        }
 
         public void UpdateThumbnail()
         {
@@ -56,22 +62,27 @@ namespace CypherCode
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            if(ThumbnailGridGen.thereIsAFinishLine && prefab.name.Contains("Finish"))
+            {
+                return;
+            }
+            else
+            {
+                ThumbnailGridGen.thereIsAFinishLine = true;
+            }
+
             // When the user starts dragging, create the prefab instance
             if (prefab != null)
             {
-                draggingInstance = Instantiate(prefab).transform;
-
-                // Disable colliders and scripts on the dragging instance
-                draggingColliders = draggingInstance.GetComponentsInChildren<Collider>();
-                draggingScripts = draggingInstance.GetComponentsInChildren<MonoBehaviour>();
-                //SetCoreComponentStatus(false);
+                draggingInstance = Instantiate(prefab, levelRoot.levelRoot.transform.GetChild(0).transform).transform;
 
                 // Start dragging the newly created instance
                 ObjectMover mover = draggingInstance.gameObject.AddComponent<ObjectMover>();
                 if (mover != null)
                 {
-                    //FindObjectOfType<ThumbnailGridGen>().GetComponent<ThumbnailGridGen>().selectedObject = prefab;
+                    FindObjectOfType<LEDescriptor>().GetComponent<LEDescriptor>().SetObjDesc(prefab);
                     mover.Select();
+                    highlight.GetComponent<ObjectHighlightHandler>().SetParent(draggingInstance.gameObject);
                 }
             }
         }

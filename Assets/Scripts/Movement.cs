@@ -436,7 +436,7 @@ public class Movement : MonoBehaviour
             }
             else
             {
-                Debug.Log("No collider detected");
+                //Debug.Log("No collider detected");
                 yield return null;
             }
         }
