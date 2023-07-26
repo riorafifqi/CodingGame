@@ -16,10 +16,10 @@ MonoBehaviour:
   shortDesc: Tutorial Movement
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
-  levelThumbnail: {fileID: 21300000, guid: 090d3206e544b3a4680007370815b810, type: 3}
+  levelThumbnail: {fileID: 21300000, guid: 235eea23b18a9d847be50570b47e22c7, type: 3}
   objectList:
   - count: 1
-    objectList: 0
+    obj: 0
   scores:
   - name: 
     totalLine: 0

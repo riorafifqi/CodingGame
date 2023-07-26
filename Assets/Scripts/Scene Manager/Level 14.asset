@@ -16,7 +16,14 @@ MonoBehaviour:
   shortDesc: Virus 3X|Moveable Tile 2X|Laser 1X
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
-  levelThumbnail: {fileID: 21300000, guid: 53d725f07a741c14991c0aeb603276bd, type: 3}
+  levelThumbnail: {fileID: 21300000, guid: a62e65316c1355c499d388e562891226, type: 3}
+  objectList:
+  - count: 3
+    obj: 0
+  - count: 2
+    obj: 4
+  - count: 1
+    obj: 2
   scores:
   - name: 
     totalLine: 0
