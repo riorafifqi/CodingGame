@@ -3287,7 +3287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - Hi <b>Cypher</b>!
+    - Hi <b>Shopia</b>!
     - I'm <b>Navi 1973</b> and I'm here to help
     - Your main task is to destroy this <color="red">virus</color>
 --- !u!1 &1139775821
