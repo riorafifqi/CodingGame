@@ -15,4 +15,4 @@ MonoBehaviour:
   ID: 2
   icon: {fileID: 136349562, guid: 71025f31fd105ba45a3de069de35f9db, type: 3}
   preview: {fileID: 74124146, guid: 71025f31fd105ba45a3de069de35f9db, type: 3}
-  modelPrefab: {fileID: 6797544324534178397, guid: 15051bbebbe5e1041806d2436507feab, type: 3}
+  modelUIPrefab: {fileID: 6797544324534178397, guid: 76e5cb1fcc844c64ca7ca01858be5d24, type: 3}

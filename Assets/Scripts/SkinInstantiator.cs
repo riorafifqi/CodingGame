@@ -22,7 +22,7 @@ namespace CypherCode
             {
                 if (PlayerPrefs.GetInt("SelectedSkin") == skin.ID)
                 {
-                    tempChar = skin.modelPrefab;
+                    tempChar = skin.modelUIPrefab;
                 }
             }
 

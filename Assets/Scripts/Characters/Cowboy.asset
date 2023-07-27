@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1d7364472a3be24ea371bc93c22004a, type: 3}
-  m_Name: ChimkenOverlord
+  m_Name: Cowboy
   m_EditorClassIdentifier: 
-  ID: 4
+  ID: 5
   icon: {fileID: -1596207480, guid: 71025f31fd105ba45a3de069de35f9db, type: 3}
   preview: {fileID: -747901742, guid: 71025f31fd105ba45a3de069de35f9db, type: 3}
-  modelPrefab: {fileID: 168392, guid: f03d1c686a26a1d4da99a4186b0bb1ab, type: 3}
+  modelUIPrefab: {fileID: 3976699160046493082, guid: 63c4863ad9f956a4f8a89448ff01eff0, type: 3}
