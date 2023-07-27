@@ -113,6 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 2100000, guid: 7a50ffbd265e026468c2ade529c55938, type: 2}
   floorTransparent: {fileID: 2100000, guid: 943694b4eb374f343bce0c622d3fe21c, type: 2}
+  emissionColorInContact: {r: 0, g: 1, b: 0.15447211, a: 1}
+  emissionColorNoContact: {r: 0.7490196, g: 0, b: 0.011764706, a: 1}
 --- !u!1 &1569783928477575411
 GameObject:
   m_ObjectHideFlags: 0

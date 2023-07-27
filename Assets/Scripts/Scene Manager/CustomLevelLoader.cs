@@ -12,7 +12,7 @@ namespace CypherCode
 
         public static string selectedLevelFileName { get; set; }
 
-        void Start()
+        void OnEnable()
         {
             GenerateCustomLevelList();
         }

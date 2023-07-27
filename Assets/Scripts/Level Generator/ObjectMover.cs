@@ -29,18 +29,22 @@ namespace CypherCode
 
         public GameObject dashLine;
 
-        private void Start()
+        private void Awake()
         {
             mainCamera = Camera.main;
-            initialPosition = transform.position;
-            initialRotation = transform.rotation;
-            targetPosition = initialPosition;
-            targetRotation = initialRotation;
             colliders = GetComponentsInChildren<Collider>();
             scripts = GetComponentsInChildren<MonoBehaviour>();
             dashLine = GameObject.FindGameObjectWithTag("Highlight");
             SetScriptStatus(false);
             //Debug.Log(descriptor);
+        }
+
+        private void Start()
+        {
+            initialPosition = transform.position;
+            initialRotation = transform.rotation;
+            targetPosition = initialPosition;
+            targetRotation = initialRotation;
         }
 
         public void Select()

@@ -22,6 +22,9 @@ namespace CypherCode
         public string levelName;
         public TMP_Text levelNameInput;
 
+        public GameObject savingScreen;
+
+
         private void Awake()
         {
             renderTexture = Resources.Load<RenderTexture>("ColorMapRT");
@@ -33,6 +36,7 @@ namespace CypherCode
             //Debug.Log(GetLevelBounds().size);
             targetSize = new Vector2Int((int)GetLevelBounds().size.x, (int)GetLevelBounds().size.z);
             numLayers = 0; //(int)GetLevelBounds().size.y;
+            savingScreen.SetActive(false);
         }
 
         private Bounds GetLevelBounds()
@@ -149,7 +153,8 @@ namespace CypherCode
         {
             if (rt != null)
             {
-                Debug.Log((int)GetLevelBounds().size.y);
+                savingScreen.SetActive(true);
+
                 numLayers = (int)GetLevelBounds().size.y + 1;
                 int width = rt.width;
                 int height = rt.height;
@@ -213,6 +218,7 @@ namespace CypherCode
                 Destroy(tex);
             }
             Destroy(finalTexture);
+            savingScreen.SetActive(false);
         }
 
         private Texture2D CaptureLayerTexture(RenderTexture rt, int width, int height)
