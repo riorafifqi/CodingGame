@@ -8,6 +8,7 @@ public class Console : MonoBehaviour
     public GameObject commandsFieldParent;
     public GameObject commandFieldPrefab;
     public GameObject helpPanel;
+    public GameObject descriptionBox;
 
     public int lineCount;
     public TMP_Text lineText;
@@ -28,11 +29,18 @@ public class Console : MonoBehaviour
     [SerializeField] Color first;
     [SerializeField] Color number;
 
-    private void Awake()
+    private void OnEnable()
     {
         resetButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<GameManager>().ResetLevel(); });
-        playButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<CommandManager>().OnPressRunCommand(); });
+        
+        if (MultiplayerFlowManager.playMultiplayer)
+            playButton.onClick.AddListener(() => GameObject.FindObjectOfType<Countdown>().DecreaseCountdownServerRPC());
+        else
+            playButton.onClick.AddListener(delegate { GameObject.FindObjectOfType<CommandManager>().OnPressRunCommand(); });      // Singleplayer        
+        
         isFinish = false;
+
+        descriptionBox = GameObject.Find("DescriptionBox");
     }
 
     private void Update()
@@ -47,6 +55,9 @@ public class Console : MonoBehaviour
                 CommandField comField = command.GetComponentInParent<CommandField>();
                 comField.highlight.SetActive(false);
             }
+            Movement.LocalInstance.SetAllCommandExecutedServerRPC(true);
+
+            isFinish = false;
         }
     }
 

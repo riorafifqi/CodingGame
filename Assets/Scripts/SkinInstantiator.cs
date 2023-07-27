@@ -12,7 +12,7 @@ namespace CypherCode
         // Start is called before the first frame update
         private void Awake()
         {
-            ChangeSkin();
+            //ChangeSkin();
         }
 
         public void ChangeSkin()

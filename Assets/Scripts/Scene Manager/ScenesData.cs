@@ -1,4 +1,8 @@
 using System.Collections.Generic;
+using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
+using Unity.Networking.Transport.Relay;
+using Unity.Services.Relay.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,15 +17,18 @@ public class ScenesData : ScriptableObject
     {
         if (index <= levels.Count)
         {
-            SceneManager.LoadSceneAsync("Level_" + index.ToString());
+            NetworkManager.Singleton.StartHost();
+            NetworkManager.Singleton.SceneManager.LoadScene("Level_" + index.ToString(), LoadSceneMode.Single);
+            //SceneManager.LoadSceneAsync("Level_" + index.ToString());
         }
         else CurrentLevelIndex = 0;
     }
 
     public void LoadLevelWithLevel(Level lvl)
     {
-        Debug.Log(lvl.sceneName);
-        SceneManager.LoadSceneAsync(lvl.sceneName);
+        NetworkManager.Singleton.StartHost();
+        NetworkManager.Singleton.SceneManager.LoadScene(lvl.sceneName, LoadSceneMode.Single);
+        //SceneManager.LoadSceneAsync(lvl.sceneName);
     }
 
     public void LoadNextLevel()

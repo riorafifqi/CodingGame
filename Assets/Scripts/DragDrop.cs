@@ -35,7 +35,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("OnDrag");
-        draggedCommand.GetComponent<RectTransform>().anchoredPosition = Input.mousePosition;
+        //draggedCommand.GetComponent<RectTransform>().anchoredPosition = Input.mousePosition;
+        draggedCommand.transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)

@@ -2601,6 +2601,7 @@ GameObject:
   - component: {fileID: 6133456431458109671}
   - component: {fileID: 3457547855508138154}
   - component: {fileID: 141006923410277448}
+  - component: {fileID: 452420843232036260}
   m_Layer: 3
   m_Name: tank
   m_TagString: Skin
@@ -2615,8 +2616,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6797544324534178397}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2636,7 +2637,7 @@ Transform:
   - {fileID: 2673086938030981266}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &3457547855508138154
 Animator:
   serializedVersion: 4
@@ -2669,8 +2670,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d62492c918929f47ad919fc89fb59ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 3457547855508138154}
+  animator: {fileID: 0}
   animationType: 0
+--- !u!114 &452420843232036260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6797544324534178397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd0ecedbe1e13f43b47ee11dc001c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 3457547855508138154}
 --- !u!1 &6853148074960540653
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,16 +1,22 @@
 using JetBrains.Annotations;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
+    private bool isGameFinish;
     public bool isVirusGone;
     public List<GameObject> Viruses;
     public List<GameObject> interactables;
+    
+    int virusCount;
+    int virusKilled;
 
     public List<string> legalCommands;
+    [SerializeField] private Transform playerPrefab;
 
     [HideInInspector] public CommandManager commandManager;
     public Level levelData;
@@ -19,6 +25,17 @@ public class GameManager : MonoBehaviour
 
     /*[SerializeField] private Character[] skinDatabase;
     [SerializeField] private GameObject characterModel;*/
+
+    private void OnEnable()
+    {
+        GameplayEvent.OnEnemyDestroyedE += AddVirusKilledCount;
+    }
+
+    private void OnDisable()
+    {
+        GameplayEvent.OnEnemyDestroyedE -= AddVirusKilledCount;
+        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted -= SceneManager_OnLoadEventCompleted;
+    }
 
     private void Awake()
     {
@@ -31,16 +48,15 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isVirusGone = false;
         Viruses.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         interactables.AddRange(GameObject.FindGameObjectsWithTag("Interactable"));
 
-    }
+        if(MultiplayerFlowManager.playMultiplayer)
+            virusCount = Viruses.Count / 2;
+        else
+            virusCount = Viruses.Count;
+        isGameFinish = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        CheckVirus();
     }
 
     public void SetHighscore()
@@ -55,7 +71,7 @@ public class GameManager : MonoBehaviour
             levelData.scores[0].totalLine = commandManager.console.lineCount;
         }
     }
-
+    
     public virtual void CheckVirus()
     {
         foreach (GameObject virus in Viruses)
@@ -66,8 +82,6 @@ public class GameManager : MonoBehaviour
                 return;
             }
         }
-
-        isVirusGone = true;
     }
 
     public void ResetLevel()
@@ -91,6 +105,8 @@ public class GameManager : MonoBehaviour
 
         commandManager.movement.ResetPosition();
         SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.level));
+
+        isGameFinish = false;
     }
 
     /*public void ChangeSkin()
@@ -112,5 +128,55 @@ public class GameManager : MonoBehaviour
     public string GetLevelName()
     {
         return SceneManager.GetActiveScene().name;
+    }
+
+    void AddVirusKilledCount()
+    {
+        virusKilled++;
+        if (virusKilled >= virusCount)
+        {
+            Movement.LocalInstance.SetFinishStatus(true);
+        }
+    }
+
+    public void SetGameFinish(bool status)
+    {
+        isGameFinish = status;
+    }
+
+    public bool GetGameFinish()
+    {
+        return isGameFinish;
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        if (IsServer)
+        {
+            NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SceneManager_OnLoadEventCompleted;
+        }
+    }
+
+    private void SceneManager_OnLoadEventCompleted(string sceneName, LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
+    {
+        foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
+        {
+            GameObject choosenSkinPrefab;
+            if (MultiplayerFlowManager.playMultiplayer)
+            {
+                PlayerData playerData = MultiplayerFlowManager.Instance.GetPlayerDataFromClientId(clientId);
+                choosenSkinPrefab = MultiplayerFlowManager.Instance.GetPlayerSkin(playerData.skinId);
+            }
+            else
+            {
+                choosenSkinPrefab = MultiplayerFlowManager.Instance.GetPlayerSkin(PlayerPrefs.GetInt(MultiplayerFlowManager.SKIN_ID_PLAYERPREFS));
+            }
+
+            Transform playerTransform = Instantiate(choosenSkinPrefab.transform);
+            playerTransform.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
+
+            if (!MultiplayerFlowManager.playMultiplayer)
+                break;
+        }
     }
 }

@@ -49,6 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 0}
   console: {fileID: 0}
+  spawnPos:
+  - {x: 0, y: 0, z: 0}
+  - {x: 2, y: 0, z: 0}
   stopwatch: {fileID: 0}
   currentCommandIndex: 0
 --- !u!114 &6472702531347148568
@@ -76,12 +79,6 @@ MonoBehaviour:
   - Interact.Push()
   commandManager: {fileID: 0}
   levelData: {fileID: 11400000, guid: 4a78ea00533ea2743a9eef84646c267f, type: 2}
-  skinDatabase:
-  - {fileID: 11400000, guid: 116d6bbaab90b8d4683e0efcbe8885c4, type: 2}
-  - {fileID: 11400000, guid: 7a2fcfc7b3abaf2478a7c7c2c01ce3c9, type: 2}
-  - {fileID: 11400000, guid: 2249708cd43d87e44829f193fdcf13f3, type: 2}
-  - {fileID: 11400000, guid: 7da375a12785d8b49abaa46c047ca854, type: 2}
-  characterModel: {fileID: 0}
 --- !u!114 &6472702531347148565
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,22 +1,45 @@
 using System.Collections;
+using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class CommandManager : MonoBehaviour
 {
     public Movement movement;
     public Console console;
+    public List<Vector3> spawnPos;
 
     public Stopwatch stopwatch;
     GameManager gameManager;
 
     public int currentCommandIndex;
 
+    private void OnEnable()
+    {
+        GameplayEvent.OnTimeIsUpE += OnPressRunCommand;
+    }
+
+    private void OnDisable()
+    {
+        GameplayEvent.OnTimeIsUpE -= OnPressRunCommand;
+    }
+
     private void Awake()
     {
+        if (Movement.LocalInstance != null)
+            movement = Movement.LocalInstance;
+        else
+            Movement.OnAnyPlayerSpawned += Movement_OnAnyPlayerSpawned;
+
         stopwatch = GetComponent<Stopwatch>();
-        movement = FindObjectOfType<Movement>();
         gameManager = GetComponent<GameManager>();
         console = FindObjectOfType<Console>();
+    }
+
+    private void Movement_OnAnyPlayerSpawned(object sender, System.EventArgs e)
+    {
+        if (Movement.LocalInstance != null)
+            movement = Movement.LocalInstance;
     }
 
     private void Start()
@@ -39,6 +62,18 @@ public class CommandManager : MonoBehaviour
 
     public virtual void OnPressRunCommand()     // On first time running command
     {
+        StartCoroutine(OnPressRunCommandCoroutine());
+    }
+
+    private IEnumerator OnPressRunCommandCoroutine()
+    {
+        GameplayEvent.OnStartRunning();
+
+        if (MultiplayerFlowManager.playMultiplayer)
+            yield return new WaitForSeconds(2f);
+        else
+            yield return null;
+
         SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(SFX.confirm));
         SoundManager.Instance.PlayMusic(SoundManager.Instance._Database.GetClip(BGM.go));
 
@@ -55,8 +90,6 @@ public class CommandManager : MonoBehaviour
         console.SeparateByLine();
         console.AssignCommand(currentCommandIndex);
         StartCoroutine(RunCommand());
-
-
     }
 
     public virtual IEnumerator RunCommand()
@@ -155,5 +188,16 @@ public class CommandManager : MonoBehaviour
         currentCommandIndex++;
         console.AssignCommand(currentCommandIndex);
         StartCoroutine(RunCommand());
+    }
+
+    public Vector3 GetSpawnPos(int index)
+    {
+        return spawnPos[index];
+    }
+
+    [ClientRpc]
+    public void SetAllCommandExecuted_PlayerClientRpc(Movement player, bool status)
+    {
+        player.SetAllCommandExecuted(status);
     }
 }
