@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 840474521782905044}
   - component: {fileID: 8286051877315794222}
   - component: {fileID: -6135816831270000805}
+  - component: {fileID: -3681219184447857968}
   m_Layer: 3
   m_Name: chicken_cypher
   m_TagString: Untagged
@@ -78,6 +79,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 8286051877315794222}
   animationType: 0
+--- !u!114 &-3681219184447857968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63656996554060398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd0ecedbe1e13f43b47ee11dc001c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 8286051877315794222}
 --- !u!1 &120709757268620254
 GameObject:
   m_ObjectHideFlags: 0

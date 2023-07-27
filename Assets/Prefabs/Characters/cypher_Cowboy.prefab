@@ -1158,6 +1158,7 @@ GameObject:
   - component: {fileID: 4358290909081241376}
   - component: {fileID: 4204548354243829047}
   - component: {fileID: 7662774150092838255}
+  - component: {fileID: -4404497279765739567}
   m_Layer: 3
   m_Name: cypher_Cowboy
   m_TagString: Untagged
@@ -1225,6 +1226,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4204548354243829047}
   animationType: 0
+--- !u!114 &-4404497279765739567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3976699160046493082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd0ecedbe1e13f43b47ee11dc001c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 4204548354243829047}
 --- !u!1 &4212804555152093265
 GameObject:
   m_ObjectHideFlags: 0

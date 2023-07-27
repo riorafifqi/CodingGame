@@ -31,7 +31,8 @@ public enum ObjectName
     Laser,
     Corrupt,
     Pushable,
-    Pressure
+    Pressure,
+    JumpPad
 }
 
 [CreateAssetMenu(fileName = "NewLevel", menuName = "Scene Data/Level")]

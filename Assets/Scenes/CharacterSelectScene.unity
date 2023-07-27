@@ -22041,6 +22041,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1013425664941434869, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
+      propertyPath: skins.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013425664941434869, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
+      propertyPath: skins.Array.data[4]
+      value: 
+      objectReference: {fileID: 1984217506}
+    - target: {fileID: 1013425664941434869, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
+      propertyPath: skins.Array.data[5]
+      value: 
+      objectReference: {fileID: 1984217506}
     - target: {fileID: 1013425664941434871, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
       propertyPath: m_Name
       value: Player Pos
@@ -22065,12 +22077,25 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2820627780
       objectReference: {fileID: 0}
+    - target: {fileID: 6914991116951841131, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3216747378
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006131879254017458, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 594384168
+      objectReference: {fileID: 0}
     - target: {fileID: 8623734398154388968, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
+--- !u!1 &1984217506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7385113806024599524, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
+  m_PrefabInstance: {fileID: 1984217505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1990107378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24334,6 +24359,14 @@ PrefabInstance:
     - target: {fileID: 5455714925515554738, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3136647515
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914991116951841131, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 4216987152
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006131879254017458, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2222919888
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
