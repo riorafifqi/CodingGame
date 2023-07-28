@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +19,7 @@ public class LevelObjectDataItem : MonoBehaviour
     {
         if (prefab != null)
         {
-            Texture2D thumbnailTexture = UnityEditor.AssetPreview.GetAssetPreview(prefab);
+            Texture2D thumbnailTexture = AssetPreview.GetAssetPreview(prefab);
             if (thumbnailTexture != null)
             {
                 // Get the background color from the first pixel

@@ -26,7 +26,7 @@ namespace CypherCode
         {
             if (prefab != null)
             {
-                Texture2D thumbnailTexture = UnityEditor.AssetPreview.GetAssetPreview(prefab);
+                Texture2D thumbnailTexture = AssetPreview.GetAssetPreview(prefab);
                 if (thumbnailTexture != null)
                 {
                     // Get the background color from the first pixel
