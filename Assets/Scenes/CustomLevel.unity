@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17508814, g: 0.21904135, b: 0.3013422, a: 1}
+  m_IndirectSpecularColor: {r: 0.17508833, g: 0.21904096, b: 0.30134127, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: a96e73a4022ca7549bccd45885db1b72, type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 65fa06390021ecc43b0972961f315792, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 1c58f4797a4e7b5499d351f0dbc47e08, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3321,6 +3321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 0}
   console: {fileID: 750543491}
+  spawnPos: []
   stopwatch: {fileID: 0}
   currentCommandIndex: 0
 --- !u!4 &1126474102
@@ -3361,6 +3362,7 @@ MonoBehaviour:
   - Wait()
   - Jump()
   - Interact.Push()
+  playerPrefab: {fileID: 0}
   commandManager: {fileID: 0}
   levelData: {fileID: 11400000, guid: 4a78ea00533ea2743a9eef84646c267f, type: 2}
 --- !u!114 &1126474104
@@ -4972,6 +4974,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1781474683, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1889905627, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5050,19 +5056,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 117.935
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -10.4513855
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460767321750, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5135,6 +5141,10 @@ PrefabInstance:
     - target: {fileID: 5221685648083509882, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618594597923387038, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6854607044546724744, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5221,6 +5231,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1472710490}
     m_Modifications:
+    - target: {fileID: 761525903, guid: 4ce6b0388f088df4db69c619bdf81688, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2099913537
+      objectReference: {fileID: 0}
     - target: {fileID: 197602354413150603, guid: 4ce6b0388f088df4db69c619bdf81688, type: 3}
       propertyPath: offset
       value: -90
@@ -5699,7 +5713,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951754009}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f39ac1d539e93148be4a765ad3f29da, type: 3}
   m_Name: 
@@ -5711,6 +5725,7 @@ MonoBehaviour:
   levelSizeOffset: 4
   levelName: Sample
   levelNameInput: {fileID: 0}
+  savingScreen: {fileID: 0}
 --- !u!1 &1967742537 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 381430321389938250, guid: 7c8a6c1df6a87164888a508f2413324f, type: 3}

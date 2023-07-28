@@ -11,11 +11,6 @@ namespace CypherCode
         public GameObject[] prefabsList;
         public static bool thereIsAFinishLine { get; set; }
 
-        private void Awake()
-        {
-            DisableObjectsScript();
-        }
-
         void Start()
         {
             thereIsAFinishLine = DoesFinishLineExist();
@@ -38,15 +33,6 @@ namespace CypherCode
             }
         }
 
-        void DisableObjectsScript()
-        {
-            ObjectMover[] movers = FindObjectsOfType<ObjectMover>();
-
-            foreach (ObjectMover mover in movers)
-            {
-                mover.SetScriptStatus(false);
-            }
-        }
         private void ClearGrid()
         {
             // Clear the grid by destroying all child elements

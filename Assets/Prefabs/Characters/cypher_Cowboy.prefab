@@ -1161,7 +1161,7 @@ GameObject:
   - component: {fileID: -4404497279765739567}
   m_Layer: 3
   m_Name: cypher_Cowboy
-  m_TagString: Untagged
+  m_TagString: Skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1224,7 +1224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d62492c918929f47ad919fc89fb59ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 4204548354243829047}
+  animator: {fileID: 0}
   animationType: 0
 --- !u!114 &-4404497279765739567
 MonoBehaviour:

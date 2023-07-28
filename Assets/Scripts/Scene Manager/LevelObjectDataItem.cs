@@ -19,11 +19,12 @@ public class LevelObjectDataItem : MonoBehaviour
     {
         if (prefab != null)
         {
-            Texture2D thumbnailTexture = AssetPreview.GetAssetPreview(prefab);
+            ObjectsSO objectsSO = Resources.Load<ObjectsSO>("ObjectsList");
+            Texture2D thumbnailTexture = objectsSO.FindThumbnail(prefab);
             if (thumbnailTexture != null)
             {
                 // Get the background color from the first pixel
-                Color backgroundColor = thumbnailTexture.GetPixel(0, 0);
+                Color backgroundColor = new Color(82f / 255f, 82f / 255f, 82f / 255f, 1f);
 
                 // Create a new Texture2D with transparent background
                 Texture2D processedTexture = new Texture2D(thumbnailTexture.width, thumbnailTexture.height, TextureFormat.RGBA32, false);

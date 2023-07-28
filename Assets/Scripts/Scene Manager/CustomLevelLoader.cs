@@ -36,7 +36,7 @@ namespace CypherCode
                     {
                         string fileName = Path.GetFileName(file);
                         string creationDate = File.GetCreationTime(file).ToString("dd_MM_yyyy");
-                        Debug.Log("Image File Name: " + fileName + "_" + creationDate);
+                        //Debug.Log("Image File Name: " + fileName + "_" + creationDate);
 
                         CustomLevelItem temp = Instantiate(levelUIPrefab, transform).GetComponent<CustomLevelItem>();
                         temp.fullLevelName = fileName + "_" +creationDate;

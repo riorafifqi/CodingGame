@@ -25,7 +25,6 @@ namespace CypherCode
 
         //core component
         public Collider[] colliders;
-        public MonoBehaviour[] scripts;
 
         public GameObject dashLine;
 
@@ -33,9 +32,7 @@ namespace CypherCode
         {
             mainCamera = Camera.main;
             colliders = GetComponentsInChildren<Collider>();
-            scripts = GetComponentsInChildren<MonoBehaviour>();
             dashLine = GameObject.FindGameObjectWithTag("Highlight");
-            SetScriptStatus(false);
             //Debug.Log(descriptor);
         }
 
@@ -271,16 +268,6 @@ namespace CypherCode
             foreach (var collider in colliders)
             {
                 collider.enabled = status;
-            }
-        }
-
-        public void SetScriptStatus(bool status)
-        {
-            foreach (var script in scripts)
-            {
-                if (script == this || script.name == "RotationColorChange")
-                    continue;
-                script.enabled = status;
             }
         }
     }

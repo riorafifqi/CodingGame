@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17508814, g: 0.21904135, b: 0.3013422, a: 1}
+  m_IndirectSpecularColor: {r: 0.17508833, g: 0.21904096, b: 0.30134127, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: a96e73a4022ca7549bccd45885db1b72, type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: aa61f5aeaab7b0b47820d88ada19325c, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 1c58f4797a4e7b5499d351f0dbc47e08, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -493,6 +493,7 @@ MonoBehaviour:
   commandsFieldParent: {fileID: 357177822}
   commandFieldPrefab: {fileID: 1701224222462356056, guid: 1b006fd8583f46041990365e52132a9c, type: 3}
   helpPanel: {fileID: 0}
+  descriptionBox: {fileID: 0}
   lineCount: 0
   lineText: {fileID: 0}
   commandsPerLine: []
@@ -1778,7 +1779,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &265779824
 GameObject:
@@ -2307,7 +2307,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &327137253
 GameObject:
@@ -2714,7 +2713,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &357177822
 GameObject:
@@ -4303,7 +4301,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &596023821
 PrefabInstance:
@@ -4447,7 +4444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &617247565
 PrefabInstance:
@@ -5752,7 +5748,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &844122246
 GameObject:
@@ -6194,7 +6189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &889800336
 PrefabInstance:
@@ -7402,7 +7396,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1011215299 stripped
 GameObject:
@@ -7422,7 +7415,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &1027652640
 PrefabInstance:
@@ -7504,7 +7496,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &1071867517
 PrefabInstance:
@@ -7586,7 +7577,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &1093398710
 PrefabInstance:
@@ -7861,7 +7851,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1118607922
 GameObject:
@@ -7962,7 +7951,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1126474100
 GameObject:
@@ -7999,6 +7987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 0}
   console: {fileID: 750543491}
+  spawnPos: []
   stopwatch: {fileID: 0}
   currentCommandIndex: 0
 --- !u!4 &1126474102
@@ -8039,6 +8028,7 @@ MonoBehaviour:
   - Wait()
   - Jump()
   - Interact.Push()
+  playerPrefab: {fileID: 0}
   commandManager: {fileID: 0}
   levelData: {fileID: 11400000, guid: 4a78ea00533ea2743a9eef84646c267f, type: 2}
 --- !u!114 &1126474104
@@ -8299,7 +8289,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &1142539878
 PrefabInstance:
@@ -8386,7 +8375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1186000655
 GameObject:
@@ -8598,7 +8586,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1246799248
 GameObject:
@@ -9051,7 +9038,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1287145871
 GameObject:
@@ -9732,7 +9718,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!114 &1407850963 stripped
 MonoBehaviour:
@@ -9763,7 +9748,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &1422392767
 PrefabInstance:
@@ -10183,7 +10167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1471166990
 GameObject:
@@ -10626,7 +10609,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1499669600
 GameObject:
@@ -10851,7 +10833,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &1559460023
 PrefabInstance:
@@ -10995,7 +10976,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1636565323 stripped
 GameObject:
@@ -11015,7 +10995,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1641323685 stripped
 GameObject:
@@ -11035,7 +11014,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1647653182
 GameObject:
@@ -11266,7 +11244,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1688533701
 GameObject:
@@ -11499,7 +11476,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1694927799 stripped
 GameObject:
@@ -11519,7 +11495,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1711370122
 GameObject:
@@ -11777,7 +11752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1749816353 stripped
 GameObject:
@@ -11797,7 +11771,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &1753344675
 PrefabInstance:
@@ -11874,7 +11847,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &1782558858
 PrefabInstance:
@@ -12260,7 +12232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1807012860
 GameObject:
@@ -12652,7 +12623,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &1822252605
 PrefabInstance:
@@ -12729,7 +12699,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &1836257176
 PrefabInstance:
@@ -12806,7 +12775,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1839391806 stripped
 GameObject:
@@ -12826,7 +12794,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1842276188
 GameObject:
@@ -12934,7 +12901,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1868748743 stripped
 GameObject:
@@ -12954,7 +12920,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1897605341
 GameObject:
@@ -13150,7 +13115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &1915689103
 PrefabInstance:
@@ -13227,7 +13191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1925470615
 GameObject:
@@ -13603,7 +13566,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &1990117205
 GameObject:
@@ -13790,7 +13752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &2019109159
 GameObject:
@@ -13944,7 +13905,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &2034783360
 GameObject:
@@ -14139,7 +14099,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &2088312325 stripped
 GameObject:
@@ -14159,7 +14118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &2102897733
 PrefabInstance:
@@ -14236,7 +14194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &2115921327
 GameObject:
@@ -14448,7 +14405,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1 &2121275680 stripped
 GameObject:
@@ -14468,7 +14424,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &2124538626
 PrefabInstance:
@@ -14639,7 +14594,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders: []
-  scripts: []
   dashLine: {fileID: 0}
 --- !u!1001 &1701224222169443829
 PrefabInstance:

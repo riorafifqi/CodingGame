@@ -208,7 +208,7 @@ namespace CypherCode
             
             
 
-            File.WriteAllBytes(path + "/Level_" + levelName + "_" + numLayers + "Username" + ".png", bytes);
+            File.WriteAllBytes(path + "/Level_" + levelName + "_" + numLayers + "_" + "Username" + ".png", bytes);
 
             //File.WriteAllBytes("Assets/CustomLevelList/Level_" + levelName + "_" + numLayers + ".png", bytes);
 

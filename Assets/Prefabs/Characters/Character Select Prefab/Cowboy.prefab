@@ -190,6 +190,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7a2fcfc7b3abaf2478a7c7c2c01ce3c9, type: 2}
   - {fileID: 11400000, guid: 2249708cd43d87e44829f193fdcf13f3, type: 2}
   - {fileID: 11400000, guid: 7da375a12785d8b49abaa46c047ca854, type: 2}
+  - {fileID: 11400000, guid: f8ddca317f0b46649a35d294fd884a73, type: 2}
+  - {fileID: 11400000, guid: a29e4a662cfe5b34c9b6c8f3e8147bfa, type: 2}
   charPlaceholder: {fileID: 0}
 --- !u!114 &492397839321617499
 MonoBehaviour:
