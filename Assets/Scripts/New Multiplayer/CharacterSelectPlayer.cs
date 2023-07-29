@@ -19,13 +19,6 @@ public class CharacterSelectPlayer : MonoBehaviour
         UpdatePlayer();
     }
 
-    private void OnDisable()
-    {
-        MultiplayerFlowManager.Instance.OnPlayerDataNetworkListChanged -= MultiplayerFlowManager_OnPlayerDataNetworkListChanged;
-        CharacterSelectReady.Instance.OnReadyChanged -= CharacterSelectReady_OnReadyChanged;
-        Hide();
-    }
-
     private void CharacterSelectReady_OnReadyChanged(object sender, System.EventArgs e)
     {
         UpdatePlayer();

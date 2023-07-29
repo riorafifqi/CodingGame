@@ -24336,17 +24336,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1013425664941434869, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
-      propertyPath: playerIndex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1013425664941434871, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
       propertyPath: m_Name
       value: Player Pos (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1013425664941434871, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4235920378733217903, guid: 3349635f0e441ce4890c4efba12a430d, type: 3}
       propertyPath: GlobalObjectIdHash

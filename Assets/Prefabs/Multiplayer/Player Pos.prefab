@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398fbbd9b15a3c542955debba0b053eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 0
+  playerIndex: 1
   playerNameText: {fileID: 1013425664259187580}
   readyMark: {fileID: 3734410618356770542}
   skins:

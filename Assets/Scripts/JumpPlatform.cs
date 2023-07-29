@@ -29,7 +29,7 @@ public class JumpPlatform : MonoBehaviour
     {
         Debug.Log("Throw called");
 
-        player.transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
+        //player.transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
 
         Rigidbody rb = target.GetComponent<Rigidbody>();
         Animator animator = target.GetComponentInChildren<Animator>();

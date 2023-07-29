@@ -2255,6 +2255,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1472710490}
     m_Modifications:
+    - target: {fileID: -6575288085719995008, guid: ec890257a12349548aa5d017d475ef54, type: 3}
+      propertyPath: distance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3797586503165101762, guid: ec890257a12349548aa5d017d475ef54, type: 3}
       propertyPath: m_Name
       value: JumpPad
@@ -6245,19 +6249,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 117.935
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460242522559, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10.4514
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1249561460767321750, guid: 8b76fc60ea64902468c9655fb573a340, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6805,6 +6809,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1472710490}
     m_Modifications:
+    - target: {fileID: -6575288085719995008, guid: ec890257a12349548aa5d017d475ef54, type: 3}
+      propertyPath: distance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3797586503165101762, guid: ec890257a12349548aa5d017d475ef54, type: 3}
       propertyPath: m_Name
       value: JumpPad
