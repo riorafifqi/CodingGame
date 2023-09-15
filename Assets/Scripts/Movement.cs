@@ -1,9 +1,12 @@
 using Photon.Pun;
+using System;
 using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.VFX;
 
-public class Movement : MonoBehaviour
+public class Movement : NetworkBehaviour
 {
     protected Vector3 playerPositionOnStart;   // Player position when level start
     protected Quaternion playerRotationOnStart;
@@ -18,6 +21,12 @@ public class Movement : MonoBehaviour
     protected bool isPushing;
     public bool isJumping;
     public bool isGrounded;
+
+    private int killCount;
+    private int enemyCount;
+
+    private bool isFinish;
+    private bool isAllCommandExecuted;
 
     protected float movingSpeed;
     public float groundedSpeed = 0.01f;
@@ -38,10 +47,35 @@ public class Movement : MonoBehaviour
     public float smokeMinSize = 0;
     public Vector3 smokeDir;
 
+    public static event EventHandler OnAnyPlayerSpawned;
+
+    public static Movement LocalInstance { get; private set; }
+
+    public override void OnNetworkSpawn()
+    {
+        if (IsOwner)
+        {
+            LocalInstance = this;
+        }
+        commandManager = FindObjectOfType<CommandManager>();
+
+        transform.position = commandManager.GetSpawnPos((int)OwnerClientId);
+        OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
+
+        Reset();
+
+        if (!MultiplayerFlowManager.playMultiplayer)
+        {
+            if (!IsLocalPlayer)
+                Destroy(this.gameObject);
+        }
+    }
+
     void Start()
     {
         //this.transform.position = new Vector3(0, 0.5f, 0);
         rb = transform.GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
 
         commandManager = FindObjectOfType<CommandManager>();
         if (commandManager == null)
@@ -49,7 +83,7 @@ public class Movement : MonoBehaviour
             commandManager = FindObjectOfType<CommandManagerMultiplayer>();
         }
 
-        StartCoroutine(FetchComponent());
+        //StartCoroutine(FetchComponent());
 
         startPos = transform.position;
         targetPos = startPos;
@@ -159,7 +193,6 @@ public class Movement : MonoBehaviour
             while (t < groundedSpeed)
             {
                 t += Time.deltaTime;
-                Debug.Log((int)transform.forward.z);
 
                 // Calculate which axis is affected by transform.forward
                 float tempValue, deltaForward = 0;
@@ -172,7 +205,6 @@ public class Movement : MonoBehaviour
                 {
                     tempValue = Mathf.Lerp(startPosition.z, endPosition.z, t / groundedSpeed);
                     deltaForward = Mathf.Abs(tempValue - transform.position.z);
-                    Debug.Log("toward z");
                 }
 
                 //Vector3 tempPos = Vector3.Lerp(startPosition, endPosition, t / groundedSpeed);
@@ -190,6 +222,7 @@ public class Movement : MonoBehaviour
 
         targetPos = transform.position;
         commandManager.NextCommand();
+        EventManager.OnMovementFinish();
     }
 
     public virtual IEnumerator BackwardMove(int index = 1)
@@ -203,7 +236,6 @@ public class Movement : MonoBehaviour
             while (t < groundedSpeed)
             {
                 t += Time.deltaTime;
-                Debug.Log((int)transform.forward.z);
 
                 // Calculate which axis is affected by transform.forward
                 float tempValue, deltaForward = 0;
@@ -216,7 +248,6 @@ public class Movement : MonoBehaviour
                 {
                     tempValue = Mathf.Lerp(startPosition.z, endPosition.z, t / groundedSpeed);
                     deltaForward = Mathf.Abs(tempValue - transform.position.z);
-                    Debug.Log("toward z");
                 }
 
                 //Vector3 tempPos = Vector3.Lerp(startPosition, endPosition, t / groundedSpeed);
@@ -230,6 +261,7 @@ public class Movement : MonoBehaviour
         }
         targetPos = transform.position;
         commandManager.NextCommand();
+        EventManager.OnMovementFinish();
     }
 
     public virtual IEnumerator RotateLeft(int index = 1)
@@ -249,6 +281,7 @@ public class Movement : MonoBehaviour
             transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
         }
         commandManager.NextCommand();
+        EventManager.OnMovementFinish();
     }
 
     public virtual IEnumerator RotateRight(int index = 1)
@@ -268,6 +301,7 @@ public class Movement : MonoBehaviour
             transform.position = new Vector3(targetPos.x, transform.position.y, targetPos.z);
         }
         commandManager.NextCommand();
+        EventManager.OnMovementFinish();
     }
 
     public virtual IEnumerator Jump(float distance = 1f)
@@ -286,8 +320,6 @@ public class Movement : MonoBehaviour
         rb.velocity = transform.forward * hSpeed + transform.up * vSpeed;
 
         boxCollider.enabled = false;
-        if (!animator)
-            animator = GameObject.FindGameObjectWithTag("Skin").GetComponent<Animator>();
 
         animator.SetBool("Jump", true);
 
@@ -307,6 +339,7 @@ public class Movement : MonoBehaviour
 
         animator.SetBool("Jump", false);
         commandManager.NextCommand();
+        EventManager.OnMovementFinish();
     }
 
     public virtual void Push(int amount)
@@ -329,6 +362,7 @@ public class Movement : MonoBehaviour
         else
         {
             commandManager.NextCommand();
+            EventManager.OnMovementFinish();
             return;
         }
     }
@@ -346,7 +380,6 @@ public class Movement : MonoBehaviour
 
     public virtual void CheckGround()
     {
-        Debug.Log("Check ground is running");
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround))
         {
@@ -374,11 +407,13 @@ public class Movement : MonoBehaviour
         isMoving = false;
         isRotating = false;
 
-        transform.position = playerPositionOnStart;
-        transform.rotation = playerRotationOnStart;
-
         startPos = playerPositionOnStart;
         targetPos = playerPositionOnStart;
+
+        if (Vector3.Distance(transform.position, playerPositionOnStart) > 0.1f)
+            transform.position = playerPositionOnStart;
+
+        transform.rotation = playerRotationOnStart;
 
         this.gameObject.SetActive(true);
     }
@@ -390,12 +425,6 @@ public class Movement : MonoBehaviour
         commandManager.console.isFinish = true;
         commandManager.NextCommand();
         return;
-
-    }
-
-    public void trailSmoke()
-    {
-        
     }
 
     private void OnDrawGizmos()
@@ -411,5 +440,79 @@ public class Movement : MonoBehaviour
 
         animator = GameObject.FindGameObjectWithTag("Skin").GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider>();
+    }
+
+    public IEnumerator OnGroundEnter()
+    {
+        RaycastHit hit;
+
+        yield return new WaitForSeconds(0.5f);
+
+        while (true)
+        {
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround))
+            {
+                if (hit.collider.tag != "Enemy")
+                {
+                    yield return null;
+                }
+                else
+                    break;
+            }
+            else
+            {
+                //Debug.Log("No collider detected");
+                yield return null;
+            }
+        }
+
+        animator.SetBool("Jump", false);
+
+        yield return null;
+    }
+    private void Reset()
+    {
+        isFinish = false;
+        isAllCommandExecuted = false;
+    }
+
+    public void SetFinishStatus(bool status)
+    {
+        isFinish = status;
+    }
+
+    public bool GetFinishStatus()
+    {
+        return isFinish;
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SetAllCommandExecutedServerRPC(bool status)
+    {
+        commandManager.SetAllCommandExecuted_PlayerClientRpc(this, status);
+    }
+
+    public void SetAllCommandExecuted(bool status)
+    {
+        isAllCommandExecuted = status;
+    }
+
+    public bool GetAllCommandExecuted()
+    {
+        return isAllCommandExecuted;
+    }
+
+    public void AddKillCount()
+    {
+        killCount++;
+        if (killCount >= enemyCount)
+        {
+            isFinish = true;
+        }
+    }
+
+    public int GetKillCount()
+    {
+        return killCount;
     }
 }

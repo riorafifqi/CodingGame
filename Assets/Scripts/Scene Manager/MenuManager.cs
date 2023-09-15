@@ -1,3 +1,5 @@
+using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +10,7 @@ public class MenuManager : MonoBehaviour
 
     public void PlayButton()
     {
+        MultiplayerFlowManager.playMultiplayer = false;
         PlayOpenMenuSound();
         levelSelectPanel.SetActive(!levelSelectPanel.activeSelf);
         levelSelectPanel.GetComponent<RectTransform>().localPosition = Vector3.zero;
@@ -15,7 +18,8 @@ public class MenuManager : MonoBehaviour
 
     public void PlayMultiplayerButton()
     {
-        SceneManager.LoadScene("MultiplayerLoadingScreen");
+        MultiplayerFlowManager.playMultiplayer = true;
+        SceneManager.LoadScene("LobbyScene");
     }
 
     public void SettingButton()

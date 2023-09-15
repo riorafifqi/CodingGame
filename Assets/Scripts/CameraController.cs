@@ -13,25 +13,48 @@ public class CameraController : MonoBehaviour
     Vector3 offset;
 
     private bool drag = false;
-    Transform target;
+    [SerializeField] Transform target;
 
     public float shakeDuration = .5f;
     public AnimationCurve curve;
 
-    private void Awake()
+    private void OnEnable()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        if (!MultiplayerFlowManager.playMultiplayer)
+        {
+            // Singleplayer
+            if (Movement.LocalInstance != null)
+                target = Movement.LocalInstance.transform;
+            else
+                Movement.OnAnyPlayerSpawned += Movement_OnAnyPlayerSpawned;
+        }
+    }
+
+    private void OnDisable()
+    {
+        Movement.OnAnyPlayerSpawned -= Movement_OnAnyPlayerSpawned;
+    }
+
+    private void Movement_OnAnyPlayerSpawned(object sender, System.EventArgs e)
+    {
+        if (Movement.LocalInstance != null)
+        {
+            target = Movement.LocalInstance.transform;
+            offset = transform.position - target.position;
+        }
     }
 
     private void Start()
     {
-        offset = transform.position - target.position;
         resetCamera = transform.position;
     }
 
 
     private void LateUpdate()
     {
+        if (!target)
+            return;
+
         if (Input.GetMouseButton(0))
         {
             difference = (Camera.main.ScreenToWorldPoint(Input.mousePosition - transform.position));
@@ -40,7 +63,6 @@ public class CameraController : MonoBehaviour
                 drag = true;
                 origin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
-
         }
         else
         {
@@ -73,5 +95,10 @@ public class CameraController : MonoBehaviour
         }
 
         transform.position = startPos;
+    }
+
+    public void SetTarget(Transform _target)
+    {
+        target = _target;
     }
 }

@@ -8,14 +8,30 @@ public class Laser : MonoBehaviour
     [SerializeField] Transform startPoint;
     public float length = 5000f;
 
+    protected bool isActive;    
+    
+    protected virtual void FetchComponent()
+    {
+        Debug.Log("Fetch component from Laser.cs");
+        lineRenderer = GetComponentInChildren<LineRenderer>();
+    }
+
     private void Start()
     {
-        lineRenderer = GetComponentInChildren<LineRenderer>();
+        FetchComponent();
+        isActive = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Turn off laser
+        if (!isActive)
+        {
+            lineRenderer.enabled = false;
+            return;
+        }            
+
         lineRenderer.SetPosition(0, startPoint.position);
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit))
@@ -35,5 +51,10 @@ public class Laser : MonoBehaviour
         {
             lineRenderer.SetPosition(1, transform.forward * length);
         }
-    }
+    }    
+
+    protected void SetActiveLineRenderer(bool active)
+    {
+        lineRenderer.enabled = active;
+    }    
 }

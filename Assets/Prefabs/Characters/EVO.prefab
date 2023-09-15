@@ -5148,6 +5148,7 @@ GameObject:
   - component: {fileID: 7648946863772365175}
   - component: {fileID: 9031450842663435959}
   - component: {fileID: 4708670166254815607}
+  - component: {fileID: 7610052223441749173}
   m_Layer: 3
   m_Name: EVO
   m_TagString: Skin
@@ -5162,7 +5163,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7020359791944739789}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
@@ -5209,7 +5210,7 @@ Transform:
   - {fileID: 5724490881327781791}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &9031450842663435959
 Animator:
   serializedVersion: 4
@@ -5244,6 +5245,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   animationType: 0
+--- !u!114 &7610052223441749173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7020359791944739789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd0ecedbe1e13f43b47ee11dc001c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 9031450842663435959}
 --- !u!1 &7267962533905240875
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,10 @@ MonoBehaviour:
   shortDesc: Virus 3X|JumpTile 2X
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
-  levelThumbnail: {fileID: 21300000, guid: 70b0bcaeb68f4b04683897864ad8ceb6, type: 3}
+  levelThumbnail: {fileID: 21300000, guid: 5cdf526d25928ec47ac1ddd143ace9f5, type: 3}
+  objectList:
+  - count: 3
+    obj: 0
   scores:
   - name: 
     totalLine: 0

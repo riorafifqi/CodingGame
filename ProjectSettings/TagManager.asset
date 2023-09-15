@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - Enemy
   - Skin
+  - Highlight
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Outline
   - Water
   - UI
-  - 
+  - ObjectColorIndex
   - 
   - 
   - 
@@ -44,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ui
+    uniqueID: 1499610621
     locked: 0

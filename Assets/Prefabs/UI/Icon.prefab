@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previewImage: {fileID: 0}
+  previewParent3d: {fileID: 0}
   iconImage: {fileID: 5444643645227410002}
   selectedImage: {fileID: 6350594931730877068}
 --- !u!1 &5444643645227409996
@@ -251,7 +252,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1498199267, guid: 71025f31fd105ba45a3de069de35f9db, type: 3}
+  m_Sprite: {fileID: -1498199267, guid: b62bf988104679d4ebece6beb1ac3ce7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

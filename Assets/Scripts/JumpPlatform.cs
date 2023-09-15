@@ -29,13 +29,13 @@ public class JumpPlatform : MonoBehaviour
     {
         Debug.Log("Throw called");
 
-        player.transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
+        //player.transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
 
         Rigidbody rb = target.GetComponent<Rigidbody>();
         Animator animator = target.GetComponentInChildren<Animator>();
 
         player.startPos = transform.position;
-        player.targetPos = transform.position + transform.forward * distance;
+        player.targetPos += transform.position + transform.forward * distance;
 
         float maxHeight = 2f;
         float maxDistance = distance;
@@ -54,5 +54,7 @@ public class JumpPlatform : MonoBehaviour
 
         GetComponentInChildren<Animator>().SetTrigger("Activate");
         animator.SetBool("Jump", true);
+        
+        StartCoroutine(player.OnGroundEnter());
     }
 }

@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 624432681, guid: 42ca286c1a722664f96ab10cafc877b5, type: 3}
+  m_Sprite: {fileID: 624432681, guid: 67669e8f9f95f1b448a423f629eb4790, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -185,7 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666533616266273506, guid: 99eb6aceda41720428e3153a9b0024c3, type: 3}
       propertyPath: m_Name
-      value: Multiplayer
+      value: Multiplayer Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3666533616329880906, guid: 99eb6aceda41720428e3153a9b0024c3, type: 3}
       propertyPath: m_Sprite

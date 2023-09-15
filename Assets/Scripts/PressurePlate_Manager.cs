@@ -9,12 +9,18 @@ public class PressurePlate_Manager : MonoBehaviour
     public bool isActive = false;
     public GameObject affectedBlock;
 
-    Vector3 startingPos;
-    Vector3 finalPos;
+    [SerializeField] float descentPosY;
+    [SerializeField] float ascentPosY;
+    private Vector3 descentPos;
+    private Vector3 ascentPos;
 
     private void Start()
     {
-        affectedBlock.transform.position = new Vector3(affectedBlock.transform.position.x, -10f, affectedBlock.transform.position.z);
+        descentPos = ascentPos = affectedBlock.transform.position;
+        descentPos.y = descentPosY;
+        ascentPos.y = ascentPosY;
+
+        affectedBlock.transform.position = descentPos;
     }
 
     private void Update()
@@ -44,9 +50,9 @@ public class PressurePlate_Manager : MonoBehaviour
         isActive = true;
 
         // block go up
-        startingPos = new Vector3(affectedBlock.transform.position.x, -10f, affectedBlock.transform.position.z);
-        finalPos = new Vector3(affectedBlock.transform.position.x, -0.43f, affectedBlock.transform.position.z);
-        StartCoroutine(SmoothLerp(1));
+        /*descentPos = new Vector3(affectedBlock.transform.position.x, -10f, affectedBlock.transform.position.z);
+        ascentPos = new Vector3(affectedBlock.transform.position.x, -0.43f, affectedBlock.transform.position.z);*/
+        StartCoroutine(SmoothLerp(descentPos, ascentPos, 1));
     }
 
     private void OnTriggerExit(Collider other)
@@ -54,18 +60,18 @@ public class PressurePlate_Manager : MonoBehaviour
         isActive = false;
 
         // block go down
-        startingPos = new Vector3(affectedBlock.transform.position.x, -0.43f, affectedBlock.transform.position.z);
-        finalPos = new Vector3(affectedBlock.transform.position.x, -10f, affectedBlock.transform.position.z);
-        StartCoroutine(SmoothLerp(1));
+        /*descentPos = new Vector3(affectedBlock.transform.position.x, -0.43f, affectedBlock.transform.position.z);
+        ascentPos = new Vector3(affectedBlock.transform.position.x, -10f, affectedBlock.transform.position.z);*/
+        StartCoroutine(SmoothLerp(ascentPos, descentPos, 1));
     }
 
-    private IEnumerator SmoothLerp(float time)
+    private IEnumerator SmoothLerp(Vector3 startPos, Vector3 endPos, float time)
     {
         float elapsedTime = 0;
 
         while (elapsedTime < time)
         {
-            affectedBlock.transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / time));
+            affectedBlock.transform.position = Vector3.Lerp(startPos, endPos, (elapsedTime / time));
             elapsedTime += Time.deltaTime;
             yield return null;
         }

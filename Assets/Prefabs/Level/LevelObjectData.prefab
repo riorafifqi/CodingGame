@@ -80,6 +80,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 376266101747396477}
   icon: {fileID: 376266102130412583}
+  objectIcon: {fileID: 0}
+  objectName: test
 --- !u!1 &376266101747396467
 GameObject:
   m_ObjectHideFlags: 0

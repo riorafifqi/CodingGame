@@ -1,6 +1,7 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class FinishLine : MonoBehaviour
+public class FinishLine : NetworkBehaviour
 {
     GameManager gameManager;
     DatabaseHandler leaderboard;
@@ -25,22 +26,31 @@ public class FinishLine : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-            if (gameManager.isVirusGone)
+            bool isWinning = other.GetComponent<Movement>().GetFinishStatus();      // get win status from colliding player
+            if (isWinning)
             {
                 Debug.Log("You Win!");
 
                 int lineCount = gameManager.commandManager.console.lineCount;
                 float timeCount = gameManager.commandManager.stopwatch.GetTime();
 
-                winPanel.SetLineCount(lineCount);
-                winPanel.SetTime(timeCount);
-                winPanel.OpenWinPanel();
+                //gameManager.SetGameFinish(true);
 
-                // Store to database
-                leaderboard.PostScore(gameManager.GetLevelName(), PlayerPrefs.GetString("Name"), timeCount, lineCount);
+                if(MultiplayerFlowManager.playMultiplayer)
+                    ShowEndPanelServerRPC();    // Get win status from player, whether they're colliding or not, and send it to Server
+                else
+                {
+                    // Singleplayer
+                    winPanel.SetLineCount(lineCount);
+                    winPanel.SetTime(timeCount);
+                    winPanel.OpenSucceedPanel();
 
-                gameManager.commandManager.stopwatch.StopStopwatch();
-                gameManager.SetHighscore();
+                    // Store to database
+                    leaderboard.PostScore(gameManager.GetLevelName(), PlayerPrefs.GetString("Name"), timeCount, lineCount);
+
+                    gameManager.commandManager.stopwatch.StopStopwatch();
+                    gameManager.SetHighscore();
+                }
             }
             else
             {
@@ -59,5 +69,25 @@ public class FinishLine : MonoBehaviour
     {
         mat.SetColor("_EmissionColor", color);
         mat.SetColor("_Color", color);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void ShowEndPanelServerRPC()
+    {
+        ShowEndPanelClientRPC();      // Server then broadcast it to all client
+    }
+
+    [ClientRpc]
+    void ShowEndPanelClientRPC()
+    {
+        gameManager.SetGameFinish(true);
+        if (Movement.LocalInstance.GetFinishStatus())
+        {
+            winPanel.OpenWinPanel();
+        }
+        else
+        {
+            winPanel.OpenLosePanel();
+        }
     }
 }

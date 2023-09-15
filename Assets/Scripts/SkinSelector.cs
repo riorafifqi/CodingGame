@@ -7,6 +7,7 @@ public class SkinSelector : MonoBehaviour
 {
     [SerializeField] Character character;
     [SerializeField] Image previewImage;
+    [SerializeField] GameObject previewParent3d;
     [SerializeField] Image iconImage;
     [SerializeField] GameObject selectedImage;
     private SkinSelector[] siblings;
@@ -22,7 +23,9 @@ public class SkinSelector : MonoBehaviour
         isSelected = false;
         if (PlayerPrefs.GetInt("SelectedSkin") == character.ID)
         {
-            previewImage.sprite = character.preview;
+            //previewImage.sprite = character.preview;
+            SetPreview3DObject(character.modelUIPrefab);
+
             isSelected = true;
         }
 
@@ -48,7 +51,8 @@ public class SkinSelector : MonoBehaviour
             sibling.SetSelectedStatus(false);
         }
 
-        previewImage.sprite = character.preview;
+        //previewImage.sprite = character.preview;
+        SetPreview3DObject(character.modelUIPrefab);
         this.isSelected = true;
     }
 
@@ -65,5 +69,11 @@ public class SkinSelector : MonoBehaviour
     public Character GetCharacter()
     {
         return character;
+    }
+
+    private void SetPreview3DObject(GameObject target)
+    {
+        Destroy(previewParent3d.transform.GetChild(0).gameObject);      // destroy child
+        Instantiate(target, previewParent3d.transform);
     }
 }

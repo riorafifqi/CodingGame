@@ -143,7 +143,7 @@ public class GameManagerMultiplayer : GameManager
     [PunRPC]
     public void ShowWinningPanel()
     {
-        winPanelManager.OpenWinPanel();
+        winPanelManager.OpenSucceedPanel();
         if (winningPlayer == null)
         {
             winPanelManager.SetStatus("Draw!");

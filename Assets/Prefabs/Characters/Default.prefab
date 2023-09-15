@@ -2450,6 +2450,7 @@ GameObject:
   - component: {fileID: 6958355087436399280}
   - component: {fileID: 3493747834467848812}
   - component: {fileID: 1401587165187500565}
+  - component: {fileID: 5193055084746702948}
   m_Layer: 3
   m_Name: Default
   m_TagString: Skin
@@ -2465,7 +2466,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7771765696158865418}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.6320001, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2517,6 +2518,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3493747834467848812}
   animationType: 0
+--- !u!114 &5193055084746702948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7771765696158865418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd0ecedbe1e13f43b47ee11dc001c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 3493747834467848812}
 --- !u!1 &8131359085825932386
 GameObject:
   m_ObjectHideFlags: 0

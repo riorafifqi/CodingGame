@@ -19,10 +19,10 @@ MonoBehaviour:
     m_Bits: 8
   outlinesOccluderLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 119
   outlineSettings:
     outlineColor: {r: 0, g: 0, b: 0, a: 1}
-    outlineScale: 0.8
+    outlineScale: 1.3
     depthThreshold: 1.5
     robertsCrossMultiplier: 100
     normalThreshold: 0.3
@@ -31,9 +31,9 @@ MonoBehaviour:
   viewSpaceNormalsTextureSettings:
     colorFormat: 0
     depthBufferBits: 32
-    filterMode: 1
+    filterMode: 2
     backgroundColor: {r: 0, g: 0, b: 0, a: 1}
-    perObjectData: 0
+    perObjectData: -1
     enableDynamicBatching: 1
     enableInstancing: 1
 --- !u!114 &-4101134365980110697
@@ -140,7 +140,7 @@ MonoBehaviour:
     Downsample: 1
     AfterOpaque: 1
     Source: 1
-    NormalSamples: 1
+    NormalSamples: 2
     Intensity: 0.96
     DirectLightingStrength: 0.199
     Radius: 0.07

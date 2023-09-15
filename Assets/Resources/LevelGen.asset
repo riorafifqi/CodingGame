@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8533aae4434342f4f82bbae54e9584e8, type: 3}
+  m_Name: LevelGen
+  m_EditorClassIdentifier: 
+  colorToPrefabDictionary:
+  - name: Floor Tile
+    color: {r: 1, g: 1, b: 1, a: 1}
+    prefab: {fileID: 381430321389938250, guid: 7c8a6c1df6a87164888a508f2413324f, type: 3}
+  - name: Corrupt Floor
+    color: {r: 1, g: 0, b: 0, a: 1}
+    prefab: {fileID: 381430321389938250, guid: 52329fcfabc4ca94d8db8f9d049da873, type: 3}
+  - name: Virus
+    color: {r: 0.78431374, g: 0, b: 0, a: 1}
+    prefab: {fileID: 8178397173347367457, guid: 3f6a9e3310f4a444fab077b283a50177, type: 3}
+  - name: Pushable Block
+    color: {r: 0, g: 0, b: 1, a: 1}
+    prefab: {fileID: 381430321389938250, guid: 080548c9c0f45d846aeb93a2c35a5433, type: 3}
+  colorToRotateablePrefabDictionary:
+  - name: Finish Line
+    color: {x: 0, y: 255}
+    prefab: {fileID: 1729970221102681164, guid: 4ce6b0388f088df4db69c619bdf81688, type: 3}
+  - name: Laser
+    color: {x: 150, y: 0}
+    prefab: {fileID: 3964394437077780786, guid: 6c1b30c5893fc844498539ad297a0367, type: 3}
+  - name: Jump Pad
+    color: {x: 0, y: 150}
+    prefab: {fileID: 3797586503165101762, guid: ec890257a12349548aa5d017d475ef54, type: 3}
+  - name: Player
+    color: {x: 0, y: 100}
+    prefab: {fileID: 3107201205007551501, guid: 748eb049994008c428809fa6cdd189b7, type: 3}
+  colorToSpecialPrefabDictionary:
+  - name: Pressure Tile
+    color: {x: 255, y: 255}
+    prefab: {fileID: 8621713569838875872, guid: 71fe0ff855f6b4c479aab5101b1abf41, type: 3}
+  - name: Pressure Tile
+    color: {x: 150, y: 150}
+    prefab: {fileID: 381430321389938250, guid: fad7aef12b3b029409f21ab771a7d91b, type: 3}
