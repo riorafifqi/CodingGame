@@ -48024,7 +48024,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0e966cb1a09bb46488c392367e0c9fef, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -57613,7 +57612,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0e966cb1a09bb46488c392367e0c9fef, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -62509,7 +62507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4943179974077624
 Transform:
   m_ObjectHideFlags: 0
@@ -62582,7 +62580,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.0366745e+22, y: 7.745212e+31, z: 1.8335876e+31, w: 5.0781693e+31}
+  m_BoundingSphereOverride: {x: -1, y: 1, z: 2, w: -2}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -72104,7 +72102,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f3aa6ed8a021a78409f56d87adb655a2, type: 2}
-  - {fileID: 2100000, guid: f3aa6ed8a021a78409f56d87adb655a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -72172,7 +72169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4853535508610664
 Transform:
   m_ObjectHideFlags: 0
@@ -76931,7 +76928,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77015,7 +77011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6321715708528928642, guid: 67f92c852cb676c408220d81eecfacbc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.ctime1
-      value: 10601
+      value: 10409
       objectReference: {fileID: 0}
     - target: {fileID: 6321715708528928642, guid: 67f92c852cb676c408220d81eecfacbc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.ctime2
@@ -77039,39 +77035,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6321715708528928642, guid: 67f92c852cb676c408220d81eecfacbc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key1.b
-      value: 0.029271627
+      value: 0.17746994
       objectReference: {fileID: 0}
     - target: {fileID: 6321715708528928642, guid: 67f92c852cb676c408220d81eecfacbc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key1.g
-      value: 6.9959183
+      value: 31.94459
       objectReference: {fileID: 0}
     - target: {fileID: 6321715708528928642, guid: 67f92c852cb676c408220d81eecfacbc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key1.r
-      value: 7.4642644
+      value: 33.89676
       objectReference: {fileID: 0}
     - target: {fileID: 6321715708528928642, guid: 67f92c852cb676c408220d81eecfacbc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key2.b
-      value: 0.042311423
+      value: 0.17254902
       objectReference: {fileID: 0}
     - target: {fileID: 6321715708528928642, guid: 67f92c852cb676c408220d81eecfacbc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key2.g
-      value: 0.43965724
+      value: 1.7568628
       objectReference: {fileID: 0}
     - target: {fileID: 6321715708528928642, guid: 67f92c852cb676c408220d81eecfacbc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key2.r
-      value: 0.9911022
+      value: 3.9686275
       objectReference: {fileID: 0}
     - target: {fileID: 6321715708528928642, guid: 67f92c852cb676c408220d81eecfacbc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key3.b
-      value: 0.07618539
+      value: 0.14901961
       objectReference: {fileID: 0}
     - target: {fileID: 6321715708528928642, guid: 67f92c852cb676c408220d81eecfacbc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key3.g
-      value: 0.011612245
+      value: 0.023529412
       objectReference: {fileID: 0}
     - target: {fileID: 6321715708528928642, guid: 67f92c852cb676c408220d81eecfacbc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key3.r
-      value: 0.67244333
+      value: 1.3411765
       objectReference: {fileID: 0}
     - target: {fileID: 6321715708528928642, guid: 67f92c852cb676c408220d81eecfacbc, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.m_NumColorKeys

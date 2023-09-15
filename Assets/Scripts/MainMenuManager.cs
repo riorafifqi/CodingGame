@@ -53,6 +53,8 @@ public class MainMenuManager : MonoBehaviour
 
         if (!Directory.Exists(path))
             Directory.CreateDirectory(path);
+
+        Screen.SetResolution(3840, 2160, true);
     }
 
     private string NameRandomizer()

@@ -11,6 +11,10 @@ public class GameObjectInspector : MonoBehaviour
     Ray ray;
     RaycastHit hit;
 
+    private bool canShowDescription = true;
+    private float cooldownDuration = 0.5f;
+    private float lastToggleTime;
+
     private void Awake()
     {
         descriptionBox = GameObject.Find("DescriptionBox");
@@ -28,14 +32,27 @@ public class GameObjectInspector : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
+            descriptionBox.transform.position = Input.mousePosition;
             if (hit.collider.gameObject.GetComponent<GameObjectDescription>() && !EventSystem.current.IsPointerOverGameObject())
             {
-                descriptionBox.GetComponentInChildren<TMP_Text>().text = hit.collider.gameObject.GetComponent<GameObjectDescription>().description;
-                descriptionBox.transform.position = Input.mousePosition;
+                if (canShowDescription)
+                {
+                    descriptionBox.GetComponentInChildren<TMP_Text>().text = hit.collider.gameObject.GetComponent<GameObjectDescription>().description;
+                    canShowDescription = false;
+                    lastToggleTime = Time.time;
+                }
+                
                 descriptionBox.gameObject.SetActive(true);
             }
             else
-                descriptionBox.gameObject.SetActive(false);
+            {
+                // Check if the cooldown has elapsed before hiding the descriptionBox
+                if (!canShowDescription && Time.time - lastToggleTime >= cooldownDuration)
+                {
+                    descriptionBox.gameObject.SetActive(false);
+                    canShowDescription = true;
+                }
+            }
         }
     }
 }

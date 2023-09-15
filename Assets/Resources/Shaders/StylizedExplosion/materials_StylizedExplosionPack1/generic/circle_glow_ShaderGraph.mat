@@ -62,5 +62,5 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
-    - _color_shadergraph: {r: 23.968628, g: 23.968628, b: 23.968628, a: 1}
+    - _color_shadergraph: {r: 766.9961, g: 766.9961, b: 766.9961, a: 1}
   m_BuildTextureStacks: []

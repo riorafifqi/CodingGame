@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7d1a6d5aeff3184e996f957c78c7dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
   previewImage: {fileID: 0}
   previewParent3d: {fileID: 0}
   iconImage: {fileID: 5444643645227410002}
@@ -252,7 +253,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1498199267, guid: b62bf988104679d4ebece6beb1ac3ce7, type: 3}
+  m_Sprite: {fileID: 775331967, guid: c0ad8eaf3de24b24b983b89ffaae902e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
