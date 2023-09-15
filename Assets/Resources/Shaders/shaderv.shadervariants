@@ -1,0 +1,2004 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: shaderv
+  m_Shaders:
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS
+        passType: 13
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS
+        passType: 13
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS
+        passType: 13
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+  - first: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_UI_ALPHACLIP
+        passType: 0
+      - keywords: UNITY_UI_CLIP_RECT
+        passType: 0
+  - first: {fileID: 66, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 103, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: _SUNDISK_SIMPLE
+        passType: 0
+  - first: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 207, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9000, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9001, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9002, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9003, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9004, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9007, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9101, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9103, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9104, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 16001, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: ADJUST_TO_LINEARSPACE
+        passType: 0
+  - first: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 0f854b35a0cf61a429bd5dcfea30eddd, type: 3}
+    second:
+      variants:
+      - keywords: _MAIN_LIGHT_SHADOWS
+        passType: 0
+      - keywords: _MAIN_LIGHT_SHADOWS _SHADOWS_SOFT
+        passType: 0
+      - keywords: _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 0
+      - keywords: _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 0
+  - first: {fileID: 4800000, guid: 65df88701913c224d95fc554db28381a, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: ec9fec698a3456d4fb18cf8bacb7a2bc, type: 3}
+    second:
+      variants:
+      - keywords: _TONEMAP_ACES
+        passType: 0
+  - first: {fileID: 4800000, guid: e7857e9d0c934dc4f83f270f8447b006, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _BLOOM_HQ _DITHERING _TONEMAP_ACES
+        passType: 0
+      - keywords: _BLOOM_HQ _GAMMA_20 _TONEMAP_ACES
+        passType: 0
+      - keywords: _BLOOM_HQ _TONEMAP_ACES
+        passType: 0
+      - keywords: _BLOOM_HQ_DIRT _DISTORTION _GAMMA_20 _TONEMAP_ACES
+        passType: 0
+      - keywords: _BLOOM_HQ_DIRT _DISTORTION _TONEMAP_ACES
+        passType: 0
+      - keywords: _BLOOM_HQ_DIRT _DITHERING _HDR_GRADING
+        passType: 0
+      - keywords: _BLOOM_HQ_DIRT _DITHERING _HDR_GRADING _USE_FAST_SRGB_LINEAR_CONVERSION
+        passType: 0
+      - keywords: _BLOOM_HQ_DIRT _DITHERING _TONEMAP_ACES
+        passType: 0
+      - keywords: _BLOOM_HQ_DIRT _GAMMA_20
+        passType: 0
+      - keywords: _BLOOM_HQ_DIRT _GAMMA_20 _TONEMAP_ACES
+        passType: 0
+      - keywords: _BLOOM_HQ_DIRT _HDR_GRADING
+        passType: 0
+      - keywords: _BLOOM_HQ_DIRT _TONEMAP_ACES
+        passType: 0
+      - keywords: _BLOOM_HQ_DIRT _TONEMAP_ACES _USE_FAST_SRGB_LINEAR_CONVERSION
+        passType: 0
+      - keywords: _BLOOM_LQ_DIRT _DITHERING _TONEMAP_ACES
+        passType: 0
+      - keywords: _DITHERING _TONEMAP_ACES
+        passType: 0
+      - keywords: _GAMMA_20
+        passType: 0
+      - keywords: _GAMMA_20 _TONEMAP_ACES
+        passType: 0
+  - first: {fileID: 4800000, guid: e9155b26e1bc55942a41e518703fe304, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHT_SHADOWS _DEFERRED_MIXED_LIGHTING
+          _GBUFFER_NORMALS_OCT _POINT
+        passType: 0
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHT_SHADOWS _DEFERRED_MIXED_LIGHTING
+          _GBUFFER_NORMALS_OCT _POINT _RENDER_PASS_ENABLED
+        passType: 0
+      - keywords: SHADOWS_SHADOWMASK _DEFERRED_FIRST_LIGHT _DEFERRED_MAIN_LIGHT _DEFERRED_MIXED_LIGHTING
+          _DEFERRED_STENCIL _DIRECTIONAL _GBUFFER_NORMALS_OCT _LIT _MAIN_LIGHT_SHADOWS_SCREEN
+          _SHADOWS_SOFT
+        passType: 0
+      - keywords: SHADOWS_SHADOWMASK _DEFERRED_FIRST_LIGHT _DEFERRED_MAIN_LIGHT _DEFERRED_MIXED_LIGHTING
+          _DEFERRED_STENCIL _DIRECTIONAL _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_SCREEN
+          _SHADOWS_SOFT _SIMPLELIT
+        passType: 0
+      - keywords: SHADOWS_SHADOWMASK _DEFERRED_FIRST_LIGHT _DEFERRED_MAIN_LIGHT _DEFERRED_MIXED_LIGHTING
+          _DIRECTIONAL _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+        passType: 0
+      - keywords: SHADOWS_SHADOWMASK _DEFERRED_FIRST_LIGHT _DEFERRED_MAIN_LIGHT _DEFERRED_MIXED_LIGHTING
+          _DIRECTIONAL _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _RENDER_PASS_ENABLED
+        passType: 0
+      - keywords: SHADOWS_SHADOWMASK _DEFERRED_FIRST_LIGHT _DEFERRED_MAIN_LIGHT _DEFERRED_MIXED_LIGHTING
+          _DIRECTIONAL _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_SCREEN
+        passType: 0
+      - keywords: SHADOWS_SHADOWMASK _DEFERRED_MIXED_LIGHTING _GBUFFER_NORMALS_OCT
+          _POINT
+        passType: 0
+      - keywords: _ADDITIONAL_LIGHT_SHADOWS _GBUFFER_NORMALS_OCT _POINT
+        passType: 0
+      - keywords: _ADDITIONAL_LIGHT_SHADOWS _GBUFFER_NORMALS_OCT _POINT _RENDER_PASS_ENABLED
+        passType: 0
+      - keywords: _DEFERRED_FIRST_LIGHT _DEFERRED_MAIN_LIGHT _DEFERRED_STENCIL _DIRECTIONAL
+          _GBUFFER_NORMALS_OCT _LIT _MAIN_LIGHT_SHADOWS_SCREEN _SHADOWS_SOFT
+        passType: 0
+      - keywords: _DEFERRED_FIRST_LIGHT _DEFERRED_MAIN_LIGHT _DEFERRED_STENCIL _DIRECTIONAL
+          _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_SCREEN _SHADOWS_SOFT _SIMPLELIT
+        passType: 0
+      - keywords: _DEFERRED_FIRST_LIGHT _DEFERRED_MAIN_LIGHT _DIRECTIONAL _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS
+        passType: 0
+      - keywords: _DEFERRED_FIRST_LIGHT _DEFERRED_MAIN_LIGHT _DIRECTIONAL _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS _RENDER_PASS_ENABLED
+        passType: 0
+      - keywords: _DEFERRED_FIRST_LIGHT _DEFERRED_MAIN_LIGHT _DIRECTIONAL _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS_SCREEN
+        passType: 0
+      - keywords: _DEFERRED_STENCIL _GBUFFER_NORMALS_OCT _LIT _POINT _RENDER_PASS_ENABLED
+        passType: 0
+      - keywords: _DEFERRED_STENCIL _GBUFFER_NORMALS_OCT _POINT _RENDER_PASS_ENABLED
+          _SIMPLELIT
+        passType: 0
+      - keywords: _DIRECTIONAL
+        passType: 0
+      - keywords: _DIRECTIONAL _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+        passType: 0
+      - keywords: _GBUFFER_NORMALS_OCT _POINT
+        passType: 0
+      - keywords: _POINT
+        passType: 0
+  - first: {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 0849e84e3d62649e8882e9d6f056a017, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _GBUFFER_NORMALS_OCT _ORTHOGRAPHIC _SOURCE_DEPTH_NORMALS
+        passType: 0
+      - keywords: _GBUFFER_NORMALS_OCT _SOURCE_DEPTH_NORMALS
+        passType: 0
+      - keywords: _ORTHOGRAPHIC _RECONSTRUCT_NORMAL_HIGH _SOURCE_DEPTH
+        passType: 0
+      - keywords: _ORTHOGRAPHIC _RECONSTRUCT_NORMAL_HIGH _SOURCE_DEPTH_NORMALS
+        passType: 0
+      - keywords: _ORTHOGRAPHIC _RECONSTRUCT_NORMAL_LOW _SOURCE_DEPTH
+        passType: 0
+      - keywords: _ORTHOGRAPHIC _RECONSTRUCT_NORMAL_MEDIUM _SOURCE_DEPTH
+        passType: 0
+      - keywords: _ORTHOGRAPHIC _RECONSTRUCT_NORMAL_MEDIUM _SOURCE_DEPTH_NORMALS
+        passType: 0
+      - keywords: _ORTHOGRAPHIC _SOURCE_DEPTH
+        passType: 0
+      - keywords: _ORTHOGRAPHIC _SOURCE_DEPTH_NORMALS
+        passType: 0
+      - keywords: _SOURCE_DEPTH_NORMALS
+        passType: 0
+  - first: {fileID: 4800000, guid: 1121bb4e615ca3c48b214e79e841e823, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 63eaba0ebfb82cc43bde059b4a8c65f6, type: 3}
+    second:
+      variants:
+      - keywords: _SMAA_PRESET_HIGH
+        passType: 0
+  - first: {fileID: 4800000, guid: 5e7134d6e63e0bc47a1dd2669cedb379, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _HIGH_QUALITY_SAMPLING
+        passType: 0
+  - first: {fileID: 4800000, guid: 2aed67ad60045d54ba3a00c91e2d2631, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _USE_FAST_SRGB_LINEAR_CONVERSION
+        passType: 0
+  - first: {fileID: 4800000, guid: a15b78cf8ca26ca4fb2090293153c62c, type: 3}
+    second:
+      variants:
+      - keywords: _GENERIC
+        passType: 0
+      - keywords: _UNIT_DISTANCE
+        passType: 0
+  - first: {fileID: 4800000, guid: 5f1864addb451f54bae8c86d230f736e, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _BLOOM_HQ
+        passType: 0
+  - first: {fileID: 4800000, guid: 562b7ae4f629f144aa97780546fce7c6, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: c49e63ed1bbcb334780a3bd19dfed403, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _DITHERING _RCAS
+        passType: 0
+      - keywords: _RCAS
+        passType: 0
+  - first: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: INSTANCING_ON
+        passType: 8
+      - keywords: INSTANCING_ON _CASTING_PUNCTUAL_LIGHT_SHADOW
+        passType: 8
+      - keywords: _CASTING_PUNCTUAL_LIGHT_SHADOW
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: INSTANCING_ON
+        passType: 13
+      - keywords: INSTANCING_ON SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _DETAIL_MULX2 _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP
+          _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: INSTANCING_ON SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _DETAIL_MULX2 _EMISSION _MAIN_LIGHT_SHADOWS_SCREEN _NORMALMAP _OCCLUSIONMAP
+          _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: INSTANCING_ON SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _DETAIL_MULX2
+          _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: INSTANCING_ON SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _DETAIL_MULX2
+          _MAIN_LIGHT_SHADOWS_SCREEN _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: INSTANCING_ON SHADOWS_SHADOWMASK _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+        passType: 13
+      - keywords: INSTANCING_ON SHADOWS_SHADOWMASK _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+        passType: 13
+      - keywords: INSTANCING_ON SHADOWS_SHADOWMASK _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: INSTANCING_ON SHADOWS_SHADOWMASK _DETAIL_MULX2 _MAIN_LIGHT_SHADOWS
+          _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: INSTANCING_ON SHADOWS_SHADOWMASK _DETAIL_MULX2 _MAIN_LIGHT_SHADOWS_CASCADE
+          _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: INSTANCING_ON _DETAIL_MULX2 _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
+          _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE
+          _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _DETAIL_MULX2 _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP
+          _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _DETAIL_MULX2 _EMISSION _MAIN_LIGHT_SHADOWS_SCREEN _NORMALMAP _OCCLUSIONMAP
+          _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _EMISSION _MAIN_LIGHT_SHADOWS_SCREEN _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _EMISSION _MAIN_LIGHT_SHADOWS_SCREEN _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS_SCREEN _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _DETAIL_MULX2 _EMISSION
+          _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _SHADOWS_SOFT
+          _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _DETAIL_MULX2 _MAIN_LIGHT_SHADOWS_CASCADE
+          _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _DETAIL_MULX2 _MAIN_LIGHT_SHADOWS_SCREEN
+          _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _EMISSION _MAIN_LIGHT_SHADOWS
+          _SHADOWS_SOFT _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _EMISSION _MAIN_LIGHT_SHADOWS
+          _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE
+          _REFLECTION_PROBE_BLENDING _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE
+          _REFLECTION_PROBE_BOX_PROJECTION _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE
+          _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_CASCADE
+          _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_SCREEN
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_SCREEN
+          _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _RENDER_PASS_ENABLED
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _REFLECTION_PROBE_BLENDING
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _REFLECTION_PROBE_BOX_PROJECTION
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT
+          _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _DETAIL_MULX2 _MAIN_LIGHT_SHADOWS _NORMALMAP
+          _PARALLAXMAP
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _DETAIL_MULX2 _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP
+          _PARALLAXMAP
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+          _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+          _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+          _RECEIVE_SHADOWS_OFF _RENDER_PASS_ENABLED
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+          _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+          _RENDER_PASS_ENABLED
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _RECEIVE_SHADOWS_OFF _REFLECTION_PROBE_BLENDING
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _RECEIVE_SHADOWS_OFF _REFLECTION_PROBE_BOX_PROJECTION
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _REFLECTION_PROBE_BLENDING
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _REFLECTION_PROBE_BOX_PROJECTION
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _RENDER_PASS_ENABLED
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _METALLICSPECGLOSSMAP _NORMALMAP _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _REFLECTION_PROBE_BLENDING
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _REFLECTION_PROBE_BOX_PROJECTION
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _MAIN_LIGHT_SHADOWS _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _MAIN_LIGHT_SHADOWS _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _DETAIL_MULX2 _EMISSION
+          _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE
+          _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _DETAIL_MULX2 _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP
+          _PARALLAXMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS _DETAIL_MULX2
+          _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+          _SHADOWS_SOFT _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS _DETAIL_MULX2
+          _EMISSION _MAIN_LIGHT_SHADOWS_SCREEN _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS _EMISSION _MAIN_LIGHT_SHADOWS_SCREEN
+          _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS _EMISSION _MAIN_LIGHT_SHADOWS_SCREEN
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_SCREEN
+          _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_SCREEN
+          _NORMALMAP _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_SCREEN
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _DETAIL_MULX2 _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE
+          _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _SHADOWS_SOFT _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _DETAIL_MULX2 _MAIN_LIGHT_SHADOWS_CASCADE
+          _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _DETAIL_MULX2 _MAIN_LIGHT_SHADOWS_SCREEN
+          _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _EMISSION _MAIN_LIGHT_SHADOWS _SHADOWS_SOFT
+          _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _EMISSION _MAIN_LIGHT_SHADOWS _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE
+          _REFLECTION_PROBE_BLENDING _SHADOWS_SOFT _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _EMISSION _MAIN_LIGHT_SHADOWS_CASCADE
+          _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_SCREEN
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_SCREEN _NORMALMAP
+          _PARALLAXMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_SCREEN _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+          _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+        passType: 13
+      - keywords: _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+          _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _RENDER_PASS_ENABLED
+        passType: 13
+      - keywords: _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+          _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+        passType: 13
+      - keywords: _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _REFLECTION_PROBE_BLENDING _SHADOWS_SOFT
+        passType: 13
+      - keywords: _DETAIL_MULX2 _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: _DETAIL_MULX2 _MAIN_LIGHT_SHADOWS _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: _DETAIL_MULX2 _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: _DETAIL_MULX2 _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _NORMALMAP _OCCLUSIONMAP
+          _PARALLAXMAP
+        passType: 13
+      - keywords: _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _RECEIVE_SHADOWS_OFF
+          _RENDER_PASS_ENABLED
+        passType: 13
+      - keywords: _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _RECEIVE_SHADOWS_OFF
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _RENDER_PASS_ENABLED
+        passType: 13
+      - keywords: _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _SHADOWS_SOFT
+        passType: 13
+      - keywords: _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF
+          _REFLECTION_PROBE_BLENDING _SHADOWS_SOFT
+        passType: 13
+      - keywords: _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _REFLECTION_PROBE_BLENDING
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _EMISSION _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _NORMALMAP _OCCLUSIONMAP
+          _PARALLAXMAP
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _NORMALMAP _OCCLUSIONMAP
+          _PARALLAXMAP _RENDER_PASS_ENABLED
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _NORMALMAP _OCCLUSIONMAP
+          _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _NORMALMAP _PARALLAXMAP
+          _RENDER_PASS_ENABLED
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _NORMALMAP _PARALLAXMAP
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _RENDER_PASS_ENABLED
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP
+          _PARALLAXMAP
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP
+          _PARALLAXMAP _REFLECTION_PROBE_BLENDING _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _OCCLUSIONMAP
+          _PARALLAXMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _PARALLAXMAP
+          _REFLECTION_PROBE_BLENDING _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _PARALLAXMAP
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _REFLECTION_PROBE_BLENDING
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _PARALLAXMAP
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: _NORMALMAP _PARALLAXMAP
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 21ef081ea2fae814ebb0d67aa0ad6d77, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: INSTANCING_ON
+        passType: 8
+      - keywords: _CASTING_PUNCTUAL_LIGHT_SHADOW
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS_SCREEN _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_SCREEN
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _RENDER_PASS_ENABLED
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _REFLECTION_PROBE_BLENDING
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _REFLECTION_PROBE_BOX_PROJECTION
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_SCREEN
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_SCREEN
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _RENDER_PASS_ENABLED
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _REFLECTION_PROBE_BLENDING
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+  - first: {fileID: 4800000, guid: 8844d6cef22eb9a40bf97cadf56f43e4, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: 
+        passType: 8
+      - keywords: _CASTING_PUNCTUAL_LIGHT_SHADOW
+        passType: 8
+      - keywords: 
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 7c096722d4077694882b4bae06e4e084, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: 
+        passType: 8
+      - keywords: _CASTING_PUNCTUAL_LIGHT_SHADOW
+        passType: 8
+      - keywords: 
+        passType: 13
+  - first: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _COLOROVERLAY_ON
+        passType: 0
+      - keywords: _EMISSION
+        passType: 0
+      - keywords: 
+        passType: 13
+      - keywords: _COLOROVERLAY_ON _GBUFFER_NORMALS_OCT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 17b55f777ae22194294b762c623dd3a4, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: _CASTING_PUNCTUAL_LIGHT_SHADOW
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS_SCREEN _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_SCREEN
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_SCREEN
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_SCREEN
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _RENDER_PASS_ENABLED
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _REFLECTION_PROBE_BLENDING
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GBUFFER_NORMALS_OCT _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 02c471a1e65ee0047b32da7c9358342b, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_UI_CLIP_RECT
+        passType: 0
+  - first: {fileID: 4800000, guid: 50b406436c6214c49aaaa6011b71dde8, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 5caf62d8bd7c44596ace77ef9eb8ea31, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_UI_CLIP_RECT
+        passType: 0
+  - first: {fileID: 4800000, guid: 95e15a77195eb574ab82aaac18b1c796, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 77cfa04f893eb8745b6a454a3d51b43c, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: -6465566751694194690, guid: de7bf1b6905eec945925aecc2e153e2e, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: -6465566751694194690, guid: d0be2ec43b3f5d14881f39b15c840ee0, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: 
+        passType: 8
+  - first: {fileID: 4800000, guid: 51b73f0e40a2a9d4a9ea03cf58e8e5ee, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: c77b8fc6319d49942a75a6ffed1abeac, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK _ADDITIONAL_LIGHTS_VERTEX _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13

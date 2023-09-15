@@ -92,4 +92,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CustomLevel.unity
     guid: a3dc20e07d7e08f48998724645b7484d
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 41f2cfa094db3a546978a73bae7483db, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: e8bc0ba69b6e02e4e8c74de8559c969d, type: 2}
