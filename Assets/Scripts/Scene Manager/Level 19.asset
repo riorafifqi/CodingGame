@@ -16,7 +16,7 @@ MonoBehaviour:
   shortDesc: Virus 3X | Switch 1X | Moveable Tiles 2 X|Corrupt tile 1x|
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
-  levelThumbnail: {fileID: 21300000, guid: 783e83a2c13e8f847859dd56e1cdd79c, type: 3}
+  levelThumbnail: {fileID: 21300000, guid: 5a5d70e806b30fb4c8dfc646951b4e8e, type: 3}
   objectList:
   - count: 3
     obj: 0

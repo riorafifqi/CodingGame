@@ -16,7 +16,7 @@ MonoBehaviour:
   shortDesc: Virus 3X | Pressure 1X | Pushable 2X | Laser 2X | Corrupt 1X
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
-  levelThumbnail: {fileID: 21300000, guid: 783e83a2c13e8f847859dd56e1cdd79c, type: 3}
+  levelThumbnail: {fileID: 0}
   objectList:
   - count: 3
     obj: 0

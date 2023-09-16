@@ -16,7 +16,7 @@ MonoBehaviour:
   shortDesc: Tutorial Rotate
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
-  levelThumbnail: {fileID: 21300000, guid: cc2a5d6862337a04a9f3ab84dc667f80, type: 3}
+  levelThumbnail: {fileID: 21300000, guid: fe195319e4350c7478f46ca3ebc7ffe3, type: 3}
   objectList:
   - count: 3
     obj: 0

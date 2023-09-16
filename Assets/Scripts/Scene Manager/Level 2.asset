@@ -16,7 +16,7 @@ MonoBehaviour:
   shortDesc: Tutorial Movement
   music: {fileID: 0}
   volumeProfile: {fileID: 11400000, guid: 94c0865cb9b94a149ab129460e5eddb5, type: 2}
-  levelThumbnail: {fileID: 21300000, guid: 16d3037902db61a46b8ba54a19b0eefb, type: 3}
+  levelThumbnail: {fileID: 21300000, guid: d1ef568d6da655f4a8186aadb4c45b67, type: 3}
   objectList:
   - count: 2
     obj: 0
