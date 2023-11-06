@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         Movement.OnAnyPlayerSpawned += Movement_OnAnyPlayerSpawned;
+        sentences = new Queue<string>();
     }
 
     private void Movement_OnAnyPlayerSpawned(object sender, System.EventArgs e)
@@ -22,11 +23,6 @@ public class DialogueManager : MonoBehaviour
         dialogueText = GameObject.Find("DialogueBox").GetComponentInChildren<TMP_Text>();
         dialogueAnimator = GameObject.Find("DialogueBox").GetComponent<Animator>();
         GameObject.Find("DialogButton").GetComponent<Button>().onClick.AddListener(delegate { DisplayNextDialogue(); });
-    }
-
-    void Start()
-    {
-        sentences = new Queue<string>();
     }
 
     void Update()

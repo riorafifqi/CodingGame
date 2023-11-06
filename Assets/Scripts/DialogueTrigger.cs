@@ -6,6 +6,13 @@ using UnityEngine.Playables;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
+    [SerializeField] bool isTriggerOnStart;
+
+    private void Start()
+    {
+        if (isTriggerOnStart)
+            TriggerDialogue();
+    }
 
     public void TriggerDialogue()
     {
