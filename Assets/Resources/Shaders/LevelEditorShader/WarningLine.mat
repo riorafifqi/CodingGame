@@ -46,7 +46,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _EmissionColorMask: {r: 0.99607843, g: 0.7764707, b: 0, a: 1}
+    - _DirMuter: {r: 1, g: 0, b: 0, a: 0}
+    - _EmissionColorMask: {r: 0.99607843, g: 0.750468, b: 0, a: 1}
     - _WorldNormalMask: {r: 1, g: 0, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &315628526287180502

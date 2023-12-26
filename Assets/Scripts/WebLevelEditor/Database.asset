@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f9fee4cf4b36eb40b734f2d60e53621, type: 3}
+  m_Name: Database
+  m_EditorClassIdentifier: 
+  objectDatas:
+  - <Name>k__BackingField: Floor
+    <ID>k__BackingField: 0
+    <Prefab>k__BackingField: {fileID: 2646547561999701693, guid: 2800a7fb6ed439e408b7af3bd8f008c9, type: 3}
+  - <Name>k__BackingField: Jump
+    <ID>k__BackingField: 1
+    <Prefab>k__BackingField: {fileID: 8523718923780894379, guid: f3c4cc8c29743294c808c0ea737811a3, type: 3}
+  - <Name>k__BackingField: Corrupt
+    <ID>k__BackingField: 2
+    <Prefab>k__BackingField: {fileID: 1924339229950793955, guid: a0d1ce34fe1111b449a7939221b91b13, type: 3}
+  - <Name>k__BackingField: Laser
+    <ID>k__BackingField: 3
+    <Prefab>k__BackingField: {fileID: 3866783611239009920, guid: 9b4a50f1f1667584aa859961aa31c032, type: 3}
+  - <Name>k__BackingField: Pressure
+    <ID>k__BackingField: 4
+    <Prefab>k__BackingField: {fileID: 385208260274952677, guid: 4739a98803e47ed49a260aab1e7f48c7, type: 3}
+  - <Name>k__BackingField: Pushable
+    <ID>k__BackingField: 5
+    <Prefab>k__BackingField: {fileID: 3066718001379276287, guid: 96372aa031fa3b5429306e818462de97, type: 3}
+  - <Name>k__BackingField: Virus
+    <ID>k__BackingField: 6
+    <Prefab>k__BackingField: {fileID: 8920840150644080544, guid: 7a838c6fe2d5e6245997212232c76bf2, type: 3}

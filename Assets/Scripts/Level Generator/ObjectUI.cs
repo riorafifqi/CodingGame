@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace CypherCode
 {
-    public class ObjectUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+    public class ObjectUI : MonoBehaviour/*, IPointerDownHandler, IPointerUpHandler*/
     {
         public GameObject prefab;
         public Image UIThumbnail;
@@ -18,8 +18,9 @@ namespace CypherCode
 
         private void Start()
         {
-            highlight = FindObjectOfType<ObjectHighlightHandler>().gameObject;
-            levelRoot = FindObjectOfType<CaptureLevel>().GetComponent<CaptureLevel>();
+            /*highlight = FindObjectOfType<ObjectHighlightHandler>().gameObject;
+            levelRoot = FindObjectOfType<CaptureLevel>().GetComponent<CaptureLevel>();*/
+            UpdateThumbnail();
         }
 
         public void UpdateThumbnail()
@@ -61,7 +62,7 @@ namespace CypherCode
             }
         }
 
-        public void OnPointerDown(PointerEventData eventData)
+        /*public void OnPointerDown(PointerEventData eventData)
         {
             if(ThumbnailGridGen.thereIsAFinishLine && prefab.name.Contains("Finish"))
             {
@@ -86,9 +87,9 @@ namespace CypherCode
                     highlight.GetComponent<ObjectHighlightHandler>().SetParent(draggingInstance.gameObject);
                 }
             }
-        }
+        }*/
 
-        public void OnPointerUp(PointerEventData eventData)
+        /*public void OnPointerUp(PointerEventData eventData)
         {
             // When the user releases the drag, place the prefab instance in the game world
             if (draggingInstance != null)
@@ -106,6 +107,6 @@ namespace CypherCode
 
                 draggingInstance = null;
             }
-        }
+        }*/
     }
 }
